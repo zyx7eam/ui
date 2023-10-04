@@ -1,5 +1,6 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "geeks7eam-ui",
+  "description": "A React Components Library",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
