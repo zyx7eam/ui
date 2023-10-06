@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  @apply bg-primary text-primary-foreground min-h-screen;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

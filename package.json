@@ -1,7 +1,7 @@
 {
   "name": "geeks7eam-ui",
   "description": "A React Components Library",
-  "version": "0.0.0",
+  "version": "0.0.1-beta",
   "private": true,
   "workspaces": [
     "apps/*",

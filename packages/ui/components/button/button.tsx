@@ -3,16 +3,17 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react';
 import { cn } from 'shared-lib';
+import DotsLoader from '../../icons/dots-loader';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-medium transition-colors border-2',
+  'relative inline-flex gap-1 items-center justify-center font-medium transition-all border-2 disabled:opacity-40',
   {
     variants: {
       color: {
         default: 'bg-primary text-primary-foreground hover:bg-primary/80',
         error: 'bg-error text-error-foreground hover:bg-error/80',
-        warning: 'bg-warning text-warning-foreground hover:bg-warning/90',
-        success: 'bg-success text-success-foreground hover:bg-success/90',
+        warning: 'bg-warning text-warning-foreground hover:bg-warning/80',
+        success: 'bg-success text-success-foreground hover:bg-success/80',
       },
       variant: {
         solid: 'border-transparent',
@@ -20,12 +21,12 @@ const buttonVariants = cva(
         light: 'border-transparent',
         ghost: 'hover:text-primary-foreground',
         flat: 'border-transparent',
-        shadow: '',
+        shadow: 'border-transparent shadow-md',
       },
       size: {
-        sm: 'py-2 px-3 text-xs',
-        md: 'p-2 px-4 text-sm',
-        lg: 'p-4 px-5 text-lg',
+        sm: 'py-2 px-3 text-xs min-h-[36px]',
+        md: 'p-2 px-4 text-sm min-h-[40px]',
+        lg: 'p-4 px-5 text-lg min-h-[64px]',
       },
       radius: {
         sm: 'rounded-sm',
@@ -140,6 +141,26 @@ const buttonVariants = cva(
         color: 'warning',
         className: 'bg-warning/20',
       },
+      {
+        variant: 'shadow',
+        color: 'default',
+        className: 'shadow-primary/50',
+      },
+      {
+        variant: 'shadow',
+        color: 'error',
+        className: 'shadow-error/50',
+      },
+      {
+        variant: 'shadow',
+        color: 'success',
+        className: 'shadow-success/50',
+      },
+      {
+        variant: 'shadow',
+        color: 'warning',
+        className: 'shadow-warning/50',
+      },
     ],
     defaultVariants: {
       color: 'default',
@@ -150,18 +171,54 @@ const buttonVariants = cva(
   }
 );
 
-export type ButtonProps = {} & React.ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = {
+  startContent?: React.ReactNode;
+  endContent?: React.ReactNode;
+  loading?: boolean;
+} & React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, color, size, radius, variant, children, ...props }, ref) => {
+  (
+    {
+      className,
+      color,
+      size,
+      radius,
+      variant,
+      children,
+      startContent,
+      endContent,
+      loading,
+      ...props
+    },
+    ref
+  ) => {
     const classNames = cn(
       buttonVariants({ color, size, radius, variant, className })
     );
 
     return (
-      <button ref={ref} className={classNames} {...props}>
-        {children}
+      <button
+        ref={ref}
+        className={classNames}
+        disabled={loading || props.disabled}
+        {...props}
+      >
+        {/* {loading ? (
+          <span className='loader'>
+            <DotsLoader width={60} height={10} />
+          </span>
+        ) : null} */}
+        {loading ? (
+          <DotsLoader width={60} height={10} />
+        ) : (
+          <>
+            {startContent ? startContent : null}
+            {children}
+            {endContent ? endContent : null}
+          </>
+        )}
       </button>
     );
   }
