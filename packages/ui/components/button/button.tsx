@@ -6,7 +6,7 @@ import { cn } from 'shared-lib';
 import DotsLoader from '../../icons/dots-loader';
 
 const buttonVariants = cva(
-  'relative inline-flex gap-1 items-center justify-center font-medium transition-all border-2 disabled:opacity-40',
+  'relative inline-flex gap-1 items-center justify-center font-medium transition-all border-2 aria-[disabled=true]:opacity-40',
   {
     variants: {
       color: {
@@ -34,6 +34,10 @@ const buttonVariants = cva(
         lg: 'rounded-lg',
         circle: 'rounded-full',
         none: 'rounded-none',
+      },
+      iconOnly: {
+        true: 'p-0',
+        false: '',
       },
     },
     compoundVariants: [
@@ -161,12 +165,28 @@ const buttonVariants = cva(
         color: 'warning',
         className: 'shadow-warning/50',
       },
+      {
+        iconOnly: true,
+        size: 'sm',
+        className: 'w-8 h-8 min-h-[unset]',
+      },
+      {
+        iconOnly: true,
+        size: 'md',
+        className: 'w-10 h-10 min-h-[unset]',
+      },
+      {
+        iconOnly: true,
+        size: 'lg',
+        className: 'w-12 h-12 min-h-[unset]',
+      },
     ],
     defaultVariants: {
       color: 'default',
       size: 'md',
       radius: 'md',
       variant: 'solid',
+      iconOnly: false,
     },
   }
 );
@@ -190,33 +210,29 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       startContent,
       endContent,
       loading,
+      iconOnly,
       ...props
     },
     ref
   ) => {
     const classNames = cn(
-      buttonVariants({ color, size, radius, variant, className })
+      buttonVariants({ color, size, radius, variant, iconOnly, className })
     );
 
     return (
       <button
         ref={ref}
         className={classNames}
-        disabled={loading || props.disabled}
+        aria-disabled={loading || props.disabled}
         {...props}
       >
-        {/* {loading ? (
-          <span className='loader'>
-            <DotsLoader width={60} height={10} />
-          </span>
-        ) : null} */}
-        {loading ? (
+        {loading && !iconOnly ? (
           <DotsLoader width={60} height={10} />
         ) : (
           <>
-            {startContent ? startContent : null}
+            {startContent && !iconOnly ? startContent : null}
             {children}
-            {endContent ? endContent : null}
+            {endContent && !iconOnly ? endContent : null}
           </>
         )}
       </button>

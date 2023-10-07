@@ -230,6 +230,63 @@ export default function Page() {
             ))}
           </ul>
         </div>
+        <div className='bg-secondary flex flex-col gap-2 p-4'>
+          <h1 className='text-primary font-bold'>
+            Only Icon & Small Size & Circle Radius
+          </h1>
+          <div className='bg-primary my-2 h-[1px]' />
+          <ul className='items-center space-y-1 md:inline-flex md:space-x-4 md:space-y-0'>
+            {colors.map((item) => (
+              <div
+                key={item}
+                className='flex flex-col items-center justify-center gap-1'
+              >
+                <h2 className='text-primary text-sm font-medium'>{item}</h2>
+                <Button color={item} size='sm' iconOnly radius='circle'>
+                  <GithubIcon size={18} />
+                </Button>
+              </div>
+            ))}
+          </ul>
+        </div>
+        <div className='bg-secondary flex flex-col gap-2 p-4'>
+          <h1 className='text-primary font-bold'>
+            Only Icon & Medium Size & Circle Radius
+          </h1>
+          <div className='bg-primary my-2 h-[1px]' />
+          <ul className='items-center space-y-1 md:inline-flex md:space-x-4 md:space-y-0'>
+            {colors.map((item) => (
+              <div
+                key={item}
+                className='flex flex-col items-center justify-center gap-1'
+              >
+                <h2 className='text-primary text-sm font-medium'>{item}</h2>
+                <Button color={item} size='md' iconOnly radius='circle'>
+                  <GithubIcon size={18} />
+                </Button>
+              </div>
+            ))}
+          </ul>
+        </div>
+        <div className='bg-secondary flex flex-col gap-2 p-4'>
+          <h1 className='text-primary font-bold'>
+            Only Icon & Large Size & Circle Radius
+          </h1>
+          <div className='bg-primary my-2 h-[1px]' />
+          <ul className='items-center space-y-1 md:inline-flex md:space-x-4 md:space-y-0'>
+            {colors.map((item) => (
+              <div
+                key={item}
+                className='flex flex-col items-center justify-center gap-1'
+              >
+                <h2 className='text-primary text-sm font-medium'>{item}</h2>
+                <Button color={item} size='lg' iconOnly radius='circle'>
+                  <GithubIcon size={18} />
+                </Button>
+              </div>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
