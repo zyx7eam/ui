@@ -1,5 +1,6 @@
 import { ParsedUrlQuery } from 'querystring';
-
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { marked } from 'marked';
 import Slugger from 'github-slugger';
 
@@ -45,3 +46,7 @@ export function getHeadings(markdownText: string | undefined): Heading[] {
 
   return headings;
 }
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
+};

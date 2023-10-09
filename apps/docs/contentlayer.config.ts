@@ -35,16 +35,16 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       [rehypePrismPlus, { ignoreMissing: true }],
-      //   [
-      //     rehypeSlug,
-      //     () => (tree) => {
-      //       visit(tree, 'element', (node) => {
-      //         if (node.tagName === 'code' && node.data && node.data.meta) {
-      //           node.properties.meta = node.data.meta;
-      //         }
-      //       });
-      //     },
-      //   ],
+      [
+        rehypeSlug,
+        () => (tree) => {
+          visit(tree, 'element', (node) => {
+            if (node.tagName === 'code' && node.data && node.data.meta) {
+              node.properties.meta = node.data.meta;
+            }
+          });
+        },
+      ],
     ],
   },
 });

@@ -2,6 +2,8 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrismPlus from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import { visit } from 'unist-util-visit';
 var Docs = defineDocumentType(() => ({
   name: 'Docs',
   filePathPattern: 'docs/**/*.mdx',
@@ -32,18 +34,18 @@ var contentlayer_config_default = makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       [rehypePrismPlus, { ignoreMissing: true }],
-      //   [
-      //     rehypeSlug,
-      //     () => (tree) => {
-      //       visit(tree, 'element', (node) => {
-      //         if (node.tagName === 'code' && node.data && node.data.meta) {
-      //           node.properties.meta = node.data.meta;
-      //         }
-      //       });
-      //     },
-      //   ],
+      [
+        rehypeSlug,
+        () => (tree) => {
+          visit(tree, 'element', (node) => {
+            if (node.tagName === 'code' && node.data && node.data.meta) {
+              node.properties.meta = node.data.meta;
+            }
+          });
+        },
+      ],
     ],
   },
 });
 export { Docs, contentlayer_config_default as default };
-//# sourceMappingURL=compiled-contentlayer-config-PBT2PIBJ.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-4DLAS7ON.mjs.map

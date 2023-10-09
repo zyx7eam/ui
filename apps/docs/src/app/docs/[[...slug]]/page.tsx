@@ -69,6 +69,10 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   DocsPageProps['params'][]
 > {
+  const slugs = allDocs.map((doc) => ({
+    slug: doc.slugAsParams.split('/'),
+  }));
+
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split('/'),
   }));
@@ -83,7 +87,7 @@ export default async function DocPage({ params }: DocsPageProps) {
 
   return (
     <>
-      <div className='col-span-12 mt-10 lg:col-span-10 lg:px-16 xl:col-span-8'>
+      <div>
         <div className='prose prose-neutral w-full'>
           <MDXContent code={doc.body.code} />
         </div>

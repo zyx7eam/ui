@@ -20,7 +20,11 @@
     "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "3.0.1",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "config": "*",
+    "tsconfig": "*",
+    "ui": "*",
+    "shared-lib": "*"
   },
   "devDependencies": {
     "@types/node": "^20",
