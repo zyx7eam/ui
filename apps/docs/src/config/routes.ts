@@ -1,8 +1,9 @@
 export type RouteItem = {
-  key: string;
+  _key: string;
   href: string;
   title: string;
   isNew: boolean;
+  disabled?: boolean;
 };
 
 export type RoutesWithChildrenProps = RouteItem & {
@@ -11,16 +12,29 @@ export type RoutesWithChildrenProps = RouteItem & {
 
 export const routes: RoutesWithChildrenProps[] = [
   {
-    key: 'components',
+    _key: 'introduction',
+    href: '/docs/introduction',
+    title: 'Introduction',
+    isNew: true,
+  },
+  {
+    _key: 'components',
     href: '/docs/components',
     title: 'Components',
-    isNew: true,
+    isNew: false,
     items: [
       {
-        key: 'button',
+        _key: 'button',
         href: '/docs/components/button',
         title: 'Button',
-        isNew: false,
+        isNew: true,
+      },
+      {
+        _key: 'accordion',
+        href: '/docs/components/accordion',
+        title: 'Accordion',
+        isNew: true,
+        disabled: true,
       },
     ],
   },

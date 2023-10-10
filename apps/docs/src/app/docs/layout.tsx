@@ -8,14 +8,14 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='mx-auto max-w-7xl'>
+    <div className=''>
       <div className='grid min-h-screen grid-cols-12 gap-2'>
-        <aside className='col-span-3 bg-white/40'>
+        <aside className='bg-muted col-span-2 border-e-[1px] border-gray-700 p-5'>
           {routes.map((item) => (
-            <AsideLinks key={item.key} {...item} />
+            <AsideLinks key={item._key} {...item} />
           ))}
         </aside>
-        <div className='col-span-9 bg-red-200'>{children}</div>
+        <div className='col-span-10 p-5'>{children}</div>
       </div>
     </div>
   );
