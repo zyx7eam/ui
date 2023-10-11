@@ -6,7 +6,7 @@ import { cn } from 'shared-lib';
 import DotsLoader from '../../icons/dots-loader';
 
 const buttonVariants = cva(
-  'relative inline-flex gap-1 items-center justify-center font-medium transition-all border-2 aria-[disabled=true]:opacity-40',
+  'relative inline-flex gap-1 items-center justify-center font-medium transition-all border aria-[disabled=true]:opacity-40',
   {
     variants: {
       color: {

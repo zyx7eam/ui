@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { ThemeProvider } from 'ui';
+import { ModeToggle, ThemeProvider } from 'ui';
 import Navbar from '../components/layout/navbar';
 import Container from '../components/container';
 import Blob from '../components/elements/blob';
@@ -24,9 +24,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {/* <main className='flex min-h-[70vh] w-full flex-col overflow-hidden p-4 md:container'> */}
           <main className='relative'>
             <Container>
-              {/* <div className='flex w-full justify-end'>
-              <ModeToggle />
-            </div> */}
+              <div className='flex w-full justify-end'>
+                <ModeToggle />
+              </div>
               {children}
             </Container>
           </main>
