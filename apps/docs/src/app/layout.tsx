@@ -1,10 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { PT_Sans } from 'next/font/google';
 import Navbar from '../components/layout/navbar';
 import Blob from '@/components/blob';
 
-const inter = Inter({ subsets: ['latin'] });
+const pt_sans = PT_Sans({ weight: ['400', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,10 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className={inter.className}>
+      <body className={pt_sans.className}>
         <Navbar />
-        {children}
-        {/* <Blob /> */}
+        <div className='relative z-10'>{children}</div>
+        <Blob />
       </body>
     </html>
   );

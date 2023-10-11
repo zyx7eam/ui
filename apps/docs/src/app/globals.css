@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply bg-background text-primary min-h-screen;
+  @apply bg-background text-primary;
 }
 
 @layer base {

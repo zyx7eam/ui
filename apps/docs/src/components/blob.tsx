@@ -1,49 +1,17 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
+import { cn } from 'shared-lib';
 
 const Blob = () => {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      version='1.1'
-      viewBox='0 0 800 800'
-      opacity='0.34'
-    >
-      <defs>
-        <filter
-          id='bbblurry-filter'
-          x='-100%'
-          y='-100%'
-          width='400%'
-          height='400%'
-          filterUnits='objectBoundingBox'
-          primitiveUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
-        >
-          <feGaussianBlur
-            stdDeviation='105'
-            x='0%'
-            y='0%'
-            width='100%'
-            height='100%'
-            in='SourceGraphic'
-            edgeMode='none'
-            result='blur'
-          ></feGaussianBlur>
-        </filter>
-      </defs>
-      <g filter='url(#bbblurry-filter)'>
-        <ellipse
-          rx='150'
-          ry='150'
-          cx='380.18666707782836'
-          cy='339.9519014208729'
-          fill='hsl(316, 73%, 52%)'
-        ></ellipse>
-      </g>
-    </svg>
+  const pathname = usePathname();
+
+  const classNames = cn(
+    'bg-primary transition-all fixed left-1/2 top-1/2 z-0 h-[436px] w-[436px] -translate-x-1/2 -translate-y-1/2 transform rounded-full opacity-40 blur-3xl',
+    pathname.startsWith('/docs') ? 'left-2 top-10 w-80 h-80' : ''
   );
+  return <div className={classNames} />;
 };
 
 export default Blob;

@@ -13,9 +13,12 @@ export const LinkWithChildren = ({
       className='block select-none [&_.icon]:open-[]:rotate-90 [&_>summary]:open-[]:mb-2'
       open
     >
-      <summary className='hover:bg-primary/20 flex cursor-pointer items-center justify-between rounded-sm p-1 font-bold transition-all'>
+      <summary className='flex cursor-pointer items-center justify-between rounded-sm p-1 font-bold transition-all'>
         {title}
-        <ChevronRightIcon className='icon transform transition-transform' />
+        <ChevronRightIcon
+          size={18}
+          className='icon transform transition-transform'
+        />
       </summary>
       <ul className='ms-5 transition-all'>
         {items?.map((__) => (

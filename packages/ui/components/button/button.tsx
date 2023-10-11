@@ -24,9 +24,9 @@ const buttonVariants = cva(
         shadow: 'border-transparent shadow-md',
       },
       size: {
-        sm: 'py-2 px-3 text-xs min-h-[36px]',
-        md: 'p-2 px-4 text-sm min-h-[40px]',
-        lg: 'p-4 px-5 text-lg min-h-[64px]',
+        sm: 'h-8 px-3 text-xs max-h-8',
+        md: 'h-9 px-4 text-sm max-h-9',
+        lg: 'h-12 px-5 text-lg max-h-12',
       },
       radius: {
         sm: 'rounded-sm',
@@ -168,17 +168,17 @@ const buttonVariants = cva(
       {
         iconOnly: true,
         size: 'sm',
-        className: 'w-8 h-8 min-h-[unset]',
+        className: 'w-8 h-8 p-0',
       },
       {
         iconOnly: true,
         size: 'md',
-        className: 'w-10 h-10 min-h-[unset]',
+        className: 'w-9 h-9 p-0',
       },
       {
         iconOnly: true,
         size: 'lg',
-        className: 'w-12 h-12 min-h-[unset]',
+        className: 'w-12 h-12 p-0',
       },
     ],
     defaultVariants: {

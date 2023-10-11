@@ -30,6 +30,12 @@ export const routes: RoutesWithChildrenProps[] = [
         isNew: true,
       },
       {
+        _key: 'alert',
+        href: '/docs/components/alert',
+        title: 'Alert',
+        isNew: true,
+      },
+      {
         _key: 'accordion',
         href: '/docs/components/accordion',
         title: 'Accordion',
