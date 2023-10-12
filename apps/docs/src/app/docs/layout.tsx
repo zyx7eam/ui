@@ -17,9 +17,6 @@ export default function DocsLayout({
       <main className='ms-[calc(theme(width.80)_+_theme(width.10))] mt-16 min-h-[calc(100vh_-_theme(height.16))] w-[calc(100%_-_theme(width.80)_*_2_-_theme(width.10)_*_2)] p-5'>
         {children}
       </main>
-      <aside className='fixed right-0 top-0 me-10 mt-16 h-[calc(100vh_-_theme(height.16))] w-80  border-gray-700 p-5 backdrop-blur-sm'>
-        Content Of Page
-      </aside>
     </div>
   );
 }

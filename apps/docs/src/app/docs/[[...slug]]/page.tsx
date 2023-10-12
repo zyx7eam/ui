@@ -6,6 +6,7 @@ import { allDocs } from '../../../../.contentlayer/generated';
 
 import { MDXContent } from '../../../components/mdx-content';
 import { Route, getHeadings } from '../../../lib/utils.docs';
+import DocsHeadings from '@/components/layout/headings';
 
 type DocsPageProps = {
   params: {
@@ -81,6 +82,9 @@ export async function generateStaticParams(): Promise<
 export default async function DocPage({ params }: DocsPageProps) {
   const { doc, headings, currentRoute } = await getDocFromParams({ params });
 
+  console.log('headings');
+  console.log(headings);
+
   if (!doc) {
     notFound();
   }
@@ -96,6 +100,9 @@ export default async function DocPage({ params }: DocsPageProps) {
           <Link href={'/'}>Edit this page on GitHub</Link>
         </footer>
       </div>
+      <aside className='fixed right-0 top-0 me-10 mt-16 h-[calc(100vh_-_theme(height.16))] w-80  border-gray-700 p-5 backdrop-blur-sm'>
+        <DocsHeadings items={headings} />
+      </aside>
       {/* {headings && headings.length > 0 && (
           <div className="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-4">
             <DocsToc headings={headings} />

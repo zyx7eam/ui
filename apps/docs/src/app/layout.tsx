@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang='en' className='dark'>
       <body className={pt_sans.className}>
         <Navbar />
-        <div className='relative z-10'>{children}</div>
+        <div className='relative z-10 antialiased'>{children}</div>
         <Blob />
       </body>
     </html>

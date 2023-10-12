@@ -1,10 +1,10 @@
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import rehypePrismPlus from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { visit } from 'unist-util-visit';
-
-export const Docs = defineDocumentType(() => ({
+var Docs = defineDocumentType(() => ({
   name: 'Docs',
   filePathPattern: 'docs/**/*.mdx',
   contentType: 'mdx',
@@ -27,8 +27,7 @@ export const Docs = defineDocumentType(() => ({
     url: { type: 'string', resolve: (doc) => `/${doc._raw.flattenedPath}` },
   },
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: './content',
   documentTypes: [Docs],
   mdx: {
@@ -37,7 +36,7 @@ export default makeSource({
       [rehypePrismPlus, { ignoreMissing: true }],
       [
         rehypeSlug,
-        () => (tree: any) => {
+        () => (tree) => {
           visit(tree, 'element', (node) => {
             if (node.tagName === 'code' && node.data && node.data.meta) {
               node.properties.meta = node.data.meta;
@@ -48,3 +47,5 @@ export default makeSource({
     ],
   },
 });
+export { Docs, contentlayer_config_default as default };
+//# sourceMappingURL=compiled-contentlayer-config-DOPS3HES.mjs.map

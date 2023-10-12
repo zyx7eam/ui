@@ -12,6 +12,11 @@ const nextConfig = {
         destination: '/docs/components/button',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/docs/introduction',
+        permanent: true,
+      },
     ];
   },
 };
