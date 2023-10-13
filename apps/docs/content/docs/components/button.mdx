@@ -3,18 +3,23 @@ title: 'Button Component'
 ---
 
 import { Button } from 'ui';
+import { Alert } from 'ui';
+import { AlertCircleIcon, SparkleIcon, GithubIcon } from 'lucide-react';
 
 # Button
 
 The `Button` element in web development is an HTML element used to create interactive buttons that users can click or tap to trigger specific actions or functions on a web page. The `<button>` element is an essential part of web forms, user interfaces, and general interactivity.
 
 ## Basic Button
+
+You can use a basic button without passing any props to `button` component, thus it will take primary color as default.
+
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center'>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
     <Button>Basic</Button>
   </Preview>
 
-  ```jsx showLineNumbers {1, 3}
+  ```jsx showLineNumbers
   import {Button} from 'ui';
 
   <Button>Basic</Button>
@@ -26,19 +31,21 @@ The `Button` element in web development is an HTML element used to create intera
 
 ## Props
 
-### Basic Button
+We have such of props that make you able to customize button as you like. Below you will find more examples about how to use this props, and what each one of them is going to do.
 
-The `Button` Comes with `colors` which are: `default` | `error` | `warning` | `success`, and the default value of `colors` is `default`
+### Colors
+
+Our `Button` component have many color options. Which are `default` | `error` | `warning` | `success`. Each one of these values is referencing to a color. If you want to change these default colors check [`How to customize themes in @Geeks/UI`](#)
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center'>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
     <Button color='default'>Default</Button>
     <Button color='error'>Error</Button>
     <Button color='warning'>Warning</Button>
     <Button color='success'>Success</Button>
   </Preview>
 
-  ```jsx showLineNumbers {1, 3}
+  ```jsx showLineNumbers
   import {Button} from 'ui';
 
   <Button color='default'>Default</Button>
@@ -54,4 +61,143 @@ The `Button` Comes with `colors` which are: `default` | `error` | `warning` | `s
 
 ### Variants
 
-You can change styles of button by playing with `variant` props; which can accept follow values: `solid` | `bordered` | `light` | `ghost` | `flat` | `shadow`
+You can change the style of button by playing with `variant` prop. Which can accept follow values: `solid` | `bordered` | `light` | `ghost` | `flat` | `shadow`
+
+<Example>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
+    <Button variant='solid'>Solid</Button>
+    <Button variant='bordered'>Bordered</Button>
+    <Button variant='light'>Light</Button>
+    <Button variant='ghost'>Ghost</Button>
+    <Button variant='flat'>Flat</Button>
+    <Button variant='shadow'>Shadow</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button variant='solid'>Solid</Button>
+  <Button variant='bordered'>Bordered</Button>
+  <Button variant='light'>Light</Button>
+  <Button variant='ghost'>Ghost</Button>
+  <Button variant='flat'>Flat</Button>
+  <Button variant='shadow'>Shadow</Button>
+  ```
+
+</Example>
+
+
+### Sizes
+
+You can change size of your buttons based on this prop. Which allows you control the size of your `Button` component by passing one of these values: `sm` (Small) | `md` (Medium) | `lg` (Large)
+
+<Example>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
+    <Button size='sm'>Small</Button>
+    <Button size='md'>Medium</Button>
+    <Button size='lg'>Large</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button size='sm'>Small</Button>
+  <Button size='md'>Medium</Button>
+  <Button size='lg'>Large</Button>
+  ```
+
+</Example>
+
+
+### Radiuses
+
+Also you are able to change `border-radius` of your button with `radius` props: `sm` | `md` | `lg` | `circle` | `none`.
+
+<Alert title='Suggestion' variant='flat' icon={<AlertCircleIcon size={20} />} color='warning' description={<span>We suggest to use <strong className='text-inherit'>`radius="circle"`</strong> with <strong className="text-inherit"><a href="#iconOnly" className="text-inherit">`iconOnly`</a></strong> prop only.</span>} />
+
+<Example>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
+    <Button radius='sm'>Small Radius</Button>
+    <Button radius='md'>Medium Radius</Button>
+    <Button radius='lg'>Large Radius</Button>
+    <Button radius='none'>None Radius</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button radius='sm'>Small Radius</Button>
+  <Button radius='md'>Medium Radius</Button>
+  <Button radius='lg'>Large Radius</Button>
+  <Button radius='none'>None Radius</Button>
+  ```
+
+</Example>
+
+
+### Icon Only
+Use the `iconOnly` prop to create a button with only an icon. You can use any of icons library or custom SVGs.
+
+<Alert title='Recommendation' variant='flat' icon={<SparkleIcon size={20} />}  description={<span>We recommend using <strong className='text-inherit'><a href='https://lucide.dev/' target='_blank'>`lucide-react`</a></strong> icons library. Has a huge of nice icons. </span>} />
+
+
+<Example>
+  <Preview className='flex flex-row gap-10 justify-center items-center'>
+    <a href='https://github.com/Geeks7eam/ui.git'>
+      <Button iconOnly radius='sm'>
+          <GithubIcon size={18} />
+      </Button>
+    </a>
+    <a href='https://github.com/Geeks7eam/ui.git'>
+      <Button iconOnly radius='md'>
+          <GithubIcon size={18} />
+      </Button>
+    </a>
+    <a href='https://github.com/Geeks7eam/ui.git'>
+      <Button iconOnly radius='lg'>
+          <GithubIcon size={18} />
+      </Button>
+    </a>
+    <a href='https://github.com/Geeks7eam/ui.git'>
+      <Button iconOnly radius='circle'>
+          <GithubIcon size={18} />
+      </Button>
+    </a>
+    <a href='https://github.com/Geeks7eam/ui.git'>
+      <Button iconOnly radius='none'>
+          <GithubIcon size={18} />
+      </Button>
+    </a>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <a href='https://github.com/Geeks7eam/ui.git'>
+    <Button iconOnly radius='sm'>
+        <GithubIcon size={18} />
+    </Button>
+  </a>
+  <a href='https://github.com/Geeks7eam/ui.git'>
+    <Button iconOnly radius='md'>
+        <GithubIcon size={18} />
+    </Button>
+  </a>
+  <a href='https://github.com/Geeks7eam/ui.git'>
+    <Button iconOnly radius='lg'>
+        <GithubIcon size={18} />
+    </Button>
+  </a>
+  <a href='https://github.com/Geeks7eam/ui.git'>
+    <Button iconOnly radius='circle'>
+        <GithubIcon size={18} />
+    </Button>
+  </a>
+  <a href='https://github.com/Geeks7eam/ui.git'>
+    <Button iconOnly radius='none'>
+        <GithubIcon size={18} />
+    </Button>
+  </a>
+  ```
+
+</Example>

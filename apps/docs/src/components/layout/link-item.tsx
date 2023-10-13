@@ -33,7 +33,7 @@ const LinkItem = ({
         ) : null
       ) : (
         <span className='badge border-warning bg-warning/20 text-warning absolute right-2 top-1/2 -translate-y-1/2 transform rounded-lg border-[1px] px-1 text-xs transition-all'>
-          developing
+          Soon
         </span>
       )}
       <span className='arrow flex h-0 w-0 items-center justify-center overflow-hidden opacity-0 transition-all'>

@@ -11,4 +11,5 @@ module.exports = {
     '../../packages/ui/**/*.{js,ts,jsx,tsx}',
     './content/**/*.{js,ts,jsx,tsx,md,mdx}',
   ],
+  plugins: [require('@tailwindcss/typography')],
 };

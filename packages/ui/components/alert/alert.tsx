@@ -169,8 +169,10 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       <div ref={ref} className={classNames} role='alert'>
         {icon && <div className='w-8'>{icon}</div>}
         <div>
-          {title && <h3 className='text-md mb-2 font-bold'>{title}</h3>}
-          {description && <p className='text-sm'>{description}</p>}
+          {title && (
+            <h3 className='text-md m-0 mb-2 font-bold text-inherit'>{title}</h3>
+          )}
+          {description && <p className='text-sm text-inherit'>{description}</p>}
         </div>
       </div>
     );

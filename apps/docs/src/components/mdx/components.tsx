@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils.docs';
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import ClipboardButton from './clipboard';
+import Link from 'next/link';
 
 type DivElProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -10,7 +11,7 @@ type DivElProps = DetailedHTMLProps<
 export const Example = ({ children, className, ...props }: DivElProps) => {
   return (
     <div
-      className='my-2 overflow-hidden rounded-md border border-gray-700'
+      className='relative my-2 overflow-hidden rounded-md border border-gray-700'
       {...props}
     >
       {children}
@@ -20,7 +21,7 @@ export const Example = ({ children, className, ...props }: DivElProps) => {
 // DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
 
 export const Preview = ({ children, className, ...props }: DivElProps) => {
-  const classes = cn('p-4 border-b border-gray-700', className);
+  const classes = cn('relative p-4 border-b border-gray-700', className);
   return (
     <div className={classes} {...props}>
       {children}
@@ -33,13 +34,19 @@ export const Pre = ({ children, ...props }: any) => {
   const copyCodeData = props['raw'] || null;
 
   return (
-    <pre data-language={lang} className='relative p-2 text-sm' {...props}>
+    <div className='relative [&_>.copy]:hover:opacity-100'>
       <ClipboardButton
-        classNames='absolute right-1 top-1'
+        classNames='copy absolute right-1 top-1 opacity-0'
         content={copyCodeData}
       />
-      {children}
-    </pre>
+      <pre
+        data-language={lang}
+        className='m-0 rounded-none p-2 text-sm'
+        {...props}
+      >
+        {children}
+      </pre>
+    </div>
   );
 };
 
@@ -82,3 +89,17 @@ export const Heading = ({
     children
   );
 };
+
+// export const CustomLink = ({
+//   children,
+//   href,
+//   ...props
+// }: DetailedHTMLProps<HTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
+//   href: string;
+// }) => {
+//   return (
+//     <Link href={href} {...props}>
+//       {children}
+//     </Link>
+//   );
+// };

@@ -17,40 +17,41 @@ export function MDXContent({ code }: MDXContentProps) {
     <div className='px-5'>
       <Component
         components={{
-          h1: ({ children, className, ...props }) => (
-            <Heading as='h1' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          h2: ({ children, className, ...props }) => (
-            <Heading as='h2' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          h3: ({ children, className, ...props }) => (
-            <Heading as='h3' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          h4: ({ children, className, ...props }) => (
-            <Heading as='h4' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          h5: ({ children, className, ...props }) => (
-            <Heading as='h5' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          h6: ({ children, className, ...props }) => (
-            <Heading as='h6' className={className} restProps={{ ...props }}>
-              {children}
-            </Heading>
-          ),
-          p: Paragraph,
+          // h1: ({ children, className, ...props }) => (
+          //   <Heading as='h1' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // h2: ({ children, className, ...props }) => (
+          //   <Heading as='h2' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // h3: ({ children, className, ...props }) => (
+          //   <Heading as='h3' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // h4: ({ children, className, ...props }) => (
+          //   <Heading as='h4' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // h5: ({ children, className, ...props }) => (
+          //   <Heading as='h5' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // h6: ({ children, className, ...props }) => (
+          //   <Heading as='h6' className={className} restProps={{ ...props }}>
+          //     {children}
+          //   </Heading>
+          // ),
+          // p: Paragraph,
           Example: Example,
           Preview: Preview,
           pre: Pre,
+          // Link:
         }}
       />
     </div>

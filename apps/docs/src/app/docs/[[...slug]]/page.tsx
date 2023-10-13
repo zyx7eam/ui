@@ -83,9 +83,9 @@ export default async function DocPage({ params }: DocsPageProps) {
   }
 
   return (
-    <>
-      <div>
-        <div className='prose prose-neutral w-full'>
+    <div className='flex'>
+      <div className='flex-1 p-5'>
+        <div className='prose prose-invert max-w-[unset]'>
           <MDXContent code={doc.body.code} />
         </div>
         {/* {currentRoute && <DocsPager currentRoute={currentRoute} />} */}
@@ -93,14 +93,9 @@ export default async function DocPage({ params }: DocsPageProps) {
           <Link href={'/'}>Edit this page on GitHub</Link>
         </footer>
       </div>
-      <aside className='fixed right-0 top-0 me-10 mt-16 h-[calc(100vh_-_theme(height.16))] w-80  border-gray-700 p-5 backdrop-blur-sm'>
+      <div className='sticky right-0 top-16 me-10 hidden h-[calc(100vh_-_theme(height.16))] w-52 border-gray-700 p-5 pe-0 backdrop-blur-sm xl:block xl:w-60 2xl:w-72'>
         <DocsHeadings items={headings} />
-      </aside>
-      {/* {headings && headings.length > 0 && (
-          <div className="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-4">
-            <DocsToc headings={headings} />
-          </div>
-        )} */}
-    </>
+      </div>
+    </div>
   );
 }
