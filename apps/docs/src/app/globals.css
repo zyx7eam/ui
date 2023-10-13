@@ -7,6 +7,35 @@ body {
   @apply bg-background text-foreground;
 }
 
+pre > code {
+  display: grid;
+}
+
+code {
+  counter-reset: line;
+}
+
+/* Apply line numbers only when showLineNumbers is specified: */
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+html:not(.dark) [data-theme='dark'] {
+  display: none;
+}
+
+html:is(.dark) [data-theme='light'] {
+  display: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,5 +120,9 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  code:not([data-language]) {
+    /* code elements that don't have data-language attr, so it is an highlight! */
+    @apply bg-primary/20 text-primary border-primary/40 rounded-md border p-[2px] text-xs;
   }
 }

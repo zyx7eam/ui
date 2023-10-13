@@ -1,19 +1,15 @@
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-import rehypePrismPlus from 'rehype-prism-plus';
 import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
 import { visit } from 'unist-util-visit';
 import rehypePrettyCode from 'rehype-pretty-code';
-
-/** @type {import('rehype-pretty-code').Options} */
-const options: import('rehype-pretty-code').Options = {
+var options = {
   theme: {
     light: 'github-light',
     dark: 'github-dark-dimmed',
   },
 };
-
-export const Docs = defineDocumentType(() => ({
+var Docs = defineDocumentType(() => ({
   name: 'Docs',
   filePathPattern: 'docs/**/*.mdx',
   contentType: 'mdx',
@@ -36,8 +32,7 @@ export const Docs = defineDocumentType(() => ({
     url: { type: 'string', resolve: (doc) => `/${doc._raw.flattenedPath}` },
   },
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: './content',
   documentTypes: [Docs],
   mdx: {
@@ -47,12 +42,10 @@ export default makeSource({
         visit(tree, (node) => {
           if (node?.type === 'element' && node?.tagName === 'pre') {
             const [codeEl] = node.children;
-
             if (codeEl.tagName !== 'code') return;
-
             node.raw = codeEl.children?.[0].value;
           }
-        }); //This will give us a way to keep the unmodified code content, which we can access later from the node's raw property.
+        });
       },
       [
         // configuration for the rehype pretty code plugin,
@@ -68,8 +61,6 @@ export default makeSource({
           if (node?.type === 'element' && node?.tagName === 'div') {
             if (!('data-rehype-pretty-code-fragment' in node.properties))
               return;
-
-            // otherwise
             for (const child of node.children) {
               if (child.tagName === 'pre') {
                 child.properties['raw'] = node.raw;
@@ -77,8 +68,11 @@ export default makeSource({
             }
           }
         });
-      }, // selecting all div elements that contains a `data-rehype-pretty-code-fragment` data attribute. Then, we iterate over the `pre` children within each `div` (one for each theme)
+      },
+      // selecting all div elements that contains a `data-rehype-pretty-code-fragment` data attribute. Then, we iterate over the `pre` children within each `div` (one for each theme)
       // and add the raw code content as a property to them. With this implementation, a custom MDX component for rendering `pre` elements will have `raw` as one of the available props.
     ],
   },
 });
+export { Docs, contentlayer_config_default as default };
+//# sourceMappingURL=compiled-contentlayer-config-WYYXEZFR.mjs.map
