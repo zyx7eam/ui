@@ -70,10 +70,6 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   DocsPageProps['params'][]
 > {
-  const slugs = allDocs.map((doc) => ({
-    slug: doc.slugAsParams.split('/'),
-  }));
-
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split('/'),
   }));
@@ -81,9 +77,6 @@ export async function generateStaticParams(): Promise<
 
 export default async function DocPage({ params }: DocsPageProps) {
   const { doc, headings, currentRoute } = await getDocFromParams({ params });
-
-  console.log('headings');
-  console.log(headings);
 
   if (!doc) {
     notFound();

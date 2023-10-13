@@ -10,7 +10,7 @@ type DivElProps = DetailedHTMLProps<
 export const Example = ({ children, className, ...props }: DivElProps) => {
   return (
     <div
-      className='overflow-hidden rounded-md border border-gray-700'
+      className='my-2 overflow-hidden rounded-md border border-gray-700'
       {...props}
     >
       {children}
@@ -64,10 +64,13 @@ export const Heading = ({
   children: React.ReactNode;
 }) => {
   const classNames = cn(
+    'text-xl font-bold',
     className,
-    as === 'h1' && 'text-3xl my-8',
-    as === 'h2' && 'text-xl mt-5 mb-2',
-    'font-bold'
+    as === 'h1'
+      ? 'text-3xl my-8 pb-2'
+      : as === 'h2'
+      ? 'text-xl mt-7 mb-2 pb-2 border-b border-gray-700'
+      : 'my-4'
   );
 
   return React.createElement(

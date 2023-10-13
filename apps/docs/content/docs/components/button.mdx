@@ -9,16 +9,35 @@ import { Button } from 'ui';
 The `Button` element in web development is an HTML element used to create interactive buttons that users can click or tap to trigger specific actions or functions on a web page. The `<button>` element is an essential part of web forms, user interfaces, and general interactivity.
 
 ## Basic Button
+<Example>
+  <Preview className='flex flex-row gap-10 justify-center'>
+    <Button>Basic</Button>
+  </Preview>
+
+  ```jsx showLineNumbers {1, 3}
+  import {Button} from 'ui';
+
+  <Button>Basic</Button>
+  ```
+
+</Example>
+
+
+
+## Props
+
+### Basic Button
 
 The `Button` Comes with `colors` which are: `default` | `error` | `warning` | `success`, and the default value of `colors` is `default`
 
 <Example>
-  <Preview className='flex flex-row gap-10'>
+  <Preview className='flex flex-row gap-10 justify-center'>
     <Button color='default'>Default</Button>
     <Button color='error'>Error</Button>
     <Button color='warning'>Warning</Button>
     <Button color='success'>Success</Button>
   </Preview>
+
   ```jsx showLineNumbers {1, 3}
   import {Button} from 'ui';
 
@@ -27,9 +46,12 @@ The `Button` Comes with `colors` which are: `default` | `error` | `warning` | `s
   <Button color='warning'>Warning</Button>
   <Button color='success'>Success</Button>
   ```
+
 </Example>
 
 
-## Variants
+
+
+### Variants
 
 You can change styles of button by playing with `variant` props; which can accept follow values: `solid` | `bordered` | `light` | `ghost` | `flat` | `shadow`
