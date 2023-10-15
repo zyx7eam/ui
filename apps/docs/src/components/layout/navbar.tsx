@@ -1,8 +1,9 @@
 import { navLinks } from '@/config/nav';
-import { GithubIcon, MenuIcon } from 'lucide-react';
+import { BadgeInfoIcon, GithubIcon, MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { LegacyRef } from 'react';
 import { Button, Alert } from 'ui';
+import MobileNav from './mobile-nav';
 
 const NavLink = ({ href, title }: { href: string; title: string }) => (
   <Link href={href}>{title}</Link>
@@ -14,11 +15,11 @@ const Navbar = () => {
       <Alert
         color='warning'
         variant={'flat'}
+        icon={<BadgeInfoIcon size={18} />}
         description={
           <span>
-            {' '}
             <strong>Heads Up!</strong> - This library isn&#39;t published yet in
-            package manager, and this site just for preview for now!
+            the package manager, and this site is just for preview for now!
           </span>
         }
       />
@@ -45,11 +46,12 @@ const Navbar = () => {
                 <GithubIcon size={18} />
               </Button>
             </a>
-            <a href='#'>
+            <MobileNav />
+            {/* <a href='#' className='block lg:hidden'>
               <Button iconOnly variant={'flat'} radius={'circle'}>
                 <MenuIcon size={18} />
               </Button>
-            </a>
+            </a> */}
           </div>
         </nav>
       </header>
