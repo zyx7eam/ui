@@ -14,7 +14,7 @@ export function MDXContent({ code }: MDXContentProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className='px-5'>
+    <div>
       <Component
         components={{
           // h1: ({ children, className, ...props }) => (

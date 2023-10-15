@@ -9,7 +9,8 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "tsconfig": "*",
-    "shared-lib": "*"
+    "react-aria": "^3.29.0",
+    "shared-lib": "*",
+    "tsconfig": "*"
   }
 }

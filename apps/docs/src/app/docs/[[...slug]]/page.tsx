@@ -84,7 +84,7 @@ export default async function DocPage({ params }: DocsPageProps) {
 
   return (
     <div className='flex'>
-      <div className='flex-1 p-5'>
+      <div className='flex-1 p-5 px-10'>
         <div className='prose prose-invert max-w-[unset]'>
           <MDXContent code={doc.body.code} />
         </div>

@@ -41,7 +41,7 @@ export const Pre = ({ children, ...props }: any) => {
       />
       <pre
         data-language={lang}
-        className='m-0 rounded-none p-2 text-sm'
+        className='!bg-muted m-0 rounded-none p-2 text-sm backdrop-blur-sm'
         {...props}
       >
         {children}

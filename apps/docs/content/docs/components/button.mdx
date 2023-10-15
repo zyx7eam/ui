@@ -15,7 +15,7 @@ The `Button` element in web development is an HTML element used to create intera
 You can use a basic button without passing any props to `button` component, thus it will take primary color as default.
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <Button>Basic</Button>
   </Preview>
 
@@ -38,7 +38,7 @@ We have such of props that make you able to customize button as you like. Below 
 Our `Button` component have many color options. Which are `default` | `error` | `warning` | `success`. Each one of these values is referencing to a color. If you want to change these default colors check [`How to customize themes in @Geeks/UI`](#)
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <Button color='default'>Default</Button>
     <Button color='error'>Error</Button>
     <Button color='warning'>Warning</Button>
@@ -64,7 +64,7 @@ Our `Button` component have many color options. Which are `default` | `error` | 
 You can change the style of button by playing with `variant` prop. Which can accept follow values: `solid` | `bordered` | `light` | `ghost` | `flat` | `shadow`
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <Button variant='solid'>Solid</Button>
     <Button variant='bordered'>Bordered</Button>
     <Button variant='light'>Light</Button>
@@ -92,7 +92,7 @@ You can change the style of button by playing with `variant` prop. Which can acc
 You can change size of your buttons based on this prop. Which allows you control the size of your `Button` component by passing one of these values: `sm` (Small) | `md` (Medium) | `lg` (Large)
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <Button size='sm'>Small</Button>
     <Button size='md'>Medium</Button>
     <Button size='lg'>Large</Button>
@@ -114,7 +114,7 @@ You can change size of your buttons based on this prop. Which allows you control
 Also you are able to change `border-radius` of your button with `radius` props: `sm` | `md` | `lg` | `circle` | `none`.
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <Button radius='sm'>Small Radius</Button>
     <Button radius='md'>Medium Radius</Button>
     <Button radius='lg'>Large Radius</Button>
@@ -142,7 +142,7 @@ Use the `iconOnly` prop to create a button with only an icon. You can use any of
 
 
 <Example>
-  <Preview className='flex flex-row gap-10 justify-center items-center'>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
     <a href='https://github.com/Geeks7eam/ui.git'>
       <Button iconOnly radius='sm'>
           <GithubIcon size={18} />
