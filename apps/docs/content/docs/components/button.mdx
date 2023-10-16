@@ -10,9 +10,10 @@ import { AlertCircleIcon, SparkleIcon, GithubIcon } from 'lucide-react';
 
 The `Button` element in web development is an HTML element used to create interactive buttons that users can click or tap to trigger specific actions or functions on a web page. The `<button>` element is an essential part of web forms, user interfaces, and general interactivity.
 
+
 ## Basic Button
 
-You can use a basic button without passing any props to `button` component, thus it will take primary color as default.
+To create a basic button, simply use the Button component without passing any props. It will inherit the primary color as the default.
 
 <Example>
   <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
@@ -29,13 +30,13 @@ You can use a basic button without passing any props to `button` component, thus
 
 
 
-## Props
+## Customization
 
-We have such of props that make you able to customize button as you like. Below you will find more examples about how to use this props, and what each one of them is going to do.
+The `Button` component is <ins>**highly customizable**</ins>, allowing you to fine-tune its appearance and behavior to align with your project's unique requirements. Explore the following customization options:
 
 ### Colors
 
-Our `Button` component have many color options. Which are `default` | `error` | `warning` | `success`. Each one of these values is referencing to a color. If you want to change these default colors check [`How to customize themes in @Geeks/UI`](#)
+Our `Button` component offers a color palette with options such as `default`, `error`, `warning`, and `success`. To customize these default colors to align with your project's aesthetics, [`consult How to customize themes in @Geeks/UI`](#).
 
 <Example>
   <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
@@ -61,7 +62,7 @@ Our `Button` component have many color options. Which are `default` | `error` | 
 
 ### Variants
 
-You can change the style of button by playing with `variant` prop. Which can accept follow values: `solid` | `bordered` | `light` | `ghost` | `flat` | `shadow`
+Modify button styles effortlessly using the `variant` prop, with options like `solid`, `bordered`, `light`, `ghost`, `flat`, and `shadow`.
 
 <Example>
   <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
@@ -89,7 +90,7 @@ You can change the style of button by playing with `variant` prop. Which can acc
 
 ### Sizes
 
-You can change size of your buttons based on this prop. Which allows you control the size of your `Button` component by passing one of these values: `sm` (Small) | `md` (Medium) | `lg` (Large)
+Resize your `buttons` effortlessly with the size prop. Choose from `sm` (Small), `md` (Medium), or `lg` (Large) to control the button dimensions.
 
 <Example>
   <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
@@ -111,7 +112,7 @@ You can change size of your buttons based on this prop. Which allows you control
 
 ### Radiuses
 
-Also you are able to change `border-radius` of your button with `radius` props: `sm` | `md` | `lg` | `circle` | `none`.
+Easily customize the `border-radius` of your button using the `radius` prop, with options like `sm`,`md`, `lg`, `circle`, or `none`.
 
 <Example>
   <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
@@ -135,10 +136,89 @@ Also you are able to change `border-radius` of your button with `radius` props: 
 </Example>
 
 
-### Icon Only
-Use the `iconOnly` prop to create a button with only an icon. You can use any of icons library or custom SVGs.
+### Start Content
 
-<Alert title='Recommendation' variant='flat' icon={<SparkleIcon size={20} />}  description={<span>We recommend using <strong className='text-inherit'><a href='https://lucide.dev/' target='_blank'>`lucide-react`</a></strong> icons library. Has a huge of nice icons. </span>} />
+The `startContent` prop allows you to seamlessly incorporate `ReactNode` elements at the beginning of a button's child. For instance, you can employ this feature to place an `icon` at the start of a button.
+
+<Example>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
+    <Button radius='sm' startContent={<GithubIcon size={18} />}>Small Radius</Button>
+    <Button radius='md' startContent={<GithubIcon size={18} />}>Medium Radius</Button>
+    <Button radius='lg' startContent={<GithubIcon size={18} />}>Large Radius</Button>
+    <Button radius='circle' startContent={<GithubIcon size={18} />}>Circle Radius</Button>
+    <Button radius='none' startContent={<GithubIcon size={18} />}>None Radius</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button radius='sm' startContent={<GithubIcon size={18} />}>Small Radius</Button>
+  <Button radius='md' startContent={<GithubIcon size={18} />}>Medium Radius</Button>
+  <Button radius='lg' startContent={<GithubIcon size={18} />}>Large Radius</Button>
+  <Button radius='circle' startContent={<GithubIcon size={18} />}>Circle Radius</Button>
+  <Button radius='none' startContent={<GithubIcon size={18} />}>None Radius</Button>
+  ```
+
+</Example>
+
+
+### End Content
+
+The `endContent` prop enables the addition of `ReactNode` elements at the end of a button's child. For instance, this feature is ideal for appending an `icon` to the button's end.
+
+<Example>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
+    <Button radius='sm' endContent={<GithubIcon size={18} />}>Small Radius</Button>
+    <Button radius='md' endContent={<GithubIcon size={18} />}>Medium Radius</Button>
+    <Button radius='lg' endContent={<GithubIcon size={18} />}>Large Radius</Button>
+    <Button radius='circle' endContent={<GithubIcon size={18} />}>Circle Radius</Button>
+    <Button radius='none' endContent={<GithubIcon size={18} />}>None Radius</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button radius='sm' endContent={<GithubIcon size={18} />}>Small Radius</Button>
+  <Button radius='md' endContent={<GithubIcon size={18} />}>Medium Radius</Button>
+  <Button radius='lg' endContent={<GithubIcon size={18} />}>Large Radius</Button>
+  <Button radius='circle' endContent={<GithubIcon size={18} />}>Circle Radius</Button>
+  <Button radius='none' endContent={<GithubIcon size={18} />}>None Radius</Button>
+  ```
+
+</Example>
+
+
+### Start & End Content
+
+Here are more examples to show you that [`startContent`](#start-content) & [`endContent`](#end-content) can be used together!
+
+<Example>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
+    <Button radius='sm' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Small Radius</Button>
+    <Button radius='md' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Medium Radius</Button>
+    <Button radius='lg' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Large Radius</Button>
+    <Button radius='circle' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Circle Radius</Button>
+    <Button radius='none' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>None Radius</Button>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import {Button} from 'ui';
+
+  <Button radius='sm' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Small Radius</Button>
+  <Button radius='md' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Medium Radius</Button>
+  <Button radius='lg' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Large Radius</Button>
+  <Button radius='circle' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Circle Radius</Button>
+  <Button radius='none' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>None Radius</Button>
+  ```
+
+</Example>
+
+
+### Icon Only
+
+Create icon-only buttons with ease using the `iconOnly` prop. Use icons from libraries or custom SVGs to design your unique buttons.
+
+<Alert title='Recommendation' variant='flat' icon={<SparkleIcon size={20} />}  description={<span>It is highly recommended to leverage the extensive collection of icons available in the <strong className='text-inherit'><a href='https://lucide.dev/' target='_blank'>`lucide-react`</a></strong> icon library. This library offers a vast selection of beautifully crafted icons to enhance your design.</span>} />
 
 
 <Example>
@@ -201,3 +281,19 @@ Use the `iconOnly` prop to create a button with only an icon. You can use any of
   ```
 
 </Example>
+
+
+## API Reference
+
+For an in-depth exploration of available props and advanced usage, consult the `Button` component's API reference:
+
+| Property            | Description                               | Type        | Default     |
+| --------------------|-------------------------------------------|-------------|-------------|
+| className | Adding custom class names to your button. | `string`    | `undefined` |
+| color | Customize button color styles. | `default` \| `error` \| `warning` \| `success` | `default` |
+| variant | Change button hover and base styles. | `solid` \| `bordered` \| `light` \| `ghost` \| `flat` \| `shadow` | `solid` |
+| size | Adjust button size to your specifications. | `sm` \| `md` \| `lg` | `md` |
+| radius | Change button border radius style. | `sm` \| `md` \| `lg` \| `circle` \| `none` | `md` |
+| iconOnly | Craft buttons with exclusive focus on icons. | `boolean` | `false` |
+| startContent | Enrich buttons with content at the start [`see example`](#start-content). | `ReactNode` \| `undefined` | `undefined` |
+| endContent | Elevate buttons with content at the end. [`see example`](#end-content) | `ReactNode` \| `undefined` | `undefined` |

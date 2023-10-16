@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils.docs';
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import ClipboardButton from './clipboard';
 import Link from 'next/link';
+import { LinkIcon } from 'lucide-react';
 
 type DivElProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -71,13 +72,8 @@ export const Heading = ({
   children: React.ReactNode;
 }) => {
   const classNames = cn(
-    'text-xl font-bold',
-    className,
-    as === 'h1'
-      ? 'text-3xl my-8 pb-2'
-      : as === 'h2'
-      ? 'text-xl mt-7 mb-2 pb-2 border-b border-gray-700'
-      : 'my-4'
+    'flex items-center gap-2 [&_>span]:hover:opacity-100 [&_>span]:hover:scale-100 cursor-pointer',
+    className
   );
 
   return React.createElement(
@@ -86,7 +82,15 @@ export const Heading = ({
       className: classNames,
       ...restProps,
     },
-    children
+    [
+      children,
+      <span
+        key={restProps?.id}
+        className='text-muted-foreground scale-0 opacity-0 transition-all'
+      >
+        <LinkIcon size={18} />
+      </span>,
+    ]
   );
 };
 

@@ -1,6 +1,7 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
 import { visit } from 'unist-util-visit';
 import rehypePrettyCode from 'rehype-pretty-code';
 var options = {
@@ -38,6 +39,8 @@ var contentlayer_config_default = makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      // adding #id to headers in docs page
+      rehypeSlug,
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === 'element' && node?.tagName === 'pre') {
@@ -75,4 +78,4 @@ var contentlayer_config_default = makeSource({
   },
 });
 export { Docs, contentlayer_config_default as default };
-//# sourceMappingURL=compiled-contentlayer-config-WYYXEZFR.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-ETT2DQ2Z.mjs.map

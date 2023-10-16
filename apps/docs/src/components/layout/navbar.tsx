@@ -18,8 +18,9 @@ const Navbar = () => {
         icon={<BadgeInfoIcon size={18} />}
         description={
           <span>
-            <strong>Heads Up!</strong> - This library isn&#39;t published yet in
-            the package manager, and this site is just for preview for now!
+            <strong>Note:</strong> This documentation is a preview, providing an
+            early look at the project&#39;s development progress before it&#39;s
+            officially published in the package manager.
           </span>
         }
       />
@@ -27,7 +28,12 @@ const Navbar = () => {
         <nav className='mx-10 flex w-[calc(100%_-_theme(margin.20))] items-center justify-between'>
           <div className='w-96'>
             <Link href={'/'}>
-              <h1>@Geeks/UI</h1>
+              <h1>
+                @Geeks/UI{' '}
+                <span className='ms-2 rounded-md border border-pink-700 bg-pink-700/20 p-1 text-xs text-pink-700'>
+                  Preview
+                </span>
+              </h1>
             </Link>
           </div>
           <div className='hidden flex-1 items-center justify-center gap-5 lg:flex'>

@@ -13,7 +13,7 @@ const DocsHeadings = ({
   return (
     <div>
       <h5 className='mb-2 border-b border-gray-700 pb-2 font-bold'>Contents</h5>
-      <ul>
+      <ul className='text-sm'>
         {items?.length > 0 &&
           items.map(
             (__) =>
@@ -21,7 +21,7 @@ const DocsHeadings = ({
                 <li
                   key={__.id}
                   className={cn(
-                    __.level > 2 && 'border-s border-s-gray-700 ps-4'
+                    __.level > 2 && 'border-s border-s-gray-700 py-1 ps-4'
                   )}
                 >
                   <Link href={pathname + '#' + __.id}>{__.text}</Link>
