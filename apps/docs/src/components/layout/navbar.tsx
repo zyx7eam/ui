@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { LegacyRef } from 'react';
 import { Button, Alert } from 'ui';
 import MobileNav from './mobile-nav';
+import NavbarProvider from './navbar.provider';
 
 const NavLink = ({ href, title }: { href: string; title: string }) => (
   <Link href={href}>{title}</Link>
@@ -12,6 +13,7 @@ const NavLink = ({ href, title }: { href: string; title: string }) => (
 const Navbar = () => {
   return (
     <>
+      <NavbarProvider />
       <Alert
         color='warning'
         variant={'flat'}
