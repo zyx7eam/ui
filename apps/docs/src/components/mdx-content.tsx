@@ -51,6 +51,11 @@ export function MDXContent({ code }: MDXContentProps) {
           Example: Example,
           Preview: Preview,
           pre: Pre,
+          table: ({ children, ...props }) => (
+            <div className='max-w-full overflow-x-auto'>
+              <table {...props}>{children}</table>
+            </div>
+          ),
           // Link:
         }}
       />
