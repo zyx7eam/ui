@@ -42,7 +42,7 @@ const Navbar = () => {
             ))}
           </div>
           <div className='flex w-96 items-center justify-end gap-2'>
-            <Button>Get Started</Button>
+            {/* <Button>Get Started</Button> */}
             <a
               href='https://github.com/Geeks7eam/ui'
               target='_blank'
