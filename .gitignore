@@ -36,3 +36,4 @@ yarn-error.log*
 
 # content layer
 !.contentlayer
+.vercel
