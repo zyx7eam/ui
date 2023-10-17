@@ -3,7 +3,7 @@ title: '@geeks/ui | Button Component'
 ---
 
 import { Button, Alert } from 'ui';
-import { AlertCircleIcon, SparkleIcon, AlertTriangleIcon, CheckCircleIcon } from 'lucide-react';
+import { AlertCircleIcon, SparkleIcon, AlertTriangleIcon, CheckCircleIcon, BadgeInfoIcon } from 'lucide-react';
 
 # Alert
 
@@ -424,3 +424,31 @@ You can customize the `border-radius` of your `Alert` component with `radius` pr
     />
     ```
 </Example>
+
+---
+
+<Alert
+    title={'Good To Know'}
+    icon={<BadgeInfoIcon />}
+    variant='flat'
+    description={
+        <span>
+            You should use one of the `title` and `description` props at least. Otherwise `Alert` component will not work as expected.
+        </span>
+    }
+/>
+
+## API Reference
+
+For an in-depth exploration of available props and advanced usage, consult the `Alert` component's API reference:
+
+| Property            | Description                               | Type        | Default     |
+| --------------------|-------------------------------------------|-------------|-------------|
+| icon | To add icon for alert. | `ReactNode` | `null` |
+| title | Alert title. | `ReactNode` | `null` |
+| description | Alert description. | `ReactNode` | `null` |
+| className | Adding custom class names to your alert. | `string` | `undefined` |
+| color | Customize alert color styles. | `default` \| `error` \| `warning` \| `success` | `default` |
+| variant | Change alert base styles. | `solid` \| `bordered` \| `flat` \| `shadow` \| `gradient` | `solid` |
+| radius | Change alert border radius style. | `sm` \| `md` \| `lg` \| `circle` \| `none` | `md` |
+| direction | Change alert `flex-direction`. | `row` \| `column` | `row` |
