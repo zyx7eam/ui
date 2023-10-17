@@ -1,7 +1,7 @@
 'use client';
 
 import useNavbarStates from '@/zustand/navbar';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const NavbarProvider = ({ children }: { children?: React.ReactNode }) => {
   const { navbarRef, setRef } = useNavbarStates();
@@ -15,6 +15,9 @@ const NavbarProvider = ({ children }: { children?: React.ReactNode }) => {
     },
     [setRef]
   );
+
+  useEffect(() => {}, []);
+
   return null;
 };
 

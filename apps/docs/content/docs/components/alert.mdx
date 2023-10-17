@@ -1,5 +1,426 @@
 ---
-title: 'Alert Component'
+title: '@geeks/ui | Button Component'
 ---
 
+import { Button, Alert } from 'ui';
+import { AlertCircleIcon, SparkleIcon, AlertTriangleIcon, CheckCircleIcon } from 'lucide-react';
+
 # Alert
+
+The `Alert` in web design is a highlighted box that grabs attention, often used for brief messages or important information.
+
+## Basic Alert
+
+To create a basic alert, you can simple use it like example in below.
+
+<Example>
+    <Preview>
+        <Alert
+            title='Alert Title'
+            icon={<SparkleIcon size={20} />}
+            description={
+                <span className='text-inherit'>
+                    You can pass <code  className='!text-inherit'>ReactNode</code> as description.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Alert Title (Column Direction)'
+            direction='column'
+            icon={<SparkleIcon size={32} />}
+            description={
+                <span className='text-inherit'>
+                    You can pass <code  className='!text-inherit'>ReactNode</code> as description.
+                </span>
+            }
+        />
+    </Preview>
+
+    ```tsx showLineNumbers
+    import { Alert } from 'ui';
+
+    <Alert
+        title='Alert Title'
+        icon={<SparkleIcon size={20} />}
+        description={
+            <span>
+                You can pass <code>ReactNode</code> as description.
+            </span>
+        }
+    />
+    <hr />
+    <Alert
+        title='Alert Title (Column Direction)'
+        direction='column' // set direction of content to column
+        icon={<SparkleIcon size={32} />}
+        description={
+            <span className='text-inherit'>
+                You can pass <code>ReactNode</code> as description.
+            </span>
+        }
+    />
+    ```
+</Example>
+
+
+## Customization
+
+We allow you to customize your `Alert` component as you want. Here are some of props that allow you to make customization on the `Alert` component.
+
+### Colors
+
+Our `Alert` component offers many colors, such as `default`, `error`, `warning`, and `success`.
+
+<Example>
+    <Preview>
+        <Alert
+            title='Default Color (No Icon)'
+            color='default'
+            description={
+                <span className='text-inherit'>
+                    This is a default color alert description! This example also shows that you can use alert without icon props.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Error Color (With Icon)'
+            color='error'
+            icon={<AlertCircleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is an error color alert description!
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Warning Color'
+            color='warning'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a warning color alert description!
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Success Color'
+            color='success'
+            icon={<CheckCircleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a success color alert description!
+                </span>
+            }
+        />
+    </Preview>
+
+    ```tsx showLineNumbers
+    import { Alert } from 'ui';
+    import { AlertCircleIcon, AlertTriangleIcon, CheckCircleIcon } from 'lucide-react';
+
+    <Alert
+        title='Default Color (No Icon)'
+        color='default'
+        description={
+            <span className='text-inherit'>
+                This is a default color alert description! This example also shows that you can use alert without icon props.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Error Color (With Icon)'
+        color='error'
+        icon={<AlertCircleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is an error color alert description!
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Warning Color'
+        color='warning'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a warning color alert description!
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Success Color'
+        color='success'
+        icon={<CheckCircleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a success color alert description!
+            </span>
+        }
+    />
+    ```
+</Example>
+
+
+### Variants
+
+You can also modify `Alert` styles using `variant` prop, with those options: `solid`, `bordered`, `flat`, `shadow`, and `gradient`.
+
+<Example>
+    <Preview>
+        <Alert
+            title='Solid Variant'
+            variant='solid'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a an alert with solid variant.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Bordered Variant'
+            variant='bordered'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a an alert with bordered variant.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Flat Variant'
+            variant='flat'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a an alert with flat variant.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Shadow Variant'
+            variant='shadow'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a an alert with shadow variant.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='Gradient Variant'
+            variant='gradient'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    This is a an alert with gradient variant.
+                </span>
+            }
+        />
+    </Preview>
+
+    ```tsx showLineNumbers
+    import { Alert } from 'ui';
+    import { AlertTriangleIcon } from 'lucide-react';
+
+   <Alert
+        title='Solid Variant'
+        variant='solid'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a an alert with solid variant.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Bordered Variant'
+        variant='bordered'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a an alert with bordered variant.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Flat Variant'
+        variant='flat'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a an alert with flat variant.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Shadow Variant'
+        variant='shadow'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a an alert with shadow variant.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='Gradient Variant'
+        variant='gradient'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                This is a an alert with gradient variant.
+            </span>
+        }
+    />
+    ```
+</Example>
+
+
+### Radiuses
+
+You can customize the `border-radius` of your `Alert` component with `radius` prop with these options: `sm`, `md`, `lg`, `circle`, and `none`.
+
+<Example>
+    <Preview>
+        <Alert
+            title='sm radius'
+            variant='flat'
+            radius='sm'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    Small radius alert.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='md radius'
+            variant='flat'
+            radius='md'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    Medium radius alert.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='lg radius'
+            variant='flat'
+            radius='lg'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    Large radius alert.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='circle radius'
+            variant='flat'
+            radius='circle'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    Circle radius alert.
+                </span>
+            }
+        />
+        <hr className='my-4' />
+        <Alert
+            title='none radius'
+            variant='flat'
+            radius='none'
+            icon={<AlertTriangleIcon />}
+            description={
+                <span className='text-inherit'>
+                    None radius alert.
+                </span>
+            }
+        />
+    </Preview>
+
+    ```tsx showLineNumbers
+    import { Alert } from 'ui';
+    import { AlertTriangleIcon } from 'lucide-react';
+
+    <Alert
+        title='sm radius'
+        variant='flat'
+        radius='sm'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                Small radius alert.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='md radius'
+        variant='flat'
+        radius='md'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                Medium radius alert.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='lg radius'
+        variant='flat'
+        radius='lg'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                Large radius alert.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='circle radius'
+        variant='flat'
+        radius='circle'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                Circle radius alert.
+            </span>
+        }
+    />
+    <hr className='my-4' />
+    <Alert
+        title='none radius'
+        variant='flat'
+        radius='none'
+        icon={<AlertTriangleIcon />}
+        description={
+            <span className='text-inherit'>
+                None radius alert.
+            </span>
+        }
+    />
+    ```
+</Example>

@@ -372,6 +372,20 @@ export default function Page() {
           ))}
         </ul>
       </div>
+      <div className='flex w-full flex-col justify-center gap-5 p-2'>
+        <h1 className='text-primary mb-1 mt-2 font-bold'>Column Alert</h1>
+        <ul className='flex flex-col space-y-3'>
+          <li>
+            <Alert
+              // variant='shadow'
+              icon={<XCircleIcon size={32} />}
+              direction='column'
+              title='Something Went Wrong!'
+              description='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla illo blanditiis esse dolorem fugit veniam dicta nemo sapiente similique possimus amet ducimus recusandae, doloribus sint a delectus quos odio hic.'
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
