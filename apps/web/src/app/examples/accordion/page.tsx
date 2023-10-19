@@ -22,6 +22,7 @@ const AccordionPage = () => {
       </div> */}
       <div>
         <Collapse
+          defaultValues={['2']}
           items={[
             {
               id: 1,
