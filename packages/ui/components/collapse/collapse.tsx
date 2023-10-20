@@ -8,15 +8,69 @@ import { cn } from 'shared-lib';
 import { ChevronDownIcon } from 'lucide-react';
 import { Variants, motion } from 'framer-motion';
 
+const IconSizes = {
+  sm: 14,
+  md: 18,
+  lg: 21,
+};
+
 const collapseVariants = cva('', {
   variants: {
+    variant: {
+      default: '[&_[data-part=item]]:border-b',
+      bordered: '[&_[data-part=item]]:border-x [&_[data-part=item]]:border-t',
+    },
     size: {
-      sm: '[&_>data-[part=item-content]]:p-1',
-      md: '[&_>data-[part=item-content]]:p-2',
-      lg: '[&_>data-[part=item-content]]:p-4',
+      sm: 'text-sm',
+      md: 'text-md',
+      lg: 'text-lg',
     },
   },
   defaultVariants: {
+    variant: 'default',
+    size: 'md',
+  },
+});
+
+const collapseHeaderVariants = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      bordered: '',
+    },
+    size: {
+      sm: '[&_[data-type=trigger]]:p-1',
+      md: '[&_[data-type=trigger]]:p-2',
+      lg: '[&_[data-type=trigger]]:p-4',
+    },
+    open: {
+      true: '[&_[data-type=trigger]]:border-b',
+      false: '[&_[data-type=trigger]]:border-b-transparent',
+    },
+    iconPosition: {
+      start: '[&_[data-type=trigger]]:gap-2',
+      end: '[&_[data-type=trigger]]:justify-between',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'md',
+  },
+});
+const collapseContentVariants = cva('overflow-hidden', {
+  variants: {
+    variant: {
+      default: '',
+      bordered: '',
+    },
+    size: {
+      sm: '[&_[data-type=content]]:p-1',
+      md: '[&_[data-type=content]]:p-2',
+      lg: '[&_[data-type=content]]:p-4',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
     size: 'md',
   },
 });
@@ -39,6 +93,10 @@ const collapseAnimationVariants: Variants = {
   },
 };
 
+// Types
+
+type IconPosition = 'start' | 'end';
+
 export type CollapseItemProps = {
   id: number | string;
   title: string;
@@ -48,23 +106,29 @@ export type CollapseItemProps = {
 export type CollapseHeaderProps = Omit<
   accordion.Api['getItemTriggerProps'],
   'content'
-> & {
-  children: React.ReactNode;
-  open?: boolean;
-};
+> &
+  VariantProps<typeof collapseHeaderVariants> & {
+    children: React.ReactNode;
+    open?: boolean;
+    className?: string;
+    iconPosition?: IconPosition;
+  };
 
 export type CollapseContentProps = Omit<
   accordion.Api['getItemContentProps'],
   'content' | 'hidden'
-> & {
-  children?: React.ReactNode;
-  open?: boolean;
-};
+> &
+  VariantProps<typeof collapseContentVariants> & {
+    children?: React.ReactNode;
+    open?: boolean;
+    className?: string;
+  };
 
 export type CollapseProps = {
   items?: CollapseItemProps[];
   defaultValues?: number[] | string[];
   multiple?: boolean;
+  iconPosition?: IconPosition;
 } & accordion.Api['rootProps'] &
   React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof collapseVariants>;
@@ -87,24 +151,40 @@ export type CollapseProps = {
 // CollapseItem.displayName = 'CollapseItem';
 
 const CollapseHeader = React.forwardRef<HTMLDivElement, CollapseHeaderProps>(
-  ({ children, open, ...props }, ref) => {
+  (
+    { children, iconPosition, variant, size, className, open, ...props },
+    ref
+  ) => {
+    const classNames = cn(
+      collapseHeaderVariants({ variant, size, iconPosition, open, className })
+    );
+
+    const iconClassNames = cn(
+      'flex items-center justify-center text-inherit',
+      iconPosition === 'end' ? 'order-2' : '-order-1'
+    );
+
     return (
-      <h3 ref={ref}>
-        <button
-          className='aria-[expanded="true"] flex w-full items-center justify-between bg-red-300'
-          data-type='trigger'
-          {...props}
-        >
-          {children}
-          <motion.span
-            className='flex items-center justify-center'
-            variants={arrowAnimationVariants}
-            animate={open ? 'open' : 'close'}
+      <div ref={ref} className={classNames}>
+        <h3>
+          <button
+            //   aria-[expanded="true"]
+            className='flex w-full items-center'
+            data-type='trigger'
+            {...props}
           >
-            <ChevronDownIcon size={18} />
-          </motion.span>
-        </button>
-      </h3>
+            {children}
+            <motion.span
+              className={iconClassNames}
+              variants={arrowAnimationVariants}
+              animate={open ? 'open' : 'close'}
+              initial={open ? 'open' : 'close'}
+            >
+              <ChevronDownIcon size={IconSizes[size || 'md']} />
+            </motion.span>
+          </button>
+        </h3>
+      </div>
     );
   }
 );
@@ -112,21 +192,20 @@ const CollapseHeader = React.forwardRef<HTMLDivElement, CollapseHeaderProps>(
 CollapseHeader.displayName = 'CollapseHeader';
 
 const CollapseContent = React.forwardRef<HTMLDivElement, CollapseContentProps>(
-  ({ children, open, ...props }, ref) => {
-    console.log('Content_props');
-    console.log(props);
+  ({ children, open, size, variant, className, ...props }, ref) => {
+    const classNames = cn(
+      collapseContentVariants({ variant, size, className })
+    );
 
     return (
       <motion.div
         ref={ref}
-        className='overflow-hidden'
+        className={classNames}
         variants={collapseAnimationVariants}
         animate={open ? 'open' : 'close'}
         {...props}
       >
-        <div className='bg-yellow-300' data-type='content'>
-          {children}
-        </div>
+        <div data-type='content'>{children}</div>
       </motion.div>
     );
   }
@@ -141,12 +220,14 @@ export const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>(
       defaultValues = ['1'],
       multiple = false,
       size,
+      variant,
+      iconPosition = 'end',
       className,
       ...props
     },
     ref
   ) => {
-    const classNames = cn(collapseVariants({ size, className }));
+    const classNames = cn(collapseVariants({ size, variant, className }));
 
     const [state, send] = useMachine(
       accordion.machine({
@@ -160,14 +241,14 @@ export const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>(
 
     const activeItem = api.value;
 
-    console.log('activeItem');
-    console.log(activeItem);
-
     return (
       <div ref={ref} className={classNames} {...props} {...api.rootProps}>
         {items?.map((item) => (
           <div key={item.id} {...api.getItemProps({ value: String(item.id) })}>
             <CollapseHeader
+              iconPosition={iconPosition}
+              size={size}
+              variant={variant}
               open={activeItem.includes(String(item.id))}
               {...api.getItemTriggerProps({
                 value: String(item.id),
@@ -176,6 +257,8 @@ export const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>(
               {item.title}
             </CollapseHeader>
             <CollapseContent
+              size={size}
+              variant={variant}
               open={activeItem.includes(String(item.id))}
               {...api.getItemContentProps({ value: String(item.id) })}
             >
