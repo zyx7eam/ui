@@ -30,6 +30,9 @@ async function getDocFromParams({ params }: DocsPageProps) {
     path: `/${doc?._raw?.sourceFilePath}`,
   };
 
+  console.log('currentRoute');
+  console.log(currentRoute);
+
   return { doc, headings, currentRoute };
 }
 
@@ -81,6 +84,7 @@ export default async function DocPage({ params }: DocsPageProps) {
   const { doc, headings, currentRoute } = await getDocFromParams({ params });
 
   if (!doc) {
+    console.log('Not found!');
     notFound();
   }
 

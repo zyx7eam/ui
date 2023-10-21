@@ -35,7 +35,7 @@ export const Pre = ({ children, ...props }: any) => {
   const copyCodeData = props['raw'] || null;
 
   return (
-    <div className='relative [&_>.copy]:hover:opacity-100'>
+    <div className='[&_[data-highlighted-line]]:bg-primary/10 relative [&_>.copy]:hover:opacity-100'>
       <ClipboardButton
         classNames='copy absolute right-1 top-1 opacity-0'
         content={copyCodeData}

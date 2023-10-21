@@ -40,7 +40,6 @@ export const routes: RoutesWithChildrenProps[] = [
         href: '/docs/components/accordion',
         title: 'Accordion',
         isNew: true,
-        disabled: true,
       },
     ],
   },
