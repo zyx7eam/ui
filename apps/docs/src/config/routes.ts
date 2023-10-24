@@ -41,6 +41,13 @@ export const routes: RoutesWithChildrenProps[] = [
         title: 'Accordion',
         isNew: true,
       },
+      {
+        _key: 'typography',
+        href: '/docs/components/typography',
+        title: 'Typography',
+        isNew: true,
+        disabled: true,
+      },
     ],
   },
 ];
