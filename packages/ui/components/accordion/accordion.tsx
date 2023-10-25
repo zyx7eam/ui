@@ -213,7 +213,7 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = 'AccordionContent';
 
-export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   (
     {
       items,
@@ -272,3 +272,4 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 );
 
 Accordion.displayName = 'Accordion';
+export default Accordion;

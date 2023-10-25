@@ -163,7 +163,7 @@ export type AlertProps = {
   React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof alertVariants>;
 
-export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   (
     { title, description, color, variant, icon, direction, radius, className },
     ref
@@ -191,3 +191,5 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 );
 
 Alert.displayName = 'Alert';
+
+export default Alert;

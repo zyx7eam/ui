@@ -13,23 +13,20 @@ const typographyVariants = cva('', {
   },
 });
 
-export type TypographyProps = {} & React.HTMLAttributes<HTMLElement> &
+type TypographyProps = {} & React.HTMLAttributes<HTMLHeadingElement> &
   VariantProps<typeof typographyVariants>;
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
-  ({ className, as = 'article', children, ...props }, ref) => {
-    const classNames = cn(typographyVariants({ as }), className);
-    const Component = React.createElement(
-      as!,
-      {
-        className: classNames,
-        ref: ref,
-        ...props,
-      },
-      children
-    );
+  ({ className, as: element = 'article', children, ...props }, ref) => {
+    const classNames = cn(typographyVariants({ as: element }), className);
 
-    return Component;
+    const Component = element as any;
+
+    return (
+      <Component ref={ref} className={classNames} {...props}>
+        {children}
+      </Component>
+    );
   }
 );
 
