@@ -11,5 +11,4 @@ export { default as Alert } from './alert';
 export type { AccordionProps } from './accordion';
 export { default as Accordion } from './accordion';
 
-// export type { TypographyProps } from './typography';
-export { default } from './typography';
+export { Typography, Title } from './typography';

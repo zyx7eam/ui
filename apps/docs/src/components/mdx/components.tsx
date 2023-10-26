@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils.docs';
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import ClipboardButton from './clipboard';
-import Link from 'next/link';
 import { LinkIcon } from 'lucide-react';
+import PreClient from './pre';
 
 type DivElProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -33,20 +33,15 @@ export const Preview = ({ children, className, ...props }: DivElProps) => {
 export const Pre = ({ children, ...props }: any) => {
   const lang = props['data-lang'] || 'shell';
   const copyCodeData = props['raw'] || null;
+  const theme = props['data-theme'] || 'dark';
+
+  if (theme === 'light') return null;
 
   return (
-    <div className='[&_[data-highlighted-line]]:bg-primary/10 relative [&_>.copy]:hover:opacity-100'>
-      <ClipboardButton
-        classNames='copy absolute right-1 top-1 opacity-0'
-        content={copyCodeData}
-      />
-      <pre
-        data-language={lang}
-        className='!bg-muted m-0 rounded-none p-2 text-sm backdrop-blur-sm'
-        {...props}
-      >
+    <div className='[&_[data-highlighted-line]]:bg-primary/10'>
+      <PreClient lang={lang} copyCodeData={copyCodeData} {...props}>
         {children}
-      </pre>
+      </PreClient>
     </div>
   );
 };
