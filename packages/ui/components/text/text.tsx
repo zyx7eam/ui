@@ -2,7 +2,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react';
 import { cn } from 'shared-lib';
 
-const titleVariants = cva('', {
+const textVariants = cva('', {
   variants: {
     color: {
       default: 'text-primary',
@@ -17,11 +17,18 @@ const titleVariants = cva('', {
       h4: 'text-2xl',
       h5: 'text-lg',
       h6: 'text-sm',
+      p: 'mb-2',
     },
     weight: {
-      bold: 'font-bold',
-      medium: 'font-medium',
+      thin: 'font-thin',
+      extralight: 'font-extralight',
       light: 'font-light',
+      normal: '',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
+      extrabold: 'font-extrabold',
+      '2extrabold': 'font-2extrabold',
     },
     del: {
       true: 'line-through',
@@ -39,17 +46,17 @@ const titleVariants = cva('', {
   defaultVariants: {
     color: 'default',
     as: 'h1',
-    weight: 'bold',
+    weight: 'normal',
     del: false,
     italic: false,
     disabled: false,
   },
 });
 
-export type TitleProps = {} & React.HTMLAttributes<HTMLTitleElement> &
-  VariantProps<typeof titleVariants>;
+export type TextProps = {} & React.HTMLAttributes<HTMLElement> &
+  VariantProps<typeof textVariants>;
 
-const Title = React.forwardRef<HTMLTitleElement, TitleProps>(
+const Text = React.forwardRef<HTMLElement, TextProps>(
   (
     {
       as: element = 'h1',
@@ -65,7 +72,7 @@ const Title = React.forwardRef<HTMLTitleElement, TitleProps>(
     ref
   ) => {
     const classNames = cn(
-      titleVariants({ as: element, color, weight, del, italic, disabled }),
+      textVariants({ as: element, color, weight, del, italic, disabled }),
       className
     );
 
@@ -81,6 +88,6 @@ const Title = React.forwardRef<HTMLTitleElement, TitleProps>(
   }
 );
 
-Title.displayName = 'Title';
+Text.displayName = 'Text';
 
-export default Title;
+export default Text;

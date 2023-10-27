@@ -42,9 +42,9 @@ export const routes: RoutesWithChildrenProps[] = [
         isNew: true,
       },
       {
-        _key: 'typography',
-        href: '/docs/components/typography',
-        title: 'Typography',
+        _key: 'text',
+        href: '/docs/components/text',
+        title: 'Text',
         isNew: true,
         disabled: true,
       },

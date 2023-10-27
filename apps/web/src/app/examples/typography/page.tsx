@@ -1,24 +1,24 @@
 import React from 'react';
 
-import { Button, Typography, Title } from 'ui';
+import { Button, Text } from 'ui';
 
 const TypographyPage = () => {
   return (
     <div>
       <Button variant='flat'>sdsd</Button>
-      <Typography as='article'>Typography</Typography>
-      <Title as='h1' disabled>
+      <Text as='h1' disabled>
         H1
-      </Title>
-      <Title as='h2' italic>
+      </Text>
+      <Text as='h2' italic>
         H2
-      </Title>
-      <Title as='h3' del>
+      </Text>
+      <Text as='h3' del>
         H3
-      </Title>
-      <Title as='h4'>H4</Title>
-      <Title as='h5'>H5</Title>
-      <Title as='h6'>H6</Title>
+      </Text>
+      <Text as='h4'>H4</Text>
+      <Text as='h5'>H5</Text>
+      <Text as='h6'>H6</Text>
+      <Text as='p'>This is an paragraph</Text>
     </div>
   );
 };
