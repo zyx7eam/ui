@@ -17,7 +17,9 @@ const textVariants = cva('', {
       h4: 'text-2xl',
       h5: 'text-lg',
       h6: 'text-sm',
-      p: 'mb-2',
+      p: 'mb-3 mt-1',
+      span: '',
+      mark: 'inline-block rounded-md px-1',
     },
     weight: {
       thin: 'font-thin',
@@ -42,7 +44,38 @@ const textVariants = cva('', {
       true: 'opacity-60 cursor-not-allowed',
       false: '',
     },
+    lineClamp: {
+      none: '',
+      1: 'line-clamp-1',
+      2: 'line-clamp-2',
+      3: 'line-clamp-3',
+      4: 'line-clamp-4',
+      5: 'line-clamp-5',
+      6: 'line-clamp-6',
+    },
   },
+  compoundVariants: [
+    {
+      as: 'mark',
+      color: 'default',
+      className: 'bg-primary text-primary-foreground',
+    },
+    {
+      as: 'mark',
+      color: 'error',
+      className: 'bg-error text-error-foreground',
+    },
+    {
+      as: 'mark',
+      color: 'success',
+      className: 'bg-success text-success-foreground',
+    },
+    {
+      as: 'mark',
+      color: 'warning',
+      className: 'bg-warning text-warning-foreground',
+    },
+  ],
   defaultVariants: {
     color: 'default',
     as: 'h1',
@@ -50,6 +83,7 @@ const textVariants = cva('', {
     del: false,
     italic: false,
     disabled: false,
+    lineClamp: 'none',
   },
 });
 
@@ -67,12 +101,21 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
       disabled,
       className,
       children,
+      lineClamp,
       ...props
     },
     ref
   ) => {
     const classNames = cn(
-      textVariants({ as: element, color, weight, del, italic, disabled }),
+      textVariants({
+        as: element,
+        color,
+        weight,
+        del,
+        italic,
+        disabled,
+        lineClamp,
+      }),
       className
     );
 

@@ -18,7 +18,31 @@ const TypographyPage = () => {
       <Text as='h4'>H4</Text>
       <Text as='h5'>H5</Text>
       <Text as='h6'>H6</Text>
-      <Text as='p'>This is an paragraph</Text>
+      <Text as='p' lineClamp={6}>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti qui
+        corporis reiciendis excepturi perspiciatis enim eaque voluptas, magni
+        rerum itaque iste neque voluptatibus accusamus alias saepe assumenda
+        labore quas molestias. Est recusandae quaerat ipsa commodi quae
+        assumenda ab{' '}
+        <Text as='mark' color='error'>
+          facilis
+        </Text>{' '}
+        fuga illo maxime fugiat error deserunt quisquam dignissimos{' '}
+        <Text as='span' color='error'>
+          quis
+        </Text>
+        , laboriosam neque sit molestias nihil porro distinctio repudiandae
+        nostrum. Ipsum, dolor ratione! Ad, aspernatur? Animi laboriosam
+        obcaecati perferendis numquam esse commodi deleniti, explicabo officiis
+        iste vel optio dolores laudantium. Expedita ea quae possimus nihil
+        incidunt alias vitae pariatur fugiat? Omnis, in ipsam. Sint non
+        consequuntur inventore eos consectetur. Quae ipsa molestiae, similique,
+        earum nobis tempora vel doloremque blanditiis doloribus voluptatem
+        cupiditate dignissimos in officia sapiente soluta accusantium! Ratione
+        iure nemo sunt veritatis? Obcaecati, quas dolore! Quis, laborum. Soluta
+        distinctio, eius quas saepe est tenetur omnis vel earum blanditiis a
+        ducimus sint ab non dolore illo reiciendis eligendi
+      </Text>
     </div>
   );
 };
