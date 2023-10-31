@@ -27,7 +27,15 @@ const TypographyPage = () => {
         <Text as='mark' color='error'>
           facilis
         </Text>{' '}
-        fuga illo maxime fugiat error deserunt quisquam dignissimos{' '}
+        <Text as='mark'>fuga</Text> illo{' '}
+        <Text as='mark' color='success'>
+          maxime
+        </Text>{' '}
+        fugiat{' '}
+        <Text as='mark' color='warning'>
+          error
+        </Text>{' '}
+        deserunt quisquam dignissimos{' '}
         <Text as='span' color='error'>
           quis
         </Text>
@@ -43,6 +51,27 @@ const TypographyPage = () => {
         distinctio, eius quas saepe est tenetur omnis vel earum blanditiis a
         ducimus sint ab non dolore illo reiciendis eligendi
       </Text>
+      <div>
+        Code Text Components
+        <div>
+          <Text as='code'>Code with default color</Text>
+        </div>
+        <div>
+          <Text as='code' color='success'>
+            Code with success color
+          </Text>
+        </div>
+        <div>
+          <Text as='code' color='error'>
+            Code with error color
+          </Text>
+        </div>
+        <div>
+          <Text as='code' color='warning'>
+            Code with warning color
+          </Text>
+        </div>
+      </div>
     </div>
   );
 };

@@ -19,7 +19,8 @@ const textVariants = cva('', {
       h6: 'text-sm',
       p: 'mb-3 mt-1',
       span: '',
-      mark: 'inline-block rounded-md px-1',
+      mark: '',
+      code: 'text-xs',
     },
     weight: {
       thin: 'font-thin',
@@ -56,6 +57,10 @@ const textVariants = cva('', {
   },
   compoundVariants: [
     {
+      as: ['mark', 'code'],
+      className: 'inline-block rounded-md px-1',
+    },
+    {
       as: 'mark',
       color: 'default',
       className: 'bg-primary text-primary-foreground',
@@ -74,6 +79,26 @@ const textVariants = cva('', {
       as: 'mark',
       color: 'warning',
       className: 'bg-warning text-warning-foreground',
+    },
+    {
+      as: 'code',
+      color: 'default',
+      className: 'bg-primary/20 text-primary border border-primary',
+    },
+    {
+      as: 'code',
+      color: 'error',
+      className: 'bg-error/20 text-error border border-error',
+    },
+    {
+      as: 'code',
+      color: 'success',
+      className: 'bg-success/20 text-success border border-success',
+    },
+    {
+      as: 'code',
+      color: 'warning',
+      className: 'bg-warning/20 text-warning border border-warning',
     },
   ],
   defaultVariants: {
