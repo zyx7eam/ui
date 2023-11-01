@@ -20,9 +20,13 @@ To create a basic button, simply use the Button component without passing any pr
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button>Basic</Button>
+  export const BasicButtonExample = () => {
+    return (
+      <Button>Basic</Button>
+    )
+  }
   ```
 
 </Example>
@@ -46,12 +50,16 @@ Our `Button` component offers a color palette with options such as `default`, `e
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button color='default'>Default</Button>
-  <Button color='error'>Error</Button>
-  <Button color='warning'>Warning</Button>
-  <Button color='success'>Success</Button>
+  export const ButtonWithColorsExample = () => {
+    return (
+      <Button color='default'>Default</Button>
+      <Button color='error'>Error</Button>
+      <Button color='warning'>Warning</Button>
+      <Button color='success'>Success</Button>
+    )
+  }
   ```
 
 </Example>
@@ -73,14 +81,18 @@ Modify `Button` styles effortlessly using the `variant` prop, with options like 
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button variant='solid'>Solid</Button>
-  <Button variant='bordered'>Bordered</Button>
-  <Button variant='light'>Light</Button>
-  <Button variant='ghost'>Ghost</Button>
-  <Button variant='flat'>Flat</Button>
-  <Button variant='shadow'>Shadow</Button>
+  export const ButtonWithVariants = () => {
+    return (
+      <Button variant='solid'>Solid</Button>
+      <Button variant='bordered'>Bordered</Button>
+      <Button variant='light'>Light</Button>
+      <Button variant='ghost'>Ghost</Button>
+      <Button variant='flat'>Flat</Button>
+      <Button variant='shadow'>Shadow</Button>
+    )
+  }
   ```
 
 </Example>
@@ -98,11 +110,15 @@ Resize your `buttons` effortlessly with the size prop. Choose from `sm` (Small),
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button size='sm'>Small</Button>
-  <Button size='md'>Medium</Button>
-  <Button size='lg'>Large</Button>
+  export const ButtonWithSizes = () => {
+    return (
+      <Button size='sm'>Small</Button>
+      <Button size='md'>Medium</Button>
+      <Button size='lg'>Large</Button>
+    )
+  }
   ```
 
 </Example>
@@ -122,13 +138,17 @@ Easily customize the `border-radius` of your button using the `radius` prop, wit
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button radius='sm'>Small Radius</Button>
-  <Button radius='md'>Medium Radius</Button>
-  <Button radius='lg'>Large Radius</Button>
-  <Button radius='circle'>Circle Radius</Button>
-  <Button radius='none'>None Radius</Button>
+  export const ButtonWithRadiuses = () => {
+    return (
+      <Button radius='sm'>Small Radius</Button>
+      <Button radius='md'>Medium Radius</Button>
+      <Button radius='lg'>Large Radius</Button>
+      <Button radius='circle'>Circle Radius</Button>
+      <Button radius='none'>None Radius</Button>
+    )
+  }
   ```
 
 </Example>
@@ -148,13 +168,17 @@ The `startContent` prop allows you to seamlessly incorporate `ReactNode` element
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button radius='sm' startContent={<GithubIcon size={18} />}>Small Radius</Button>
-  <Button radius='md' startContent={<GithubIcon size={18} />}>Medium Radius</Button>
-  <Button radius='lg' startContent={<GithubIcon size={18} />}>Large Radius</Button>
-  <Button radius='circle' startContent={<GithubIcon size={18} />}>Circle Radius</Button>
-  <Button radius='none' startContent={<GithubIcon size={18} />}>None Radius</Button>
+  export const ButtonWithStartContent = () => {
+    return (
+      <Button radius='sm' startContent={<GithubIcon size={18} />}>Small Radius</Button>
+      <Button radius='md' startContent={<GithubIcon size={18} />}>Medium Radius</Button>
+      <Button radius='lg' startContent={<GithubIcon size={18} />}>Large Radius</Button>
+      <Button radius='circle' startContent={<GithubIcon size={18} />}>Circle Radius</Button>
+      <Button radius='none' startContent={<GithubIcon size={18} />}>None Radius</Button>
+    )
+  }
   ```
 
 </Example>
@@ -174,13 +198,17 @@ The `endContent` prop enables the addition of `ReactNode` elements at the end of
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button radius='sm' endContent={<GithubIcon size={18} />}>Small Radius</Button>
-  <Button radius='md' endContent={<GithubIcon size={18} />}>Medium Radius</Button>
-  <Button radius='lg' endContent={<GithubIcon size={18} />}>Large Radius</Button>
-  <Button radius='circle' endContent={<GithubIcon size={18} />}>Circle Radius</Button>
-  <Button radius='none' endContent={<GithubIcon size={18} />}>None Radius</Button>
+  export const ButtonWithEndContent = () => {
+    return (
+      <Button radius='sm' endContent={<GithubIcon size={18} />}>Small Radius</Button>
+      <Button radius='md' endContent={<GithubIcon size={18} />}>Medium Radius</Button>
+      <Button radius='lg' endContent={<GithubIcon size={18} />}>Large Radius</Button>
+      <Button radius='circle' endContent={<GithubIcon size={18} />}>Circle Radius</Button>
+      <Button radius='none' endContent={<GithubIcon size={18} />}>None Radius</Button>
+    )
+  }
   ```
 
 </Example>
@@ -200,13 +228,47 @@ Here are more examples to show you that [`startContent`](#start-content) & [`end
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <Button radius='sm' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Small Radius</Button>
-  <Button radius='md' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Medium Radius</Button>
-  <Button radius='lg' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Large Radius</Button>
-  <Button radius='circle' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>Circle Radius</Button>
-  <Button radius='none' startContent={<GithubIcon size={18} />} endContent={<GithubIcon size={18} />}>None Radius</Button>
+  export const ButtonWithStartAndEndContent = () => {
+    return (
+      <Button
+        radius='sm'
+        startContent={<GithubIcon size={18} />}
+        endContent={<GithubIcon size={18} />}
+      >
+        Small Radius
+      </Button>
+      <Button
+        radius='md'
+        startContent={<GithubIcon size={18} />}
+        endContent={<GithubIcon size={18} />}
+      >
+        Medium Radius
+      </Button>
+      <Button
+        radius='lg'
+        startContent={<GithubIcon size={18} />}
+        endContent={<GithubIcon size={18} />}
+      >
+        Large Radius
+      </Button>
+      <Button
+        radius='circle'
+        startContent={<GithubIcon size={18} />}
+        endContent={<GithubIcon size={18} />}
+      >
+        Circle Radius
+      </Button>
+      <Button
+        radius='none'
+        startContent={<GithubIcon size={18} />}
+        endContent={<GithubIcon size={18} />}
+      >
+        None Radius
+      </Button>
+    )
+  }
   ```
 
 </Example>
@@ -249,33 +311,37 @@ Create icon-only buttons with ease using the `iconOnly` prop. Use icons from lib
   </Preview>
 
   ```jsx showLineNumbers
-  import {Button} from 'ui';
+  import { Button } from '@geeks/ui';
 
-  <a href='https://github.com/Geeks7eam/ui.git'>
-    <Button iconOnly radius='sm'>
-        <GithubIcon size={18} />
-    </Button>
-  </a>
-  <a href='https://github.com/Geeks7eam/ui.git'>
-    <Button iconOnly radius='md'>
-        <GithubIcon size={18} />
-    </Button>
-  </a>
-  <a href='https://github.com/Geeks7eam/ui.git'>
-    <Button iconOnly radius='lg'>
-        <GithubIcon size={18} />
-    </Button>
-  </a>
-  <a href='https://github.com/Geeks7eam/ui.git'>
-    <Button iconOnly radius='circle'>
-        <GithubIcon size={18} />
-    </Button>
-  </a>
-  <a href='https://github.com/Geeks7eam/ui.git'>
-    <Button iconOnly radius='none'>
-        <GithubIcon size={18} />
-    </Button>
-  </a>
+  export const IconOnlyButtons = () => {
+    return (
+      <a href='https://github.com/Geeks7eam/ui.git'>
+        <Button iconOnly radius='sm'>
+            <GithubIcon size={18} />
+        </Button>
+      </a>
+      <a href='https://github.com/Geeks7eam/ui.git'>
+        <Button iconOnly radius='md'>
+            <GithubIcon size={18} />
+        </Button>
+      </a>
+      <a href='https://github.com/Geeks7eam/ui.git'>
+        <Button iconOnly radius='lg'>
+            <GithubIcon size={18} />
+        </Button>
+      </a>
+      <a href='https://github.com/Geeks7eam/ui.git'>
+        <Button iconOnly radius='circle'>
+            <GithubIcon size={18} />
+        </Button>
+      </a>
+      <a href='https://github.com/Geeks7eam/ui.git'>
+        <Button iconOnly radius='none'>
+            <GithubIcon size={18} />
+        </Button>
+      </a>
+    )
+  }
   ```
 
 </Example>

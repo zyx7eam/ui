@@ -20,4 +20,10 @@
 
 
 0.2.4-beta version
-- Documentation improvment (Show/Hide code)
+- Documentation improvment
+    - Show/Hide code for more performance
+    - change code theme for better ui experience
+    - Button component page: Code made more clean and readable.
+- Button Component: Core Changes: Adobe React-Aria/Button added to improve button component
+- New Components
+    - Text Component
