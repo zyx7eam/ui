@@ -203,6 +203,7 @@ export type ButtonProps = {
   className?: string;
   startContent?: ReactNode;
   endContent?: ReactNode;
+  onClick?: () => void;
 } & AriaButtonOptions<'button'> &
   VariantProps<typeof buttonVariants>;
 
