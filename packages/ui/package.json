@@ -9,6 +9,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@react-aria/button": "^3.8.4",
     "@zag-js/accordion": "^0.25.0",
     "@zag-js/react": "^0.25.0",
     "framer-motion": "^10.16.4",
