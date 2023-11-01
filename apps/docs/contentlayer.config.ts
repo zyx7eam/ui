@@ -8,8 +8,12 @@ import rehypePrettyCode from 'rehype-pretty-code';
 /** @type {import('rehype-pretty-code').Options} */
 const options: import('rehype-pretty-code').Options = {
   theme: {
-    light: 'github-light',
-    dark: 'github-dark-dimmed',
+    // light: 'github-light',
+    // dark: 'github-dark-dimmed',
+    light: 'vitesse-light',
+    // dark: 'dark-plus',
+    // dark: 'one-dark-pro',
+    dark: 'one-dark-pro',
   },
 };
 
