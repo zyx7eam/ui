@@ -28,7 +28,7 @@ const ClipboardButton = ({
       variant={'flat'}
       radius={'circle'}
       className={classNames}
-      onClick={copy}
+      onPress={copy}
       color={copied ? 'success' : 'default'}
     >
       <div className='relative h-full w-full'>

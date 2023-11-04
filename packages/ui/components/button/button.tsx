@@ -1,7 +1,8 @@
 'use client';
 
 import { AriaButtonOptions, useButton } from '@react-aria/button';
-import { ReactNode, RefObject, forwardRef } from 'react';
+import { useObjectRef } from '@react-aria/utils';
+import { ReactNode, forwardRef } from 'react';
 
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from 'shared-lib';
@@ -203,11 +204,11 @@ export type ButtonProps = {
   className?: string;
   startContent?: ReactNode;
   endContent?: ReactNode;
-  onClick?: () => void;
+  // onClick?: () => void;
 } & AriaButtonOptions<'button'> &
   VariantProps<typeof buttonVariants>;
 
-const Button = forwardRef<RefObject<Element>, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
@@ -223,10 +224,9 @@ const Button = forwardRef<RefObject<Element>, ButtonProps>(
     },
     ref
   ) => {
-    const { buttonProps, isPressed } = useButton(
-      props,
-      ref as RefObject<Element>
-    );
+    const forwardRef = useObjectRef(ref);
+
+    const { buttonProps, isPressed } = useButton(props, forwardRef);
 
     const classNames = cn(
       buttonVariants({

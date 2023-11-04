@@ -20,7 +20,7 @@ const PreClient = ({ lang, children, copyCodeData, ...props }: any) => {
         content={copyCodeData}
       />
       {!show ? (
-        <Button radius={'circle'} onClick={() => setShow(!show)}>
+        <Button radius={'circle'} onPress={() => setShow(!show)}>
           Show Code
         </Button>
       ) : (
