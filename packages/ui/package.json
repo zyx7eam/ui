@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@react-aria/button": "^3.8.4",
+    "@react-aria/utils": "^3.21.1",
     "@zag-js/accordion": "^0.25.0",
     "@zag-js/react": "^0.25.0",
     "framer-motion": "^10.16.4",

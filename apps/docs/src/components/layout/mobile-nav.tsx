@@ -20,7 +20,7 @@ const MobileNav = () => {
   return (
     <>
       <div className='block lg:hidden'>
-        <Button iconOnly radius={'circle'} variant={'flat'} onClick={toggleNav}>
+        <Button iconOnly radius={'circle'} variant={'flat'} onPress={toggleNav}>
           <MenuIcon size={18} />
         </Button>
       </div>
