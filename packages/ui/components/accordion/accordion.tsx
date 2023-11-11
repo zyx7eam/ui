@@ -4,7 +4,7 @@ import * as accordion from '@zag-js/accordion';
 import { useMachine, normalizeProps } from '@zag-js/react';
 import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react';
-import { cn } from 'shared-lib';
+import { cn } from '../../lib';
 import { ChevronDownIcon } from 'lucide-react';
 import { Variants, motion } from 'framer-motion';
 
