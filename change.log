@@ -25,5 +25,6 @@
     - change code theme for better ui experience
     - Button component page: Code made more clean and readable.
 - Button Component: Core Changes: Adobe React-Aria/Button added to improve button component
+- Accordion Component: Fix first close animation.
 - New Components
     - Text Component

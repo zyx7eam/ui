@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from 'ui';
+import { Button } from 'geeks-ui';
 import ClipboardButton from './clipboard';
 import { cn } from 'shared-lib';
 

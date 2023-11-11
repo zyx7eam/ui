@@ -11,7 +11,7 @@
   "dependencies": {
     "config": "*",
     "tsconfig": "*",
-    "ui": "*",
+    "geeks-ui": "*",
     "shared-lib": "*"
   }
 }

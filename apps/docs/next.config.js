@@ -4,7 +4,7 @@ const withContentlayer = require('next-contentlayer').withContentlayer;
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  transpilePackages: ['ui'],
+  transpilePackages: ['geeks-ui'],
   async redirects() {
     return [
       {

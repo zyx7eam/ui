@@ -1,6 +1,6 @@
 import { MoveRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from 'ui';
+import { Button } from 'geeks-ui';
 
 export default function Home() {
   return (

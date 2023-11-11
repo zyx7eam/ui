@@ -1,5 +1,5 @@
 import { GithubIcon, MoveRightIcon, XCircleIcon } from 'lucide-react';
-import { Alert, Button } from 'ui';
+import { Alert, Button } from 'geeks-ui';
 
 const colors = ['default', 'success', 'warning', 'error'] as const;
 const sizes = ['sm', 'md', 'lg'] as const;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion } from 'ui';
+import { Accordion } from 'geeks-ui';
 const AccordionPage = () => {
   return (
     <div>
@@ -36,7 +36,7 @@ const AccordionPage = () => {
           <div className='p-5'>
             <div className='grid grid-cols-12 gap-2'>
               <h1 className='col-span-12 text-2xl font-bold'>
-                @Geeks/ui 0.2.3-beta Version {'\u{1F4E2}'}{' '}
+                @Geeks-ui 0.2.3-beta Version {'\u{1F4E2}'}{' '}
                 <span className='rounded-md border border-pink-700 bg-pink-700/20 p-1 text-sm font-light text-pink-700'>
                   Preview Version Available
                 </span>
