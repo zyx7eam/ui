@@ -1,6 +1,6 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react';
-import { cn } from 'shared-lib';
+import { cn } from '../../lib';
 
 const alertVariants = cva('p-4 border overflow-hidden flex gap-2', {
   variants: {

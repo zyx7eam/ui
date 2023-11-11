@@ -1,19 +1,24 @@
 {
-  "name": "ui",
+  "name": "geeks-ui",
   "version": "0.2.3-beta",
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.mjs",
+  "module": "./dist/index.d.ts",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "vitest run",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "build": "tsup ./index.ts --format cjs,esm --dts",
+    "publish-packages": "turbo run build lint test && npx changeset version && changeset publish"
   },
   "dependencies": {
     "@react-aria/button": "^3.8.4",
     "@zag-js/accordion": "^0.25.0",
     "@zag-js/react": "^0.25.0",
     "framer-motion": "^10.16.4",
-    "shared-lib": "*",
     "tsconfig": "*"
   }
 }

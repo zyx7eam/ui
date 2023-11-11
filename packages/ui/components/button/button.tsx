@@ -4,7 +4,7 @@ import { AriaButtonOptions, useButton } from '@react-aria/button';
 import { ReactNode, RefObject, forwardRef } from 'react';
 
 import { VariantProps, cva } from 'class-variance-authority';
-import { cn } from 'shared-lib';
+import { cn } from '../../lib';
 
 const buttonVariants = cva(
   'relative inline-flex gap-1 items-center justify-center font-medium transition-all border aria-[disabled=true]:opacity-40',
