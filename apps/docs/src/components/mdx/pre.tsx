@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from 'geeks-ui';
+import { Button } from '@geeks/ui';
 import ClipboardButton from './clipboard';
-import { cn } from 'shared-lib';
+import { cn } from '@geeks/lib';
 
 const PreClient = ({ lang, children, copyCodeData, ...props }: any) => {
   const [show, setShow] = useState<boolean>(false);

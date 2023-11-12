@@ -1,10 +1,13 @@
 {
-  "name": "config",
+  "name": "@geeks/config",
   "version": "0.2.3-beta",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "publish-packages": "turbo run build lint test && npx changeset version && changeset publish"
   },
   "files": [
     ".eslintrc.js",

@@ -2,7 +2,7 @@
 
 import { MenuIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Button } from 'geeks-ui';
+import { Button } from '@geeks/ui';
 import { AsideLinks } from './aside-links';
 import { routes } from '@/config/routes';
 import { usePathname } from 'next/navigation';

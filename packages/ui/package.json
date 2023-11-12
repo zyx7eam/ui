@@ -1,5 +1,5 @@
 {
-  "name": "geeks-ui",
+  "name": "@geeks/ui",
   "version": "0.2.3-beta",
   "main": "./dist/index.js",
   "types": "./dist/index.mjs",
@@ -20,6 +20,7 @@
     "@zag-js/accordion": "^0.25.0",
     "@zag-js/react": "^0.25.0",
     "framer-motion": "^10.16.4",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "@geeks/lib": "*"
   }
 }

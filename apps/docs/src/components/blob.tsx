@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { cn } from 'shared-lib';
+import { cn } from '@geeks/lib';
 
 const Blob = () => {
   const pathname = usePathname();

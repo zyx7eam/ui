@@ -23,10 +23,10 @@
     "rehype-prism-plus": "^1.6.3",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "3.0.1",
-    "shared-lib": "*",
+    "@geeks/lib": "*",
     "shiki": "^0.14.5",
     "tsconfig": "*",
-    "geeks-ui": "*",
+    "@geeks/ui": "*",
     "unist-util-visit": "^5.0.0",
     "zustand": "^4.4.3"
   },
