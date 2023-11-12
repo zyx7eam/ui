@@ -2,7 +2,7 @@ import { navLinks } from '@/config/nav';
 import { BadgeInfoIcon, GithubIcon, MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { LegacyRef } from 'react';
-import { Button, Alert } from 'geeks-ui';
+import { Button, Alert } from '@geeks/ui';
 import MobileNav from './mobile-nav';
 import NavbarProvider from './navbar.provider';
 
@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className='w-96'>
             <Link href={'/'}>
               <h1>
-                @geeks-ui{' '}
+                @@geeks/ui{' '}
                 <span className='ms-2 rounded-md border border-pink-700 bg-pink-700/20 p-1 text-xs text-pink-700'>
                   Preview
                 </span>

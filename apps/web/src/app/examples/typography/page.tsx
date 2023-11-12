@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Text } from 'geeks-ui';
+import { Button, Text } from '@geeks/ui';
 
 const TypographyPage = () => {
   return (

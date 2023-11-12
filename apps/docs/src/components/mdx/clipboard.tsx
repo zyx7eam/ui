@@ -1,10 +1,10 @@
 'use client';
 
 import { ClipboardIcon, CheckIcon } from 'lucide-react';
-import { Button } from 'geeks-ui';
+import { Button } from '@geeks/ui';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { cn } from 'shared-lib';
+import { cn } from '@geeks/lib';
 
 const ClipboardButton = ({
   classNames,

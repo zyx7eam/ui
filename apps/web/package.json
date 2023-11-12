@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "config": "*",
+    "@geeks/config": "*",
     "tsconfig": "*",
-    "geeks-ui": "*",
-    "shared-lib": "*"
+    "@geeks/ui": "*",
+    "@geeks/lib": "*"
   }
 }

@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { ModeToggle, ThemeProvider } from 'geeks-ui';
+import { ModeToggle, ThemeProvider } from '@geeks/ui';
 import Navbar from '../components/layout/navbar';
 import Container from '../components/container';
 import Blob from '../components/elements/blob';

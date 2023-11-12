@@ -3,7 +3,7 @@ import type { MDXComponents as MDXComponentsType } from 'mdx/types';
 
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { cn } from 'shared-lib';
+import { cn } from '@geeks/lib';
 import { Example, Heading, Paragraph, Pre, Preview } from './mdx/components';
 
 interface MDXContentProps {

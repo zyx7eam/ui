@@ -1,7 +1,7 @@
 import React from 'react';
 import { routes } from '../../config/routes';
 import { AsideLinks } from '../../components/layout/aside-links';
-import { Alert } from 'geeks-ui';
+import { Alert } from '@geeks/ui';
 
 export default function DocsLayout({
   children,
