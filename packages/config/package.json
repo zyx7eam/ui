@@ -1,0 +1,17 @@
+{
+  "name": "@zyxui/config",
+  "version": "0.2.3-beta",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "postcss": "^8.4.31",
+    "tailwindcss": "3.3.2",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.2.2"
+  }
+}

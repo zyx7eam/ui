@@ -1,0 +1,9 @@
+{
+  "name": "@zyxui/tsconfig",
+  "version": "0.2.3-beta",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

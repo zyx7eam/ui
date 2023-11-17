@@ -1,0 +1,29 @@
+{
+  "name": "@zyxui/lib",
+  "version": "0.2.3-beta",
+  "description": "",
+  "keywords": [
+    "zyxui-libs"
+  ],
+  "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
+  "homepage": "https://ui.geeksteam.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
