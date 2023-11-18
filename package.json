@@ -16,7 +16,8 @@
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "@zyxui/tsconfig": "workspace:*",
-    "turbo": "latest"
+    "turbo": "latest",
+    "prettier-plugin-tailwindcss": "^0.4.1"
   },
   "packageManager": "pnpm@8.6.10",
   "dependencies": {

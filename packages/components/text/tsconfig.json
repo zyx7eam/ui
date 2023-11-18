@@ -1,0 +1,9 @@
+{
+    "extends": "@zyxui/tsconfig/react-library.json",
+    "include": ["."],
+    "exclude": ["dist", "build", "node_modules"],
+    "compilerOptions": {
+      "moduleResolution": "nodenext",
+      "module": "nodenext"
+    }
+  }

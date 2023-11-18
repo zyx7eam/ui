@@ -1,0 +1,406 @@
+---
+title: '@zyxui/accordion | Accordion Component'
+---
+
+import Accordion from '@zyxui/accordion'
+
+# Accordion
+
+
+An `Accordion` is a web component that allows users to expand or collapse content sections to save space and simplify navigation.
+
+
+## Basic Accordion
+
+To create a basic accordion, simply write this code below:
+
+<Example>
+    <Preview>
+        <Accordion
+            defaultValues={['0']}
+            items={[
+                {
+                    id: 0,
+                    title: "Item One",
+                    content: <p>This is content of Item One</p>
+                },
+                {
+                    id: 1,
+                    title: "Item Two",
+                    content: <p>This is content of Item Two</p>
+                }
+            ]}
+        />
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Accordion from '@zyxui/accordion'
+
+    <Accordion
+          defaultValues={['0']}
+          items={[
+              {
+                  id: 0,
+                  title: "Item One",
+                  content: <p>This is content of Item One</p>
+              },
+              {
+                  id: 1,
+                  title: "Item Two",
+                  content: <p>This is content of Item Two</p>
+              }
+          ]}
+    />
+    ```
+</Example>
+
+
+## Customization
+
+Personalize your accordion component with ease using our provided props.
+
+### Variants
+
+Our `Accordion` component <ins>currently</ins> offers two distinct variants: `default` and `bordered`.
+
+<Example>
+    <Preview>
+        <div className='grid grid-cols-1 lg:gird-cols-2 [&_p]:m-0 [&_h3]:m-0'>
+            <div>
+                <h4>Default Variant</h4>
+                <Accordion
+                    defaultValues={['0']}
+                    items={[
+                        {
+                            id: 0,
+                            title: "Item One",
+                            content: <p>This is content of Item One</p>
+                        },
+                        {
+                            id: 1,
+                            title: "Item Two",
+                            content: <p>This is content of Item Two</p>
+                        }
+                    ]}
+                />
+            </div>
+            <div>
+                <h4>Bordered Variant</h4>
+                <Accordion
+                    defaultValues={['0']}
+                    variant='bordered'
+                    items={[
+                        {
+                            id: 0,
+                            title: "Item One",
+                            content: <p>This is content of Item One</p>
+                        },
+                        {
+                            id: 1,
+                            title: "Item Two",
+                            content: <p>This is content of Item Two</p>
+                        }
+                    ]}
+                />
+            </div>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Accordion from '@zyxui/accordion'
+
+    <div className='grid grid-cols-1 lg:gird-cols-2'>
+        <div>
+            <h4>Default Variant</h4>
+            <Accordion
+                defaultValues={['0']}
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+        <div>
+            <h4>Bordered Variant</h4>
+            <Accordion
+                defaultValues={['0']}
+                variant='bordered'
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+    </div>
+    ```
+</Example>
+
+
+### Multiple
+
+Multiple openable accordions allow you to expand more than one section at a time, providing flexible content access.
+
+the default value is `false`, so you will need to pass `multiple` props as `true`
+
+<Example>
+    <Preview>
+         <div className='[&_p]:m-0 [&_h3]:m-0'>
+             <h4>Multiple Accordion</h4>
+             <Accordion
+                 defaultValues={['0']}
+                 multiple={true}
+                 items={[
+                     {
+                         id: 0,
+                         title: "Item One",
+                         content: <p>This is content of Item One</p>
+                     },
+                     {
+                         id: 1,
+                         title: "Item Two",
+                         content: <p>This is content of Item Two</p>
+                     }
+                 ]}
+             />
+         </div>
+    </Preview>
+
+    ```tsx showLineNumbers {7}
+    import Accordion from '@zyxui/accordion'
+
+     <div>
+        <h4>Multiple Accordion</h4>
+        <Accordion
+            defaultValues={['0']}
+            multiple={true}
+            items={[
+                {
+                    id: 0,
+                    title: "Item One",
+                    content: <p>This is content of Item One</p>
+                },
+                {
+                    id: 1,
+                    title: "Item Two",
+                    content: <p>This is content of Item Two</p>
+                }
+            ]}
+        />
+    </div>
+    ```
+</Example>
+
+
+### Sizes
+
+The `Accordion` component also comes in different sizes, offering customization options by using the `size` prop with `sm`, `md`, or lg`.
+
+
+<Example>
+    <Preview>
+    <div className='grid grid-cols-1 lg:gird-cols-2 [&_p]:m-0 [&_h3]:m-0'>
+        <div>
+            <h4>Small Size Accordion</h4>
+            <Accordion
+                size='sm'
+                defaultValues={['0']}
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+        <div>
+            <h4>Medium Size Accordion (The default size)</h4>
+            <Accordion
+                defaultValues={['0']}
+                size='md'
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+        <div>
+            <h4>Large Size Accordion</h4>
+            <Accordion
+                defaultValues={['0']}
+                size='lg'
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+    </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Accordion from '@zyxui/accordion'
+
+    <div className='grid grid-cols-1 lg:gird-cols-2'>
+        <div>
+            <h4>Small Size Accordion</h4>
+            <Accordion
+                size='sm'
+                defaultValues={['0']}
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+        <div>
+            <h4>Medium Size Accordion (The default size)</h4>
+            <Accordion
+                defaultValues={['0']}
+                size='md'
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+        <div>
+            <h4>Large Size Accordion</h4>
+            <Accordion
+                defaultValues={['0']}
+                size='lg'
+                items={[
+                    {
+                        id: 0,
+                        title: "Item One",
+                        content: <p>This is content of Item One</p>
+                    },
+                    {
+                        id: 1,
+                        title: "Item Two",
+                        content: <p>This is content of Item Two</p>
+                    }
+                ]}
+            />
+        </div>
+    </div>
+    ```
+</Example>
+
+
+### Icon Position
+
+You can easily change the position of the accordion icon to either the `start` or the `end` as per your preference. The default value is `end`
+
+<Example>
+    <Preview>
+         <div className='[&_p]:m-0 [&_h3]:m-0'>
+             <h4>Start Icon Position</h4>
+             <Accordion
+                 defaultValues={['0']}
+                 iconPosition='start'
+                 items={[
+                     {
+                         id: 0,
+                         title: "Item One",
+                         content: <p>This is content of Item One</p>
+                     },
+                     {
+                         id: 1,
+                         title: "Item Two",
+                         content: <p>This is content of Item Two</p>
+                     }
+                 ]}
+             />
+         </div>
+    </Preview>
+
+    ```tsx showLineNumbers {7}
+    import Accordion from '@zyxui/accordion'
+
+     <div>
+        <h4>Start Icon Position</h4>
+        <Accordion
+            defaultValues={['0']}
+            iconPosition='start'
+            items={[
+                {
+                    id: 0,
+                    title: "Item One",
+                    content: <p>This is content of Item One</p>
+                },
+                {
+                    id: 1,
+                    title: "Item Two",
+                    content: <p>This is content of Item Two</p>
+                }
+            ]}
+        />
+    </div>
+    ```
+</Example>
+
+
+## API Reference
+
+| Property            | Description                               | Type        | Default     |
+| --------------------|-------------------------------------------|-------------|-------------|
+| items | Accordion items | `{id: number \| string; title: string; content: ReactNode}[]` | `[]` |
+| variant | Change accordion base styles. | `default` \| `bordered` | `default` |
+| size | Accordion size. | `ms` \| `md` \| `lg` | `md` |
+| multiple | Multiple openable items. | `boolean` | `false` |
+| iconPosition | Change accordion icon position. | `start` \| `end` | `end` |
+| className | Adding custom class names to your accordion. | `string` | `undefined` |
