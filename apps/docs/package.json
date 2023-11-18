@@ -1,12 +1,13 @@
 {
-  "name": "docs",
-  "version": "0.1.0",
+  "name": "@zyxui/docs",
+  "version": "0.2.3-beta",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf node_modules"
   },
   "dependencies": {
     "config": "*",

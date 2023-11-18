@@ -10,7 +10,7 @@ const PreClient = ({ lang, children, copyCodeData, ...props }: any) => {
   const classNames = cn(
     show
       ? 'relative [&_>.copy]:hover:opacity-100 [&_>.copy]:z-20'
-      : 'flex min-h-[5rem] items-center justify-center'
+      : 'flex min-h-[5rem] items-center justify-center',
   );
 
   return (

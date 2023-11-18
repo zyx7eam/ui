@@ -129,7 +129,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
       lineClamp,
       ...props
     },
-    ref
+    ref,
   ) => {
     const classNames = cn(
       textVariants({
@@ -141,7 +141,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
         disabled,
         lineClamp,
       }),
-      className
+      className,
     );
 
     const Component = element as any;
@@ -153,7 +153,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
         </Component>
       </>
     );
-  }
+  },
 );
 
 Text.displayName = 'Text';

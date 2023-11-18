@@ -154,15 +154,15 @@ export type AccordionProps = {
 const AccordionHeader = React.forwardRef<HTMLDivElement, AccordionHeaderProps>(
   (
     { children, iconPosition, variant, size, className, open, ...props },
-    ref
+    ref,
   ) => {
     const classNames = cn(
-      accordionHeaderVariants({ variant, size, iconPosition, open, className })
+      accordionHeaderVariants({ variant, size, iconPosition, open, className }),
     );
 
     const iconClassNames = cn(
       'flex items-center justify-center text-inherit',
-      iconPosition === 'end' ? 'order-2' : '-order-1'
+      iconPosition === 'end' ? 'order-2' : '-order-1',
     );
 
     return (
@@ -187,7 +187,7 @@ const AccordionHeader = React.forwardRef<HTMLDivElement, AccordionHeaderProps>(
         </h3>
       </div>
     );
-  }
+  },
 );
 
 AccordionHeader.displayName = 'AccordionHeader';
@@ -225,7 +225,7 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const classNames = cn(accordionVariants({ size, variant, className }));
 
@@ -234,7 +234,7 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
         id: '1',
         multiple: multiple,
         value: defaultValues?.map((i) => String(i)),
-      })
+      }),
     );
 
     const api = accordion.connect(state, send, normalizeProps);
@@ -268,7 +268,7 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
         ))}
       </div>
     );
-  }
+  },
 );
 
 Accordion.displayName = 'Accordion';

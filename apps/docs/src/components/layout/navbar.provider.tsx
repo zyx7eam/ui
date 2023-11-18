@@ -13,7 +13,7 @@ const NavbarProvider = ({ children }: { children?: React.ReactNode }) => {
 
       setRef(ref);
     },
-    [setRef]
+    [setRef],
   );
 
   useEffect(() => {}, []);

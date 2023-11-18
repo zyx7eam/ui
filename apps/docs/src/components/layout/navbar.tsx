@@ -2,8 +2,8 @@ import { navLinks } from '@/config/nav';
 import { BadgeInfoIcon, GithubIcon, MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { LegacyRef } from 'react';
-import Button  from '@zyxui/button';
-import Alert  from '@zyxui/alert';
+import Button from '@zyxui/button';
+import Alert from '@zyxui/alert';
 import MobileNav from './mobile-nav';
 import NavbarProvider from './navbar.provider';
 

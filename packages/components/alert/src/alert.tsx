@@ -166,10 +166,10 @@ export type AlertProps = {
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   (
     { title, description, color, variant, icon, direction, radius, className },
-    ref
+    ref,
   ) => {
     const classNames = cn(
-      alertVariants({ color, variant, radius, direction, className })
+      alertVariants({ color, variant, radius, direction, className }),
     );
 
     return (
@@ -187,7 +187,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 Alert.displayName = 'Alert';

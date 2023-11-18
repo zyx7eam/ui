@@ -1,6 +1,6 @@
 import { MoveRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import  Button  from '@zyxui/button';
+import Button from '@zyxui/button';
 
 export default function Home() {
   return (

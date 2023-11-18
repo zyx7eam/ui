@@ -2,7 +2,7 @@
 
 import { MenuIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import  Button from '@zyxui/button';
+import Button from '@zyxui/button';
 import { AsideLinks } from './aside-links';
 import { routes } from '@/config/routes';
 import { usePathname } from 'next/navigation';

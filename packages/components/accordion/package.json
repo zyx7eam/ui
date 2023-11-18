@@ -8,7 +8,7 @@
   "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
   "homepage": "https://ui.geeksteam.org",
   "license": "MIT",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "clean": "rimraf dist .trubo",
+    "clean": "rm -rf dist .trubo node_modules",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src"
   },
@@ -37,7 +37,8 @@
     "@zyxui/tsconfig": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.16.5",
-    "lucide-react": "^0.292.0"
+    "lucide-react": "^0.292.0",
+    "tsup": "^7.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",

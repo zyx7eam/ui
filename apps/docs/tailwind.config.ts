@@ -1,4 +1,4 @@
-const zyxuiConfigs = require('@zyxui/config/tailwind.config')
+const zyxuiConfigs = require('@zyxui/config/tailwind.config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

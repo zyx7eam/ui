@@ -20,7 +20,7 @@ const LinkItem = ({
   const classNames = cn(
     'relative p-1 block rounded-sm text-primary/40 [&_.arrow]:hover:w-5 [&_.arrow]:hover:h-5 [&_.arrow]:hover:opacity-100 [&_.badge]:hover:right-6 flex justify-between items-center',
     href.startsWith(pathname) ? 'text-primary' : '',
-    disabled ? 'hover:cursor-not-allowed' : ''
+    disabled ? 'hover:cursor-not-allowed' : '',
   );
   return (
     <Link href={!disabled ? href : '#'} className={classNames}>

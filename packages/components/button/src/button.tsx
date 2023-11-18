@@ -196,7 +196,7 @@ const buttonVariants = cva(
       variant: 'solid',
       iconOnly: false,
     },
-  }
+  },
 );
 
 export type ButtonProps = {
@@ -222,7 +222,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       endContent,
       ...props
     },
-    ref
+    ref,
   ) => {
     const forwardRef = useObjectRef(ref);
 
@@ -237,7 +237,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         variant,
         iconOnly,
         className,
-      })
+      }),
     );
 
     return (
@@ -247,7 +247,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {endContent && !iconOnly ? endContent : null}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';

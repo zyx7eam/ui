@@ -21,12 +21,12 @@ const DocsHeadings = ({
                 <li
                   key={__.id}
                   className={cn(
-                    __.level > 2 && 'border-s border-s-gray-700 py-1 ps-4'
+                    __.level > 2 && 'border-s border-s-gray-700 py-1 ps-4',
                   )}
                 >
                   <Link href={pathname + '#' + __.id}>{__.text}</Link>
                 </li>
-              )
+              ),
           )}
       </ul>
     </div>

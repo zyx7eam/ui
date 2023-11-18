@@ -68,7 +68,7 @@ export const Heading = ({
 }) => {
   const classNames = cn(
     'flex items-center gap-2 [&_>span]:hover:opacity-100 [&_>span]:hover:scale-100 cursor-pointer',
-    className
+    className,
   );
 
   return React.createElement(
@@ -85,7 +85,7 @@ export const Heading = ({
       >
         <LinkIcon size={18} />
       </span>,
-    ]
+    ],
   );
 };
 
