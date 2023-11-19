@@ -1,6 +1,6 @@
 {
   "name": "@zyxui/docs",
-  "version": "0.4.0-beta",
+  "version": "0.4.1-beta",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,10 +10,19 @@
     "clean": "rm -rf node_modules"
   },
   "dependencies": {
+    "@zyxui/accordion": "workspace:*",
+    "@zyxui/alert": "workspace:*",
+    "@zyxui/button": "workspace:*",
+    "@zyxui/config": "workspace:*",
+    "@zyxui/lib": "workspace:*",
+    "@zyxui/text": "workspace:*",
+    "@zyxui/tsconfig": "workspace:*",
+    "clsx": "^2.0.0",
     "config": "*",
     "contentlayer": "^0.3.4",
     "framer-motion": "^10.16.4",
     "github-slugger": "^2.0.0",
+    "lucide-react": "^0.292.0",
     "marked": "^9.1.0",
     "next": "13.5.4",
     "next-contentlayer": "^0.3.4",
@@ -25,16 +34,9 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "3.0.1",
     "shiki": "^0.14.5",
-    "@zyxui/button": "workspace:*",
-    "@zyxui/config": "workspace:*",
-    "@zyxui/alert": "workspace:*",
-    "@zyxui/text": "workspace:*",
-    "@zyxui/accordion": "workspace:*",
-    "@zyxui/tsconfig": "workspace:*",
-    "@zyxui/lib": "workspace:*",
+    "tailwind-merge": "^2.0.0",
     "unist-util-visit": "^5.0.0",
-    "zustand": "^4.4.3",
-    "lucide-react": "^0.292.0"
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

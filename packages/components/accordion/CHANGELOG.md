@@ -1,6 +1,6 @@
 # @zyxui/accordion
 
-## 0.4.0-beta
+## 0.4.1-beta
 
 ### Major Changes
 
@@ -19,8 +19,16 @@
   - Install Just Needed Components
     No more downloading entire libraries when you only need specific components. With `@zyxui`, you can selectively download and integrate only the components your project requires.
 
+  ## New Components:
+
+  - New `Text` component has been added!.
+
+  ## Important To Know
+
+  - All the components have been published to the `node package manager`. All the information about the installation guide will be available soon at our [doc](https://ui.geeksteam.org)
+
 ### Patch Changes
 
 - Updated dependencies
-  - @zyxui/tsconfig@0.4.0-beta
-  - @zyxui/lib@0.4.0-beta
+  - `@zyxui/tsconfig@0.4.1-beta`
+  - `@zyxui/lib@0.4.1-beta`

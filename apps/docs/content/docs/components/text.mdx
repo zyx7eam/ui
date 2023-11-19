@@ -2,4 +2,244 @@
 title: '@zyxui/text | Text Component'
 ---
 
+
+import Text from '@zyxui/text'
+
 # Text Component
+
+`Text` component will be useful to display texts on your website. This component will help you to customize your texts easily and fast.
+
+## Basic Text
+
+You can use text without passing any props.
+
+<Example>
+    <Preview>
+        <div>
+            <Text as='h1'>Heading 1</Text>
+        </div>
+        <div>
+            <Text as='p'>Paragraph</Text>
+        </div>
+        <div>
+            <Text as='span'>span</Text>
+        </div>
+        <div>
+            <Text as='mark'>mark</Text>
+        </div>
+        <div>
+            <Text as='code'>code</Text>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+
+    const TextBasic = () => {
+        return (
+            <Text as='h1'>Heading 1</Text>
+            <br />
+            <Text as='p'>Paragraph</Text>
+            <br />
+            <Text as='span'>span</Text>
+            <br />
+            <Text as='mark'>mark</Text>
+            <br />
+            <Text as='code'>code</Text>
+        )
+    }
+    ```
+</Example>
+
+## Customization
+
+### as
+
+`as` prop can make you able to switch between element type. There are many element types that have been added to `Text` component:
+
+### Headings
+
+You can switch between Heading by passing `as` prop. Available heading props are `h1` | `h2` | `h3` | `h4` | `h5` , and `h6`
+
+<Example>
+    <Preview>
+        <div>
+            <Text as='h1'>Heading 1</Text>
+        </div>
+        <div>
+            <Text as='h2'>Heading 2</Text>
+        </div>
+        <div>
+            <Text as='h3'>Heading 3</Text>
+        </div>
+        <div>
+            <Text as='h4'>Heading 4</Text>
+        </div>
+        <div>
+            <Text as='h5'>Heading 5</Text>
+        </div>
+        <div>
+            <Text as='h6'>Heading 6</Text>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+
+    const TextHeading = () => {
+        return (
+            <Text as='h1'>Heading 1</Text>
+            <br />
+            <Text as='h2'>Heading 2</Text>
+            <br />
+            <Text as='h3'>Heading 3</Text>
+            <br />
+            <Text as='h4'>Heading 4</Text>
+            <br />
+            <Text as='h5'>Heading 5</Text>
+            <br />
+            <Text as='h6'>Heading 6</Text>
+        )
+    }
+    ```
+</Example>
+
+
+### Typography
+
+You can customize your text as `sapn`, `p`, `mark` or `code` also.
+
+
+<Example>
+    <Preview>
+        <div>
+            <Text as='span'>This is a span</Text>
+        </div>
+        <div>
+            <Text as='p'>This is a paragraph</Text>
+        </div>
+        <div>
+            <Text as='mark'>This is a mark</Text>
+        </div>
+        <div>
+            <Text as='code'>This is a code</Text>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+
+    const TextTypo = () => {
+        return (
+            <Text as='span'>This is a span</Text>
+            <br />
+            <Text as='p'>This is a paragraph</Text>
+            <br />
+            <Text as='mark'>This is a mark</Text>
+            <br />
+            <Text as='code'>This is a code</Text>
+        )
+    }
+    ```
+</Example>
+
+
+### color
+
+Customize color of the used text by passing the `color` prop. The value should be one of those: `default` | `error` | `warning` or `success`. And the default value is `default`.
+
+<Example>
+    <Preview>
+        <div>
+            <Text as='h3' color='error'>This is a heading3</Text>
+        </div>
+        <div>
+            <Text as='span' color='default'>This is a span</Text>
+        </div>
+        <div>
+            <Text as='p' color='success'>This is a paragraph</Text>
+        </div>
+        <div>
+            <Text as='mark' color='warning'>This is a mark</Text>
+        </div>
+        <div>
+            <Text as='code' color='error'>This is a code</Text>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+
+    const TextWithColorProp = () => {
+        return (
+            <Text as='h3' color='error'>This is a heading3</Text>
+            <br />
+            <Text as='span' color='default'>This is a span</Text>
+            <br />
+            <Text as='p' color='success'>This is a paragraph</Text>
+            <br />
+            <Text as='mark' color='warning'>This is a mark</Text>
+            <br />
+            <Text as='code' color='error'>This is a code</Text>
+        )
+    }
+    ```
+</Example>
+
+
+### weight
+
+Customize `font-weight` of the `Text` component by passing `weight` prop. The available values for this prop are: `thin` | `extralight` | `light` | `normal` | `medium` | `semibold` | `bold`, and `extrabold`. And the default value is: `normal`.
+
+<Example>
+    <Preview>
+        <div>
+            <Text as='p' weight='thin'>Paragraph with thin</Text>
+        </div>
+        <div>
+            <Text as='p' weight='extralight'>Paragraph with extralight</Text>
+        </div>
+        <div>
+            <Text as='p' weight='light'>Paragraph with light</Text>
+        </div>
+        <div>
+            <Text as='p' weight='normal'>Paragraph with normal</Text>
+        </div>
+        <div>
+            <Text as='p' weight='medium'>Paragraph with medium</Text>
+        </div>
+        <div>
+            <Text as='p' weight='semibold'>Paragraph with semibold</Text>
+        </div>
+        <div>
+            <Text as='p' weight='bold'>Paragraph with bold</Text>
+        </div>
+        <div>
+            <Text as='p' weight='extrabold'>Paragraph with extrabold</Text>
+        </div>
+    </Preview>
+
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+
+    const TextWithWeightProp = () => {
+        return (
+            <Text as='p' weight='thin'>Paragraph with thin</Text>
+            <br />
+            <Text as='p' weight='extralight'>Paragraph with extralight</Text>
+            <br />
+            <Text as='p' weight='light'>Paragraph with light</Text>
+            <br />
+            <Text as='p' weight='normal'>Paragraph with normal</Text>
+            <br />
+            <Text as='p' weight='medium'>Paragraph with medium</Text>
+            <br />
+            <Text as='p' weight='semibold'>Paragraph with semibold</Text>
+            <br />
+            <Text as='p' weight='bold'>Paragraph with bold</Text>
+            <br />
+            <Text as='p' weight='extrabold'>Paragraph with extrabold</Text>
+        )
+    }
+    ```
+</Example>

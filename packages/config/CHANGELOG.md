@@ -1,6 +1,6 @@
 # @zyxui/config
 
-## 0.4.0-beta
+## 0.4.1-beta
 
 ### Major Changes
 

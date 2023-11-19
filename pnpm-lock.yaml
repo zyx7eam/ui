@@ -54,6 +54,9 @@ importers:
       '@zyxui/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
       config:
         specifier: '*'
         version: 3.3.9
@@ -102,6 +105,9 @@ importers:
       shiki:
         specifier: ^0.14.5
         version: 0.14.5
+      tailwind-merge:
+        specifier: ^2.0.0
+        version: 2.0.0
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0

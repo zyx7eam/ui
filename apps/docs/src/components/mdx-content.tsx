@@ -4,7 +4,14 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { cn } from '@zyxui/lib';
-import { Example, Heading, Paragraph, Pre, Preview } from './mdx/components';
+import {
+  Command,
+  Example,
+  Heading,
+  Paragraph,
+  Pre,
+  Preview,
+} from './mdx/components';
 
 interface MDXContentProps {
   code: string;
@@ -51,6 +58,7 @@ export function MDXContent({ code }: MDXContentProps) {
           Example: Example,
           Preview: Preview,
           pre: Pre,
+          Command: Command,
           table: ({ children, ...props }) => (
             <div className='max-w-full overflow-x-auto'>
               <table {...props}>{children}</table>

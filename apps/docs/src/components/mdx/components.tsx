@@ -46,6 +46,17 @@ export const Pre = ({ children, ...props }: any) => {
   );
 };
 
+export const Command = ({ children, ...props }: any) => {
+  const copyCodeData = props['raw'] || null;
+  return (
+    <div className='[&_[data-highlighted-line]]:bg-primary/10'>
+      <PreClient lang={'shell'} copyCodeData={copyCodeData} {...props}>
+        {children}
+      </PreClient>
+    </div>
+  );
+};
+
 export const Paragraph = ({ children, className, ...props }: any) => {
   const classNames = cn('mb-5', className);
   return (

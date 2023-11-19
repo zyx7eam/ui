@@ -1,6 +1,6 @@
 {
   "name": "@zyxui/lib",
-  "version": "0.4.0-beta",
+  "version": "0.4.1-beta",
   "description": "",
   "keywords": [
     "zyxui-libs"
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup utils --dts",
+    "build": "tsup src --dts",
     "clean": "rm -rf dist .trubo node_modules"
   },
   "dependencies": {
