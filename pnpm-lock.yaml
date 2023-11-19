@@ -220,7 +220,7 @@ importers:
         version: 0.292.0(react@18.2.0)
       tsup:
         specifier: ^7.3.0
-        version: 7.3.0(postcss@8.4.31)
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -254,7 +254,7 @@ importers:
         version: 0.7.0
       tsup:
         specifier: ^7.3.0
-        version: 7.3.0(postcss@8.4.31)
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -294,7 +294,7 @@ importers:
         version: 0.7.0
       tsup:
         specifier: ^7.3.0
-        version: 7.3.0(postcss@8.4.31)
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -328,7 +328,7 @@ importers:
         version: 0.7.0
       tsup:
         specifier: ^7.3.0
-        version: 7.3.0(postcss@8.4.31)
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -372,6 +372,9 @@ importers:
       tailwind-merge:
         specifier: ^2.0.0
         version: 2.0.0
+      tsup:
+        specifier: ^7.3.0
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
     devDependencies:
       typescript:
         specifier: ^5.2.2
@@ -6533,7 +6536,7 @@ packages:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
 
-  /tsup@7.3.0(postcss@8.4.31):
+  /tsup@7.3.0(postcss@8.4.31)(typescript@5.2.2):
     resolution: {integrity: sha512-Ja1eaSRrE+QarmATlNO5fse2aOACYMBX+IZRKy1T+gpyH+jXgRrl5l4nHIQJQ1DoDgEjHDTw8cpE085UdBZuWQ==}
     engines: {node: '>=18'}
     hasBin: true
@@ -6564,6 +6567,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.34.0
       tree-kill: 1.2.2
+      typescript: 5.2.2
     transitivePeerDependencies:
       - supports-color
       - ts-node

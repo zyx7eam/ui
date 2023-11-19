@@ -1,6 +1,6 @@
 # @zyxui/text
 
-## 0.2.3-beta
+## 0.4.0-beta
 
 ### Major Changes
 
@@ -22,5 +22,5 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @zyxui/tsconfig@0.2.3-beta
-  - @zyxui/lib@0.2.3-beta
+  - @zyxui/tsconfig@0.4.0-beta
+  - @zyxui/lib@0.4.0-beta

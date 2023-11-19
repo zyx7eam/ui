@@ -46,7 +46,6 @@ export const routes: RoutesWithChildrenProps[] = [
         href: '/docs/components/text',
         title: 'Text',
         isNew: true,
-        disabled: true,
       },
     ],
   },

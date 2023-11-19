@@ -30,8 +30,8 @@ async function getDocFromParams({ params }: DocsPageProps) {
     path: `/${doc?._raw?.sourceFilePath}`,
   };
 
-  console.log('currentRoute');
-  console.log(currentRoute);
+  // console.log('currentRoute');
+  // console.log(currentRoute);
 
   return { doc, headings, currentRoute };
 }

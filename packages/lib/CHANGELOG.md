@@ -1,6 +1,6 @@
 # @zyxui/lib
 
-## 0.2.3-beta
+## 0.4.0-beta
 
 ### Major Changes
 

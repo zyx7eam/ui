@@ -1,6 +1,6 @@
 {
   "name": "@zyxui/button",
-  "version": "0.2.3-beta",
+  "version": "0.4.0-beta",
   "description": "",
   "keywords": [
     "button"
@@ -8,7 +8,7 @@
   "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
   "homepage": "https://ui.geeksteam.org",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "sideEffects": false,
   "files": [
     "dist"
