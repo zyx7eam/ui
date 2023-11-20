@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Geeks7eam/ui",
+    "url": "git+https://github.com/zyx7eam/ui",
     "directory": "packages/components/accordion"
   },
   "bugs": {
-    "url": "git+https://github.com/Geeks7eam/ui/issues"
+    "url": "git+https://github.com/zyx7eam/ui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
