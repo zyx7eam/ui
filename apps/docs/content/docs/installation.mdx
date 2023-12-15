@@ -1,0 +1,186 @@
+---
+title: 'Installation'
+description: 'Install @zyxui, a React UI library. Follow our simple guide for TailwindCSS integration and start creating stunning interfaces'
+---
+
+
+import Alert from '@zyxui/alert'
+import Button from '@zyxui/button'
+
+# Installation
+
+Welcome to **@zyxui**, your go-to React UI components library for creating stunning, high-performance user interfaces effortlessly.
+
+## How to Use @zyxui Components
+
+Let's kick things off with the powerful **<a href='/docs/components/button'>Button</a>** Component. Get ready to dive into the world of @zyxui with these simple steps:
+
+<Alert
+    direction='row'
+    icon={'\u26A0\uFE0F'}
+    variant='flat'
+    color='warning'
+    title='Kindly ensure that your project is configured to utilize TailwindCSS, as @zyxui exclusively operates with TailwindCSS classes, leveraging the full potential of this powerful library.'
+/>
+
+
+### 1.Install via npm
+
+Install **@zyxui** components into your project using the following command in your terminal:
+
+<Example style={{ margin: 0 }}>
+
+```bash showLineNumbers
+npm install @zyxui/config @zyxui/button
+```
+</Example>
+
+### 2.Setup your theme
+
+Copy and paste the following theme settings into your `global CSS` file. For **Next.js**, it should be global.css, and for **React.js**, it should be App.css:
+
+<Example>
+```css showLineNumbers
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ... (Default theme styles) ... */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --error: 0 84.2% 60.2%;
+    --error-foreground: 210 40% 98%;
+
+    --success: 159 52% 39%;
+    --success-foreground: 0 85.7% 97.3%;
+
+    --warning: 36 93% 56%;
+    --warning-foreground: 0 85.7% 97.3%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  /* ... (Dark theme styles) ... */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --error: 0 62.8% 30.6%;
+    --error-foreground: 0 85.7% 97.3%;
+
+    --warning: 36 93% 56%;
+    --warning-foreground: 0 85.7% 97.3%;
+
+    --success: 159 52% 39%;
+    --success-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+```
+</Example>
+
+Feel free to customize the variable values to match your desired color palette.
+
+
+### 3.Set up TailwindCSS Config File
+
+Locate the `tailwind.config.js` file in your project's root directory and meticulously apply the following adjustments:
+
+<Example>
+```javascript showLineNumbers {5, 7}
+const zyxuiConfigs = require('@zyxui/config/tailwind.config');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [zyxuiConfigs],
+  content: [
+    ...zyxuiConfigs.content,
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  plugins: [require('@tailwindcss/typography')],
+};
+
+```
+</Example>
+
+### 4.Start using the components
+
+You can now effortlessly import the desired @zyxui component and start integrating it into your project:
+
+<Example>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
+    <Button>Basic</Button>
+  </Preview>
+
+  ```jsx showLineNumbers {1, 5}
+  import Button from '@zyxui/button';
+
+  export const HelloZyxuiButton = () => {
+    return (
+      <Button>Basic</Button>
+    )
+  }
+  ```
+
+</Example>
+
+
+<a href='/docs/components'>Explore Components</a>

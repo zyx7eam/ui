@@ -7,7 +7,7 @@ import Blob from '@/components/blob';
 const pt_sans = PT_Sans({ weight: ['400', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Geeks/ui',
+  title: 'Zyxui | React UI Components Lib',
   description: 'React UI Component Library',
 };
 

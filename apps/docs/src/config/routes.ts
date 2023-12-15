@@ -18,6 +18,12 @@ export const routes: RoutesWithChildrenProps[] = [
     isNew: true,
   },
   {
+    _key: 'installation',
+    href: '/docs/installation',
+    title: 'Installation',
+    isNew: true,
+  },
+  {
     _key: 'components',
     href: '/docs/components',
     title: 'Components',

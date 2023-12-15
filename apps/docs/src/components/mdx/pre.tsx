@@ -7,6 +7,9 @@ import { cn } from '@zyxui/lib';
 const PreClient = ({ lang, children, copyCodeData, ...props }: any) => {
   const [show, setShow] = useState<boolean>(false);
 
+  console.log('props');
+  console.log(props);
+
   const classNames = cn(
     show
       ? 'relative [&_>.copy]:hover:opacity-100 [&_>.copy]:z-20'
