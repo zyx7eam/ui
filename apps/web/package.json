@@ -17,6 +17,7 @@
     "@zyxui/config": "workspace:*",
     "@zyxui/alert": "workspace:*",
     "@zyxui/text": "workspace:*",
+    "@zyxui/flex": "workspace:*",
     "@zyxui/accordion": "workspace:*"
   },
   "devDependencies": {
