@@ -160,6 +160,9 @@ importers:
       '@zyxui/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@zyxui/flex':
+        specifier: workspace:*
+        version: link:../../packages/components/flex
       '@zyxui/text':
         specifier: workspace:*
         version: link:../../packages/components/text
@@ -289,6 +292,40 @@ importers:
       '@react-aria/utils':
         specifier: ^3.22.0
         version: 3.22.0(react@18.2.0)
+      '@zyxui/lib':
+        specifier: workspace:*
+        version: link:../../lib
+      '@zyxui/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+      tsup:
+        specifier: ^7.3.0
+        version: 7.3.0(postcss@8.4.31)(typescript@5.2.2)
+    devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.9.1
+      '@types/react':
+        specifier: ^18
+        version: 18.2.37
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.2.15
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
+  packages/components/flex:
+    dependencies:
       '@zyxui/lib':
         specifier: workspace:*
         version: link:../../lib

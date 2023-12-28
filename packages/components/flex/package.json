@@ -1,0 +1,47 @@
+{
+  "name": "@zyxui/flex",
+  "version": "0.4.1-beta",
+  "description": "",
+  "keywords": [
+    "flex", "div element", "container"
+  ],
+  "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
+  "homepage": "https://ui.geeksteam.org",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyx7eam/ui",
+    "directory": "packages/components/flex"
+  },
+  "bugs": {
+    "url": "git+https://github.com/zyx7eam/ui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "clean": "rm -rf dist .trubo node_modules",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src"
+  },
+  "dependencies": {
+    "@zyxui/lib": "workspace:*",
+    "@zyxui/tsconfig": "workspace:*",
+    "class-variance-authority": "^0.7.0",
+    "tsup": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "clean-package": "2.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
