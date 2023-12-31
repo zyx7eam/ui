@@ -10,6 +10,11 @@ const DocsHeadings = ({
   items: { level: number; text: string; id: string }[];
 }) => {
   const pathname = usePathname();
+
+  console.log('items');
+  console.log(items);
+
+
   return (
     <div>
       <h5 className='mb-2 border-b border-gray-700 pb-2 font-bold'>Contents</h5>
@@ -21,7 +26,8 @@ const DocsHeadings = ({
                 <li
                   key={__.id}
                   className={cn(
-                    __.level > 2 && 'border-s border-s-gray-700 py-1 ps-4',
+                    '',
+                    __.level > 2 ? 'border-s border-s-gray-700 ps-4' : __.level > 3 ? 'border-s border-s-gray-700 ps-6' : '',
                   )}
                 >
                   <Link href={pathname + '#' + __.id}>{__.text}</Link>

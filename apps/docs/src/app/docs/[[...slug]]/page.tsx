@@ -87,7 +87,7 @@ export default async function DocPage({ params }: DocsPageProps) {
 
   return (
     <>
-      <div className='grid grid-cols-12'>
+      <div className='grid grid-cols-12 px-5'>
         <aside className='sticky left-0 top-16 hidden h-[calc(100vh_-_theme(height.16))] border-e-[1px] border-gray-700 p-5 ps-0 backdrop-blur-sm  md:col-span-3 md:block lg:col-span-3 xl:col-span-2'>
           {routes.map((item) => (
             <AsideLinks key={item._key} {...item} />
