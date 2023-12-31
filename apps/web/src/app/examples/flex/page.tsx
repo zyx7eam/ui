@@ -1,9 +1,13 @@
-
+'use client'
+import Button from '@zyxui/button/dist/button'
 import Flex from '@zyxui/flex'
 import Text from '@zyxui/text'
-import React from 'react'
+import React, { useState } from 'react'
 
 const FlexBoxExample = () => {
+    const [gap, setGap] = useState<'sm' | 'md' | 'lg' | 'xl' | undefined>('md')
+    const [direction, setDirection] = useState<'row' | 'row-reverse' | 'column' | 'column-reverse'>('row')
+
     return (
         <Flex direction='column' gap='xl' className='max-w-7xl mx-auto my-10'>
             <div>
@@ -101,6 +105,82 @@ const FlexBoxExample = () => {
                     <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
                     <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
                     <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+                </Flex>
+            </div>
+            <div>
+                <Text as={'h1'}>Flex Box - Gap Prop</Text>
+                <hr />
+                <Text as={'h4'}>Gap Examples</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Gap Sizes:</Text>
+                    <Flex gap='md'>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setGap(undefined)}>None</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setGap('sm')}>sm</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setGap('md')}>md</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setGap('lg')}>lg</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setGap('xl')}>xl</Button>
+                    </Flex>
+                </Flex>
+                <Flex gap={gap} justify='flex-start'>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                </Flex>
+            </div>
+            <div>
+                <Text as={'h1'}>Flex Box - Direction Prop</Text>
+                <hr />
+                <Text as={'h4'}>Direction Examples</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md'>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setDirection('row')}>Row</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setDirection('row-reverse')}>Row-Reverse</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setDirection('column')}>Column</Button>
+                        <Button size={'sm'} variant={'flat'} onPress={() => setDirection('column-reverse')}>Column-Reverse</Button>
+                    </Flex>
+                </Flex>
+                <Flex gap='md' direction={direction} justify='flex-start'>
+                    <Button>01</Button>
+                    <Button>02</Button>
+                    <Button>03</Button>
+                    <Button>04</Button>
+                    <Button>05</Button>
+                    <Button>06</Button>
+                </Flex>
+            </div>
+            <div>
+                <Text as={'h1'}>Flex Box - Wrap Prop</Text>
+                <hr />
+                <Text as={'h4'}>nowrap Examples</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='nowrap' className='bg-cyan-400 overflow-hidden border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 03</div>
+                    </Flex>
+                </Flex>
+                <Text as={'h4'}>wrap Examples</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='wrap' className='bg-cyan-400 border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 03</div>
+                    </Flex>
+                </Flex>
+                <Text as={'h4'}>wrap-reverse Examples</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='wrap-reverse' className='bg-cyan-400 border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-red-400'>Content 03</div>
+                    </Flex>
                 </Flex>
             </div>
         </Flex>

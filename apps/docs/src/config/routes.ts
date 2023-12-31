@@ -53,6 +53,12 @@ export const routes: RoutesWithChildrenProps[] = [
         title: 'Text',
         isNew: true,
       },
+      {
+        _key: 'flex',
+        href: '/docs/components/flex',
+        title: 'Flex',
+        isNew: true,
+      },
     ],
   },
 ];
