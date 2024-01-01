@@ -3,15 +3,421 @@ title: '@zyxui/flex | Flex Component'
 ---
 
 
+import Flex from '@zyxui/flex'
 import Text from '@zyxui/text'
+import Button from '@zyxui/button'
+import { useState } from 'react'
+
+
+export const DynamicFlexDirection = () => {
+    const [direction, setDirection] = useState('row')
+    return (
+        <Flex direction='column' gap='lg'>
+            <Flex gap='sm'>
+                <Text as='span'>Change Direction Value:</Text>
+                <Button size='sm' variant={direction === 'row' ? 'flat' : null} onPress={() => {setDirection('row')}}>row</Button>
+                <Button size='sm' variant={direction === 'row-reverse' ? 'flat' : null} onPress={() => {setDirection('row-reverse')}}>row-reverse</Button>
+                <Button size='sm' variant={direction === 'column' ? 'flat' : null} onPress={() => {setDirection('column')}}>column</Button>
+                <Button size='sm' variant={direction === 'column-reverse' ? 'flat' : null} onPress={() => {setDirection('column-reverse')}}>column-reverse</Button>
+            </Flex>
+            <Flex direction={direction} gap='md'>
+                <div className='bg-pink-800 px-10 py-2'>01</div>
+                <div className='bg-pink-800 px-10 py-2'>02</div>
+                <div className='bg-pink-800 px-10 py-2'>03</div>
+                <div className='bg-pink-800 px-10 py-2'>04</div>
+                <div className='bg-pink-800 px-10 py-2'>05</div>
+            </Flex>
+        </Flex>
+    )
+}
 
 # Flex Component
 
-`Flex` component will be useful to display texts on your website. This component will help you to customize your texts easily and fast.
-
-## Basic Flex
+The `Flex` component provides a flexible and powerful way to manage layouts in your React applications. With a rich set of variants and customization options, it allows you to easily control the direction, alignment, and spacing of child elements.
 
 
+
+## Installation
+
+Ensure that have the @zyxui library installed in your project:
+<Example>
+```bash
+npm install @zyxui/flex
+```
+</Example>
+
+
+## Basic Usage
+
+Import the `Flex` component and use it to create flexible layouts:
+
+
+<Example>
+    <Preview>
+        <Flex className='bg-cyan-400/20'>
+            <div className='px-10 py-2 bg-cyan-400 text-white font-medium'>01</div>
+            <div className='px-10 py-2 bg-cyan-400 text-white font-medium'>02</div>
+            <div className='px-10 py-2 bg-cyan-400 text-white font-medium'>03</div>
+            <div className='px-10 py-2 bg-cyan-400 text-white font-medium'>04</div>
+        </Flex>
+    </Preview>
+    ```tsx showLineNumbers
+    import Flex from '@zyxui/flex'
+
+    const FlexExample = () => {
+        return (
+            <Flex>
+                <div>01</div>
+                <div>02</div>
+                <div>03</div>
+                <div>04</div>
+            </Flex>
+        )
+    }
+
+    export default FlexExample
+    ```
+</Example>
+
+
+## Customization
+
+Tailor the behavior of the `Flex` component to suit your layout needs with the following customization options.
+
+### Direction
+
+The `direction` prop allows you to control the direction of `flex` container. This porp can have many values: `column` | `column-reverse` | `row` | `row-reverse`, and the default value is: `row`.
+
+<Example>
+    <Preview>
+        <DynamicFlexDirection />
+    </Preview>
+    ```tsx showLineNumbers {18}
+    import Flex from '@zyxui/flex'
+    import Text from '@zyxui/text'
+    import Button from '@zyxui/button'
+    import { useState } from 'react'
+
+
+    export const DynamicFlexDirection = () => {
+        const [direction, setDirection] = useState('row')
+        return (
+            <Flex direction='column' gap='lg'>
+                <Flex gap='sm'>
+                    <Text as='span'>Change Direction Value:</Text>
+                    <Button size='sm' variant={direction === 'row' ? 'flat' : null} onPress={() => {setDirection('row')}}>row</Button>
+                    <Button size='sm' variant={direction === 'row-reverse' ? 'flat' : null} onPress={() => {setDirection('row-reverse')}}>row-reverse</Button>
+                    <Button size='sm' variant={direction === 'column' ? 'flat' : null} onPress={() => {setDirection('column')}}>column</Button>
+                    <Button size='sm' variant={direction === 'column-reverse' ? 'flat' : null} onPress={() => {setDirection('column-reverse')}}>column-reverse</Button>
+                </Flex>
+                <Flex direction={direction} gap='md'>
+                    <div className='bg-pink-800 px-10 py-2'>01</div>
+                    <div className='bg-pink-800 px-10 py-2'>02</div>
+                    <div className='bg-pink-800 px-10 py-2'>03</div>
+                    <div className='bg-pink-800 px-10 py-2'>04</div>
+                    <div className='bg-pink-800 px-10 py-2'>05</div>
+                </Flex>
+            </Flex>
+        )
+    }
+    ```
+</Example>
+
+
+### Justify
+
+The `justify` prop, allows you to align items along the `main axis`. You can check all about this prop values in [API Reference Section](#api-reference)
+
+<Example>
+    <Preview>
+        <Text className='mb-5' as={'h4'}>justify: flex-start</Text>
+        <Flex gap={'sm'} justify='flex-start'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: center</Text>
+        <Flex gap={'sm'} justify='center'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: flex-end</Text>
+        <Flex gap={'sm'} justify='flex-end'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: space-between</Text>
+        <Flex gap={'sm'} justify='space-between'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: space-around</Text>
+        <Flex gap={'sm'} justify='space-around'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: space-evenly</Text>
+        <Flex gap={'sm'} justify='space-evenly'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: stretch</Text>
+        <Flex gap={'sm'} justify='stretch'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>justify: normal</Text>
+        <Flex gap={'sm'} justify='normal'>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+            <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+        </Flex>
+    </Preview>
+    ```tsx showLineNumbers {7, 14, 21, 28, 35, 42, 49, 56}
+    import Flex from '@zyxui/flex'
+    import Text from '@zyxui/text'
+    
+    const FlexJustifyPropExample = () => {
+        return (
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Center Example</Text>
+            <Flex gap={'sm'} justify='flex-start'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Center Example</Text>
+            <Flex gap={'sm'} justify='center'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify End Example</Text>
+            <Flex gap={'sm'} justify='flex-end'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Space Between Example</Text>
+            <Flex gap={'sm'} justify='space-between'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Space Around Example</Text>
+            <Flex gap={'sm'} justify='space-around'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Space Evenly Example</Text>
+            <Flex gap={'sm'} justify='space-evenly'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Stretch Example</Text>
+            <Flex gap={'sm'} justify='stretch'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Justify Normal Example</Text>
+            <Flex gap={'sm'} justify='normal'>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>01</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>02</Flex>
+                <Flex justify='center' align='center' className='w-16 h-16 rounded-md bg-pink-500'>03</Flex>
+            </Flex>
+        )
+    }
+
+    export default FlexJustifyPropExample   
+    ```
+</Example>
+
+
+### Align
+
+The `align` prop, allows you to align items along the `corss axis`. You can check all about this prop values in [API Reference Section](#api-reference)
+
+<Example>
+    <Preview>
+        <Text as={'h4'}>Align Start Example</Text>
+        <Flex gap={'sm'} align='flex-start'>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>Align Stretch Example</Text>
+        <Flex gap={'sm'} align='stretch'>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>Align End Example</Text>
+        <Flex gap={'sm'} align='flex-end'>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>Align Center Example</Text>
+        <Flex gap={'sm'} align='center'>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+        </Flex>
+        <hr className='my-4' />
+        <Text className='mb-5 mt-10' as={'h4'}>Align Baseline Example</Text>
+        <Flex gap={'sm'} align='baseline'>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-2 pb-6'>01</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-8 pb-12'>02</Flex>
+            <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-12 pb-4'>03</Flex>
+        </Flex>
+    </Preview>
+    ```tsx showLineNumbers {7, 14, 21, 28, 35}
+    import Text from '@zyxui/text'
+    import Flex from '@zyxui/flex'
+
+    const FlexAlignPropExamples = () => {
+        return(
+            <Text as={'h4'}>Align Start Example</Text>
+            <Flex gap={'sm'} align='flex-start'>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Align Stretch Example</Text>
+            <Flex gap={'sm'} align='stretch'>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Align End Example</Text>
+            <Flex gap={'sm'} align='flex-end'>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Align Center Example</Text>
+            <Flex gap={'sm'} align='center'>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-4'>01</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-12'>02</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 py-8'>03</Flex>
+            </Flex>
+            <hr className='my-4' />
+            <Text className='mb-5 mt-10' as={'h4'}>Align Baseline Example</Text>
+            <Flex gap={'sm'} align='baseline'>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-2 pb-6'>01</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-8 pb-12'>02</Flex>
+                <Flex justify='center' align='center' className='w-72 rounded-md bg-amber-700 pt-12 pb-4'>03</Flex>
+            </Flex>
+        )
+    }
+
+    export default FlexAlignPropExamples
+    ```
+</Example>
+
+### Wrap
+
+With `wrap` prop, you are able to control wether the flex container should wrap it's children or not. Values that should be provided to this prop: `wrap` | `wrap-reverse` | `nowrap`, and the default value is 'nowrap'.
+
+<Example>
+    <Preview>
+        <Text as={'h4'}>wrap: nowrap</Text>
+        <Flex direction='column' className='mb-5'>
+            <Text as={'p'}>Directions:</Text>
+            <Flex gap='md' wrap='nowrap' className='bg-cyan-400/10 overflow-hidden border border-cyan-300'>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+            </Flex>
+        </Flex>
+        <Text as={'h4'}>wrap: wrap</Text>
+        <Flex direction='column' className='mb-5'>
+            <Text as={'p'}>Directions:</Text>
+            <Flex gap='md' wrap='wrap' className='bg-cyan-400/10 border border-cyan-300'>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+            </Flex>
+        </Flex>
+        <Text as={'h4'}>wrap: wrap-reverse</Text>
+        <Flex direction='column' className='mb-5'>
+            <Text as={'p'}>Directions:</Text>
+            <Flex gap='md' wrap='wrap-reverse' className='bg-cyan-400/10 border border-cyan-300'>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+            </Flex>
+        </Flex>
+    </Preview>
+    ```tsx showLineNumbers
+    import Text from '@zyxui/text'
+    import Flex from '@zyxui/flex'
+
+    const WrapPropExamples = () => {
+        return(
+            <>
+                <Text as={'h4'}>wrap: nowrap</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='nowrap' className='bg-cyan-400/10 overflow-hidden border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+                    </Flex>
+                </Flex>
+                <Text as={'h4'}>wrap: wrap</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='wrap' className='bg-cyan-400/10 border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+                    </Flex>
+                </Flex>
+                <Text as={'h4'}>wrap: wrap-reverse</Text>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Directions:</Text>
+                    <Flex gap='md' wrap='wrap-reverse' className='bg-cyan-400/10 border border-cyan-300'>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 01</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 02</div>
+                        <div className='text-sm flex-none p-4 w-2/5 bg-cyan-700'>Content 03</div>
+                    </Flex>
+                </Flex>
+            </>
+        )
+    }
+
+    export default WrapPropExamples
+    ```
+</Example>
 
 ## API Reference
 
