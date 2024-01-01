@@ -45,6 +45,9 @@ importers:
       '@zyxui/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@zyxui/flex':
+        specifier: workspace:*
+        version: link:../../packages/components/flex
       '@zyxui/lib':
         specifier: workspace:*
         version: link:../../packages/lib

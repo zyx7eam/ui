@@ -16,6 +16,7 @@
     "@zyxui/config": "workspace:*",
     "@zyxui/lib": "workspace:*",
     "@zyxui/text": "workspace:*",
+    "@zyxui/flex": "workspace:*",
     "@zyxui/tsconfig": "workspace:*",
     "clsx": "^2.0.0",
     "config": "*",
