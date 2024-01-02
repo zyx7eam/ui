@@ -31,6 +31,34 @@ export const DynamicFlexDirection = () => {
     )
 }
 
+
+export const DynamicFlexGap = () => {
+    const [gap, setGap] = useState('md')
+
+    return (
+        <>
+            <Flex direction='column' className='mb-5'>
+                <Text as={'p'}>Gap Sizes:</Text>
+                <Flex gap='md'>
+                    <Button size={'sm'} variant={!gap ? 'solid' : 'flat'} onPress={() => setGap(undefined)}>None</Button>
+                    <Button size={'sm'} variant={gap === 'sm' ? 'solid' : 'flat'} onPress={() => setGap('sm')}>sm</Button>
+                    <Button size={'sm'} variant={gap === 'md' ? 'solid' : 'flat'} onPress={() => setGap('md')}>md</Button>
+                    <Button size={'sm'} variant={gap === 'lg' ? 'solid' : 'flat'} onPress={() => setGap('lg')}>lg</Button>
+                    <Button size={'sm'} variant={gap === 'xl' ? 'solid' : 'flat'} onPress={() => setGap('xl')}>xl</Button>
+                </Flex>
+            </Flex>
+            <Flex gap={gap}>
+                <Button>Button</Button>
+                <Button>Button</Button>
+                <Button>Button</Button>
+                <Button>Button</Button>
+                <Button>Button</Button>
+                <Button>Button</Button>
+            </Flex>
+        </>
+    )
+}
+
 # Flex Component
 
 The `Flex` component provides a flexible and powerful way to manage layouts in your React applications. With a rich set of variants and customization options, it allows you to easily control the direction, alignment, and spacing of child elements.
@@ -45,6 +73,8 @@ Ensure that have the @zyxui library installed in your project:
 npm install @zyxui/flex
 ```
 </Example>
+
+If you haven't install and setup @zyxui before please follow the [`installation guide`](/docs/installation)
 
 
 ## Basic Usage
@@ -419,13 +449,60 @@ With `wrap` prop, you are able to control wether the flex container should wrap 
     ```
 </Example>
 
+### Gap
+
+The `gap` prop, allows you to adjust the gap between child elements. Accepted values for this prop are: `sm` | `md` | `lg` | `xl` | `undefined/null`
+
+<Example>
+    <Preview>
+        <DynamicFlexGap />
+    </Preview>
+    ```tsx showLineNumbers {21}
+    import Button from '@zyxui/button';
+    import Text from '@zyxui/text';
+    import Flex from '@zyxui/flex';
+    import { useState } from 'react';
+
+    const DynamicFlexGap = () => {
+        const [gap, setGap] = useState('md')
+
+        return (
+            <>
+                <Flex direction='column' className='mb-5'>
+                    <Text as={'p'}>Gap Sizes:</Text>
+                    <Flex gap='md'>
+                        <Button size={'sm'} variant={!gap ? 'solid' : 'flat'} onPress={() => setGap(undefined)}>None</Button>
+                        <Button size={'sm'} variant={gap === 'sm' ? 'solid' : 'flat'} onPress={() => setGap('sm')}>sm</Button>
+                        <Button size={'sm'} variant={gap === 'md' ? 'solid' : 'flat'} onPress={() => setGap('md')}>md</Button>
+                        <Button size={'sm'} variant={gap === 'lg' ? 'solid' : 'flat'} onPress={() => setGap('lg')}>lg</Button>
+                        <Button size={'sm'} variant={gap === 'xl' ? 'solid' : 'flat'} onPress={() => setGap('xl')}>xl</Button>
+                    </Flex>
+                </Flex>
+                <Flex gap={gap}>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                </Flex>
+            </>
+        )
+    }
+
+    export default DynamicFlexGap;
+    ```
+</Example>
+
 ## API Reference
 
-For an in-depth exploration of available props and advanced usage, consult the `Alert` component's API reference:
+The `Flex` component exposes a range of customization options to tailor the behavior of your layout. Here's an overview of the available props:
 
 | Property            | Description                               | Type        | Default     |
 | --------------------|-------------------------------------------|-------------|-------------|
-| as | Component element. | `h1` \| `h2` \| `h3` \| `h4` \| `h5` \| `h6` \| `p` \| `span` \| `mark` \| `code` | `h1` |
-| color | Customize text color. | `default` \| `error` \| `warning` \| `success` | `default` |
+| direction | Control the direction of the flex container. | reference <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction' target='_blank'>`flex-direction`</a> | `row` |
+| justify | Align items along the main axis. | reference <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content' target='_blank'>`justify-content`</a> | `flex-start` |
+| align | Align items along the cross axis. | reference <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/align-items' target='_blank'>`align-items`</a> | `stretch` |
+| wrap | Control whether the flex container should wrap its children. | reference <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap' target='_blank'>`flex-wrap`</a> | `nowrap` |
+| gap | Adjust the gap between child elements. | `sm` \| `md` \| `lg` \| `xl` \| `none` | `none` |
 | className | Adding custom class names to your text element. | `string` | `undefined` |
-| weight | Change text font-weight value. | `thin` \| `extralight` \| `light` \| `normal` \| `medium` \| `semibold` \| `bold` \| `extrabold` \| `2extrabold` | `normal` |
