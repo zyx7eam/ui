@@ -3,38 +3,23 @@ import { BadgeInfoIcon, GithubIcon, MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { LegacyRef } from 'react';
 import Button from '@zyxui/button';
-import Alert from '@zyxui/alert';
 import MobileNav from './mobile-nav';
 import NavbarProvider from './navbar.provider';
-
-const NavLink = ({ href, title }: { href: string; title: string }) => (
-  <Link href={href}>{title}</Link>
-);
+import NavLink from './nav-link';
 
 const Navbar = () => {
   return (
     <>
       <NavbarProvider />
-      <Alert
-        color='warning'
-        variant={'flat'}
-        icon={<BadgeInfoIcon size={18} />}
-        description={
-          <span>
-            <strong>Note:</strong> This documentation is a preview, providing an
-            early look at the project&#39;s development progress before it&#39;s
-            officially published in the package manager.
-          </span>
-        }
-      />
+
       <header className='sticky left-0 top-0 z-40 flex h-16 w-full flex-col justify-center border-b-[1px] border-gray-700  backdrop-blur-sm'>
         <nav className='mx-10 flex w-[calc(100%_-_theme(margin.20))] items-center justify-between'>
           <div className='w-96'>
             <Link href={'/'}>
               <h1>
                 @zyxui{' '}
-                <span className='ms-2 rounded-md border border-pink-700 bg-pink-700/20 p-1 text-xs text-pink-700'>
-                  Preview
+                <span className='ms-2 rounded-md border border-amber-700 bg-amber-700/20 p-1 text-xs text-amber-700'>
+                  Beta
                 </span>
               </h1>
             </Link>

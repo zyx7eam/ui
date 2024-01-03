@@ -1,9 +1,11 @@
 {
   "name": "@zyxui/flex",
-  "version": "0.4.1-beta",
+  "version": "0.4.2-beta",
   "description": "",
   "keywords": [
-    "flex", "div element", "container"
+    "flex",
+    "div element",
+    "container"
   ],
   "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
   "homepage": "https://ui.geeksteam.org",

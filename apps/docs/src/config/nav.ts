@@ -14,4 +14,10 @@ export const navLinks = [
     title: 'Components',
     _key: 'components',
   },
+  {
+    href: '/',
+    title: 'Blogs',
+    _key: 'blogs',
+    soon: true,
+  },
 ];
