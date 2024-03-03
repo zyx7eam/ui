@@ -31,8 +31,6 @@
     "build:fast": "tsup src"
   },
   "dependencies": {
-    "@zag-js/accordion": "^0.30.0",
-    "@zag-js/react": "^0.30.0",
     "@zyxui/lib": "workspace:*",
     "@zyxui/tsconfig": "workspace:*",
     "class-variance-authority": "^0.7.0",
@@ -41,9 +39,9 @@
     "tsup": "^7.3.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
     "clean-package": "2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
