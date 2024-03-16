@@ -9,7 +9,7 @@ import {
   IconPosition,
 } from './types';
 import AccordionItem from './accordion-item';
-import AccordionProvider from './context';
+import { useAccordion } from './use-accordion';
 
 const accordionVariants = cva('', {
   variants: {
@@ -42,7 +42,7 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   (
     {
       items,
-      defaultValues = ['1'],
+      defaultValues = [],
       multiple = false,
       size,
       variant,
@@ -54,42 +54,30 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   ) => {
     const classNames = cn(accordionVariants({ size, variant, className }));
 
+    const { rootProps, ...restAccordionProps } = useAccordion({
+      id: 'id',
+      multiple,
+      value: defaultValues,
+    });
+
+    console.log('defaultValues');
+    console.log(defaultValues);
+    console.log('multiple');
+    console.log(multiple);
+
     return (
-      <AccordionProvider active={defaultValues} items={items}>
-        {/* <div ref={ref} className={classNames} {...props} {...api.rootProps}> */}
-        <div ref={ref} className={classNames} {...props}>
-          {items?.map((item) => (
-            <AccordionItem
-              key={item.id}
-              item={item}
-              iconPosition={iconPosition}
-              activeItem={defaultValues}
-            />
-            // // <div key={item.id} {...api.getItemProps({ value: String(item.id) })}>
-            // <div key={item.id} >
-            //   <AccordionHeader
-            //     iconPosition={iconPosition}
-            //     size={size}
-            //     variant={variant}
-            //     open={activeItem.includes(String(item.id))}
-            //   // {...api.getItemTriggerProps({
-            //   //   value: String(item.id),
-            //   // })}
-            //   >
-            //     {item.title}
-            //   </AccordionHeader>
-            //   <AccordionContent
-            //     size={size}
-            //     variant={variant}
-            //     open={activeItem.includes(String(item.id))}
-            //   // {...api.getItemContentProps({ value: String(item.id) })}
-            //   >
-            //     {item.content}
-            //   </AccordionContent>
-            // </div>
-          ))}
-        </div>
-      </AccordionProvider>
+      <div ref={ref} className={classNames} {...props} {...rootProps}>
+        {items?.map((item) => (
+          <AccordionItem
+            key={item.id}
+            item={item}
+            iconPosition={iconPosition}
+            defaultValues={defaultValues}
+            multiple={multiple}
+            {...restAccordionProps}
+          />
+        ))}
+      </div>
     );
   },
 );

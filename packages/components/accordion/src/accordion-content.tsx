@@ -5,6 +5,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@zyxui/lib';
 
 import { Variants, motion } from 'framer-motion';
+import { Api } from '@zag-js/accordion';
 
 const collapseAnimationVariants: Variants = {
   open: {
@@ -15,7 +16,7 @@ const collapseAnimationVariants: Variants = {
   },
 };
 
-const accordionContentVariants = cva('overflow-hidden', {
+const accordionContentVariants = cva('overflow-hidden h-0', {
   variants: {
     variant: {
       default: '',
@@ -38,12 +39,15 @@ export type AccordionContentProps = React.HTMLAttributes<HTMLDivElement> &
     children?: React.ReactNode;
     open?: boolean;
     className?: string;
+    contentProps: Omit<Api['getItemContentProps'], 'content' | 'hidden'>;
   };
 
 const AccordionContent = React.forwardRef<
   HTMLDivElement,
   AccordionContentProps
 >(({ children, open, size, variant, className, ...props }, ref) => {
+  const { contentProps, ...restProps } = props;
+
   const classNames = cn(accordionContentVariants({ variant, size, className }));
 
   return (
@@ -52,6 +56,9 @@ const AccordionContent = React.forwardRef<
       className={classNames}
       variants={collapseAnimationVariants}
       animate={open ? 'open' : 'close'}
+      initial={false}
+      transition={{ duration: 0.3 }}
+      {...contentProps}
       // {...props}
     >
       <div data-type='content'>{children}</div>

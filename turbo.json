@@ -1,8 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "baseBranch": "origin/main",
+  "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
-      "outputs": ["dist/**", "storybook-static/**", ".next/**", "!.next/cache/**"],
+      "outputs": [
+        "dist/**",
+        "storybook-static/**",
+        ".next/**",
+        "!.next/cache/**"
+      ],
       "dependsOn": ["^build"]
     },
     "test": {
@@ -11,11 +18,11 @@
     },
     "lint": {},
     "dev": {
-      "cache": false,
-      "persistent": true
+      "cache": false
     },
     "clean": {
-      "cache": false
+      "cache": false,
+      "outputs": []
     }
   }
 }
