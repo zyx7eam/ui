@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // transpilePackages: ['@zyxui/button']
-}
+  transpilePackages: ['@zyxui'],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

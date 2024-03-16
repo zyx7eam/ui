@@ -9,6 +9,7 @@
   "homepage": "https://ui.geeksteam.org",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -31,6 +32,11 @@
     "build:fast": "tsup src"
   },
   "dependencies": {
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@zag-js/accordion": "^0.38.1",
+    "@zag-js/react": "^0.38.1",
+    "@zag-js/types": "^0.38.1",
     "@zyxui/lib": "workspace:*",
     "@zyxui/tsconfig": "workspace:*",
     "class-variance-authority": "^0.7.0",
@@ -40,8 +46,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
     "clean-package": "2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

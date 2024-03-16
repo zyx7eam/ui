@@ -6,7 +6,7 @@ import { IconPosition } from './types';
 import { cn } from '@zyxui/lib';
 import { ChevronDownIcon } from 'lucide-react';
 import { Variants, motion } from 'framer-motion';
-import { useAccordionContext } from './context';
+import { Api } from '@zag-js/accordion';
 
 // motion animations
 const arrowAnimationVariants: Variants = {
@@ -49,13 +49,14 @@ const accordionHeaderVariants = cva('', {
   },
 });
 
-export type AccordionHeaderProps = React.HTMLAttributes<HTMLDivElement> &
+export type AccordionHeaderProps = React.HTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof accordionHeaderVariants> & {
     children: React.ReactNode;
     open?: boolean;
     className?: string;
     iconPosition?: IconPosition;
     id: string | number;
+    triggerProps: Omit<Api['getItemTriggerProps'], 'content'>;
   };
 
 const AccordionHeader = React.forwardRef<HTMLDivElement, AccordionHeaderProps>(
@@ -63,8 +64,7 @@ const AccordionHeader = React.forwardRef<HTMLDivElement, AccordionHeaderProps>(
     { children, iconPosition, variant, size, className, open, id, ...props },
     ref,
   ) => {
-    const { onActiveChange } = useAccordionContext();
-
+    const { triggerProps, ...restProps } = props;
     const classNames = cn(
       accordionHeaderVariants({ variant, size, iconPosition, open, className }),
     );
@@ -81,8 +81,8 @@ const AccordionHeader = React.forwardRef<HTMLDivElement, AccordionHeaderProps>(
             //   aria-[expanded="true"]
             className='flex w-full items-center'
             data-type='trigger'
-            onClick={() => onActiveChange(id)}
-            // {...props}
+            {...triggerProps}
+            {...restProps}
           >
             {children}
             <motion.span

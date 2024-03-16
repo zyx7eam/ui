@@ -9,43 +9,72 @@ import {
 } from './types';
 import { AccordionProps } from './accordion';
 import AccordionContent from './accordion-content';
-import { useAccordionContext } from './context';
+import { UseAccordionReturn } from './use-accordion';
 
 export type AccordionItemProps = {
   iconPosition?: IconPosition;
-  activeItem: AccordionDefaultValue;
   item: CollapseItemProps;
+  multiple?: boolean;
+  defaultValues?: AccordionDefaultValue;
 } & React.HTMLAttributes<HTMLDivElement> &
-  Pick<AccordionProps, 'size' | 'variant'>;
+  Pick<AccordionProps, 'size' | 'variant'> &
+  Omit<UseAccordionReturn, 'rootProps'>;
 
 const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
-  ({ children, iconPosition, size, variant, activeItem = [], item }, ref) => {
-    const { active } = useAccordionContext();
-    console.log('active', active);
-    const isActive = React.useMemo(
-      () => active.includes(String(item.id) as never),
-      [active, item.id],
-    );
+  (
+    {
+      children,
+      iconPosition,
+      size,
+      variant,
+      multiple,
+      defaultValues = [],
+      item,
+      ...props
+    },
+    ref,
+  ) => {
+    const {
+      getItemTriggerProps,
+      getItemContentProps,
+      value,
+      focusedValue,
+      getItemIndicatorProps,
+      getItemProps,
+      getItemState,
+      setValue,
+      ...restProps
+    } = props;
+
+    console.log('item.id');
+    console.log(item.id);
+
+    console.log('value.includes(String(item.id))');
+    console.log(value.includes(String(item.id)));
 
     return (
-      <div ref={ref}>
+      <div
+        ref={ref}
+        {...restProps}
+        {...getItemProps({ value: String(item.id) })}
+      >
         <AccordionHeader
           iconPosition={iconPosition}
           size={size}
           variant={variant}
-          open={isActive}
           id={item.id}
-          // {...api.getItemTriggerProps({
-          //   value: String(item.id),
-          // })}
+          open={value.includes(String(item.id))}
+          triggerProps={getItemTriggerProps({
+            value: String(item.id),
+          })}
         >
           {item.title}
         </AccordionHeader>
         <AccordionContent
           size={size}
           variant={variant}
-          open={isActive}
-          // {...api.getItemContentProps({ value: String(item.id) })}
+          open={value.includes(String(item.id))}
+          contentProps={getItemContentProps({ value: String(item.id) })}
         >
           {item.content}
         </AccordionContent>

@@ -7,10 +7,3 @@ export type CollapseItemProps = {
 };
 
 export type AccordionDefaultValue = string[];
-
-export type OnActiveChangeFunc = (newValue: string) => void;
-
-export type AccordionContextType = {
-  active: AccordionDefaultValue;
-  onActiveChange: OnActiveChangeFunc;
-};

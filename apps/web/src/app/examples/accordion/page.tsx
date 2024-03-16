@@ -1,13 +1,12 @@
-'use client';
-
+import React from 'react';
 import Accordion from '@zyxui/accordion';
-import React, { useState } from 'react';
 
 const AccordionExample = () => {
   return (
     <Accordion
       defaultValues={['2']}
       variant='bordered'
+      multiple={false}
       items={[
         {
           id: '1',
