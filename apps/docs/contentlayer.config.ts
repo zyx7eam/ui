@@ -45,6 +45,11 @@ export default makeSource({
   contentDirPath: './content',
   documentTypes: [Docs],
   mdx: {
+    esbuildOptions(options: any) {
+      options.external = options.external || [];
+      // options.external.push('@zyxui/*'); // Keep this commented out or remove
+      return options;
+    },
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       // adding #id to headers in docs page

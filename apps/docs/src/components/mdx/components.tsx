@@ -12,7 +12,7 @@ type DivElProps = DetailedHTMLProps<
 export const Example = ({ children, className, ...props }: DivElProps) => {
   return (
     <div
-      className='relative my-2 overflow-hidden rounded-md border border-gray-700'
+      className='relative my-2 overflow-hidden rounded-md border border-gray-700 p-4'
       {...props}
     >
       {children}

@@ -1,0 +1,476 @@
+{
+    "library": "@zyxui",
+    "version": "1.0.0",
+    "description": "Modern React UI component library optimized for AI-assisted design generation",
+    "components": {
+        "Button": {
+            "import": "import Button from '@zyxui/button'",
+            "description": "Interactive button component for actions and navigation",
+            "props": {
+                "children": {
+                    "type": "ReactNode",
+                    "required": true,
+                    "description": "Button text or content"
+                },
+                "variant": {
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "destructive",
+                        "outline",
+                        "secondary",
+                        "ghost",
+                        "link"
+                    ],
+                    "default": "default",
+                    "description": "Visual style variant"
+                },
+                "size": {
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "sm",
+                        "lg",
+                        "icon"
+                    ],
+                    "default": "default",
+                    "description": "Button size"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Disable button interaction"
+                },
+                "className": {
+                    "type": "string",
+                    "description": "Additional CSS classes"
+                }
+            },
+            "useCases": [
+                "Primary actions (submit forms, save data)",
+                "Secondary actions (cancel, reset)",
+                "Navigation (links, page transitions)",
+                "Destructive actions (delete, remove)"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use for any clickable action. Primary buttons for main actions, outline/ghost for secondary actions.",
+                "commonPatterns": [
+                    "Form submission: <Button>Submit</Button>",
+                    "Cancel action: <Button variant='outline'>Cancel</Button>",
+                    "Delete action: <Button variant='destructive'>Delete</Button>",
+                    "Navigation: <Button variant='ghost'>Learn More</Button>"
+                ],
+                "avoidPatterns": [
+                    "Don't use multiple primary buttons in the same section",
+                    "Don't use destructive variant for non-destructive actions"
+                ]
+            },
+            "examples": [
+                "<Button>Click me</Button>",
+                "<Button variant='outline' size='sm'>Small Button</Button>",
+                "<Button variant='destructive'>Delete Item</Button>"
+            ]
+        },
+        "Card": {
+            "import": "import Card from '@zyxui/card'",
+            "description": "Flexible container for grouping related content",
+            "props": {
+                "children": {
+                    "type": "ReactNode",
+                    "required": true,
+                    "description": "Card content"
+                },
+                "variant": {
+                    "type": "enum",
+                    "options": [
+                        "elevated",
+                        "outlined",
+                        "filled",
+                        "ghost"
+                    ],
+                    "default": "elevated",
+                    "description": "Visual style variant"
+                },
+                "size": {
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md",
+                    "description": "Card padding size"
+                },
+                "className": {
+                    "type": "string",
+                    "description": "Additional CSS classes"
+                }
+            },
+            "subComponents": {
+                "CardHeader": "Header section of the card",
+                "CardBody": "Main content area",
+                "CardFooter": "Footer section for actions",
+                "CardTitle": "Card title component",
+                "CardDescription": "Card description text"
+            },
+            "useCases": [
+                "Product cards",
+                "User profiles",
+                "Content containers",
+                "Dashboard widgets",
+                "Article previews"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use to group related information and actions. Great for layouts with multiple content sections.",
+                "commonPatterns": [
+                    "Product card: Card with image, title, description, and action buttons",
+                    "Profile card: Card with avatar, name, role, and contact info",
+                    "Dashboard widget: Card with title, stats, and mini chart",
+                    "Article preview: Card with thumbnail, title, excerpt, and read more"
+                ],
+                "layoutTips": [
+                    "Use grid layouts for multiple cards",
+                    "Consistent card heights in the same row",
+                    "Leave adequate spacing between cards"
+                ]
+            },
+            "examples": [
+                "<Card className='w-80'><CardBody><p>Simple card content</p></CardBody></Card>",
+                "<Card><CardHeader><CardTitle>Product</CardTitle></CardHeader><CardBody><p>Description</p></CardBody><CardFooter><Button>Buy Now</Button></CardFooter></Card>"
+            ]
+        },
+        "Tabs": {
+            "import": "import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs'",
+            "description": "Organize content into multiple sections with tab navigation",
+            "props": {
+                "defaultValue": {
+                    "type": "string",
+                    "description": "Initially active tab"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Controlled active tab value"
+                },
+                "onValueChange": {
+                    "type": "function",
+                    "description": "Callback when tab changes"
+                },
+                "variant": {
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "underline",
+                        "pills"
+                    ],
+                    "default": "default",
+                    "description": "Visual style variant"
+                },
+                "size": {
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md",
+                    "description": "Tab trigger size"
+                },
+                "orientation": {
+                    "type": "enum",
+                    "options": [
+                        "horizontal",
+                        "vertical"
+                    ],
+                    "default": "horizontal",
+                    "description": "Tab layout direction"
+                }
+            },
+            "subComponents": {
+                "TabsList": "Container for tab triggers",
+                "TabsTrigger": "Individual tab button (requires 'value' prop)",
+                "TabsContent": "Content panel for each tab (requires 'value' prop)"
+            },
+            "useCases": [
+                "Settings pages",
+                "Product information sections",
+                "Dashboard navigation",
+                "Content organization",
+                "Multi-step forms"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use when you have multiple related content sections that users might want to switch between.",
+                "commonPatterns": [
+                    "Settings: Profile, Account, Notifications, Security tabs",
+                    "Product details: Overview, Specifications, Reviews, Related tabs",
+                    "Dashboard: Analytics, Reports, Users, Settings tabs",
+                    "User profile: Posts, About, Photos, Friends tabs"
+                ],
+                "bestPractices": [
+                    "Keep tab labels short and descriptive",
+                    "Use 3-7 tabs maximum for optimal UX",
+                    "Group related content logically",
+                    "Consider using icons for better recognition"
+                ]
+            },
+            "examples": [
+                "<Tabs defaultValue='tab1'><TabsList><TabsTrigger value='tab1'>Tab 1</TabsTrigger><TabsTrigger value='tab2'>Tab 2</TabsTrigger></TabsList><TabsContent value='tab1'>Content 1</TabsContent><TabsContent value='tab2'>Content 2</TabsContent></Tabs>"
+            ]
+        },
+        "Avatar": {
+            "import": "import Avatar from '@zyxui/avatar'",
+            "description": "Display user profile images or initials",
+            "props": {
+                "src": {
+                    "type": "string",
+                    "description": "Image URL"
+                },
+                "alt": {
+                    "type": "string",
+                    "description": "Alternative text"
+                },
+                "size": {
+                    "type": "enum",
+                    "options": [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl"
+                    ],
+                    "default": "md",
+                    "description": "Avatar size"
+                },
+                "fallback": {
+                    "type": "string",
+                    "description": "Fallback text (usually initials)"
+                },
+                "className": {
+                    "type": "string",
+                    "description": "Additional CSS classes"
+                }
+            },
+            "useCases": [
+                "User profiles",
+                "Comment sections",
+                "Team member lists",
+                "Chat interfaces",
+                "Navigation bars"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use to represent users, authors, or team members. Essential for personalizing interfaces.",
+                "commonPatterns": [
+                    "User profile: Large avatar with name and role",
+                    "Comment author: Small avatar next to comment",
+                    "Team grid: Medium avatars in grid layout",
+                    "Navigation: Small avatar in header/sidebar"
+                ],
+                "sizingGuidelines": [
+                    "xs (24px): Navigation, small lists",
+                    "sm (32px): Comments, compact lists",
+                    "md (40px): Default, most common use",
+                    "lg (56px): Profile headers, emphasis",
+                    "xl (80px): Main profile pages, hero sections"
+                ]
+            },
+            "examples": [
+                "<Avatar src='user.jpg' alt='John Doe' />",
+                "<Avatar size='lg' fallback='JD' />",
+                "<Avatar src='avatar.png' size='sm' alt='User' />"
+            ]
+        },
+        "Badge": {
+            "import": "import Badge from '@zyxui/badge'",
+            "description": "Small status indicators and labels",
+            "props": {
+                "content": {
+                    "type": "string | number",
+                    "required": true,
+                    "description": "Badge text or number"
+                },
+                "variant": {
+                    "type": "enum",
+                    "options": [
+                        "solid",
+                        "outline",
+                        "ghost",
+                        "dot"
+                    ],
+                    "default": "solid",
+                    "description": "Visual style variant"
+                },
+                "color": {
+                    "type": "enum",
+                    "options": [
+                        "default",
+                        "primary",
+                        "secondary",
+                        "success",
+                        "warning",
+                        "danger",
+                        "info"
+                    ],
+                    "default": "default",
+                    "description": "Badge color theme"
+                },
+                "size": {
+                    "type": "enum",
+                    "options": [
+                        "sm",
+                        "md",
+                        "lg"
+                    ],
+                    "default": "md",
+                    "description": "Badge size"
+                }
+            },
+            "useCases": [
+                "Status indicators",
+                "Notification counts",
+                "Category labels",
+                "Version tags",
+                "Priority markers"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use to highlight status, show counts, or label content categories.",
+                "colorSemantics": {
+                    "success": "Completed, active, online status",
+                    "warning": "Pending, attention needed",
+                    "danger": "Error, urgent, offline",
+                    "info": "Information, neutral status",
+                    "primary": "Featured, important",
+                    "secondary": "Less important, muted"
+                },
+                "commonPatterns": [
+                    "Notification count: <Badge content={5} color='danger'>",
+                    "Status indicator: <Badge content='Active' color='success'>",
+                    "Category tag: <Badge content='React' variant='outline'>",
+                    "New feature: <Badge content='New' color='primary'>"
+                ]
+            },
+            "examples": [
+                "<Badge content='New' color='primary' />",
+                "<Badge content={12} color='danger' variant='solid' />",
+                "<Badge content='Beta' variant='outline' />"
+            ]
+        },
+        "Text": {
+            "import": "import Text from '@zyxui/text'",
+            "description": "Typography component for consistent text styling",
+            "props": {
+                "children": {
+                    "type": "ReactNode",
+                    "required": true,
+                    "description": "Text content"
+                },
+                "variant": {
+                    "type": "enum",
+                    "options": [
+                        "h1",
+                        "h2",
+                        "h3",
+                        "h4",
+                        "h5",
+                        "h6",
+                        "p",
+                        "span",
+                        "small"
+                    ],
+                    "default": "p",
+                    "description": "Text style variant"
+                },
+                "className": {
+                    "type": "string",
+                    "description": "Additional CSS classes"
+                }
+            },
+            "useCases": [
+                "Headings and titles",
+                "Body text",
+                "Captions and labels",
+                "Error messages",
+                "Descriptions"
+            ],
+            "aiGuidelines": {
+                "whenToUse": "Use for all text content to maintain consistent typography across the application.",
+                "hierarchy": {
+                    "h1": "Main page titles, hero headings",
+                    "h2": "Section headings, major divisions",
+                    "h3": "Subsection headings, card titles",
+                    "h4-h6": "Minor headings, component titles",
+                    "p": "Body text, descriptions, paragraphs",
+                    "small": "Captions, meta info, fine print"
+                },
+                "commonPatterns": [
+                    "Page title: <Text variant='h1'>Page Title</Text>",
+                    "Section heading: <Text variant='h2'>Section Name</Text>",
+                    "Description: <Text>This is a description</Text>",
+                    "Caption: <Text variant='small'>Last updated</Text>"
+                ]
+            },
+            "examples": [
+                "<Text variant='h1'>Main Title</Text>",
+                "<Text>Regular paragraph text</Text>",
+                "<Text variant='small' className='text-muted'>Caption text</Text>"
+            ]
+        }
+    },
+    "designPatterns": {
+        "layouts": {
+            "heroSection": {
+                "description": "Hero section with title, description, and call-to-action",
+                "template": "<div className='text-center py-16'><Text variant='h1' className='mb-4'>Hero Title</Text><Text className='mb-8 text-lg'>Hero description text</Text><Button size='lg'>Get Started</Button></div>"
+            },
+            "featureGrid": {
+                "description": "Grid of feature cards",
+                "template": "<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>{features.map(feature => <Card key={feature.id}><CardBody><Text variant='h3'>{feature.title}</Text><Text>{feature.description}</Text></CardBody></Card>)}</div>"
+            },
+            "userProfile": {
+                "description": "User profile section with avatar and info",
+                "template": "<Card><CardBody><div className='flex items-center gap-4'><Avatar size='lg' src={user.avatar} alt={user.name} /><div><Text variant='h3'>{user.name}</Text><Text>{user.role}</Text></div></div></CardBody></Card>"
+            },
+            "dashboard": {
+                "description": "Dashboard with navigation tabs and content",
+                "template": "<Tabs defaultValue='overview'><TabsList><TabsTrigger value='overview'>Overview</TabsTrigger><TabsTrigger value='analytics'>Analytics</TabsTrigger><TabsTrigger value='settings'>Settings</TabsTrigger></TabsList><TabsContent value='overview'>{/* Dashboard content */}</TabsContent></Tabs>"
+            }
+        },
+        "common_combinations": [
+            {
+                "name": "Card with Avatar and Badge",
+                "description": "User card with status indicator",
+                "code": "<Card><CardBody><div className='flex items-center justify-between'><div className='flex items-center gap-3'><Avatar src={user.avatar} alt={user.name} /><Text variant='h4'>{user.name}</Text></div><Badge content={user.status} color='success' /></div></CardBody></Card>"
+            },
+            {
+                "name": "Button Group",
+                "description": "Primary and secondary action buttons",
+                "code": "<div className='flex gap-2'><Button>Primary Action</Button><Button variant='outline'>Secondary</Button></div>"
+            },
+            {
+                "name": "Stats Card",
+                "description": "Card displaying statistics with badge",
+                "code": "<Card><CardBody><Text variant='h2'>{stat.value}</Text><Text>{stat.label}</Text><Badge content={stat.change} color={stat.trend === 'up' ? 'success' : 'danger'} /></CardBody></Card>"
+            }
+        ]
+    },
+    "aiPromptGuidelines": {
+        "structuralThinking": [
+            "Always think in terms of semantic HTML structure",
+            "Use components that match the content's purpose",
+            "Consider responsive design patterns",
+            "Group related elements using Cards or containers"
+        ],
+        "componentSelection": [
+            "Use Button for any interactive action",
+            "Use Card to group related content",
+            "Use Tabs for content organization",
+            "Use Avatar for user representation",
+            "Use Badge for status and labels",
+            "Use Text for all typography"
+        ],
+        "designPrinciples": [
+            "Maintain visual hierarchy with Text variants",
+            "Use consistent spacing with Tailwind classes",
+            "Apply color semantics meaningfully",
+            "Ensure accessibility with proper ARIA attributes"
+        ]
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "@zyxui/avatar",
+    "version": "0.4.2-beta",
+    "description": "Avatar component for zyxui.",
+    "keywords": [
+        "avatar",
+        "react",
+        "component",
+        "zyxui"
+    ],
+    "author": "Hamude Shahin <hamedsahin2018@icloud.com>",
+    "homepage": "https://ui.geeksteam.org",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zyx7eam/ui",
+        "directory": "packages/components/avatar"
+    },
+    "bugs": {
+        "url": "git+https://github.com/zyx7eam/ui/issues"
+    },
+    "scripts": {
+        "build": "tsup src --dts",
+        "clean": "rm -rf dist .turbo node_modules",
+        "typecheck": "tsc --noEmit",
+        "build:fast": "tsup src"
+    },
+    "dependencies": {
+        "@zyxui/lib": "workspace:*",
+        "@zyxui/tsconfig": "workspace:*",
+        "@zyxui/theme": "workspace:*",
+        "class-variance-authority": "^0.7.0",
+        "lucide-react": "^0.303.0",
+        "tsup": "^7.3.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.24",
+        "@types/react": "^18.2.61",
+        "@types/react-dom": "^18.2.19",
+        "clean-package": "2.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    }
+}

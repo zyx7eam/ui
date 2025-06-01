@@ -23,7 +23,12 @@ export const LinkWithChildren = ({
       <ul className='ms-5 transition-all'>
         {items?.map((__) => (
           <li key={__._key}>
-            <LinkItem href={__.href} isNew={__.isNew} disabled={__.disabled}>
+            <LinkItem
+              href={__.href}
+              isNew={__.isNew}
+              disabled={__.disabled}
+              updated={__.updated}
+            >
               {__.title}
             </LinkItem>
           </li>

@@ -4,7 +4,19 @@ const withContentlayer = require('next-contentlayer').withContentlayer;
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  transpilePackages: ['@zyxui/button', '@zyxui/alert', '@zyxui/text', '@zyxui/accordion'],
+  transpilePackages: [
+    '@zyxui/button',
+    '@zyxui/alert',
+    '@zyxui/text',
+    '@zyxui/accordion',
+    '@zyxui/card',
+    '@zyxui/input',
+    '@zyxui/theme',
+    '@zyxui/lib',
+    '@zyxui/flex',
+    '@zyxui/avatar',
+    '@zyxui/badge',
+  ],
   async redirects() {
     return [
       {

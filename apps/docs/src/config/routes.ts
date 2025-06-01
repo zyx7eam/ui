@@ -4,6 +4,7 @@ export type RouteItem = {
   title: string;
   isNew: boolean;
   disabled?: boolean;
+  updated?: boolean;
 };
 
 export type RoutesWithChildrenProps = RouteItem & {
@@ -15,13 +16,13 @@ export const routes: RoutesWithChildrenProps[] = [
     _key: 'introduction',
     href: '/docs/introduction',
     title: 'Introduction',
-    isNew: true,
+    isNew: false,
   },
   {
     _key: 'installation',
     href: '/docs/installation',
     title: 'Installation',
-    isNew: true,
+    isNew: false,
   },
   {
     _key: 'components',
@@ -33,30 +34,62 @@ export const routes: RoutesWithChildrenProps[] = [
         _key: 'button',
         href: '/docs/components/button',
         title: 'Button',
-        isNew: true,
+        isNew: false,
       },
       {
         _key: 'alert',
         href: '/docs/components/alert',
         title: 'Alert',
-        isNew: true,
+        isNew: false,
       },
       {
         _key: 'accordion',
         href: '/docs/components/accordion',
         title: 'Accordion',
-        isNew: true,
+        isNew: false,
+        updated: true,
       },
       {
         _key: 'text',
         href: '/docs/components/text',
         title: 'Text',
-        isNew: true,
+        isNew: false,
+        updated: true,
       },
       {
         _key: 'flex',
         href: '/docs/components/flex',
         title: 'Flex',
+        isNew: false,
+      },
+      {
+        _key: 'card',
+        href: '/docs/components/card',
+        title: 'Card',
+        isNew: true,
+      },
+      {
+        _key: 'input',
+        href: '/docs/components/input',
+        title: 'Input',
+        isNew: true,
+      },
+      {
+        _key: 'avatar',
+        href: '/docs/components/avatar',
+        title: 'Avatar',
+        isNew: true,
+      },
+      {
+        _key: 'badge',
+        href: '/docs/components/badge',
+        title: 'Badge',
+        isNew: true,
+      },
+      {
+        _key: 'tabs',
+        href: '/docs/components/tabs',
+        title: 'Tabs',
         isNew: true,
       },
     ],

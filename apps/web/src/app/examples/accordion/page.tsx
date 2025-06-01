@@ -4,7 +4,12 @@ import React from 'react';
 import Accordion, { AccordionItem } from '@zyxui/accordion';
 
 let items = [
-  { key: 'one', title: 'one title', children: 'one children' },
+  {
+    key: 'one',
+    title: 'one title',
+    children: 'one children',
+    description: 'test',
+  },
   { key: 'two', title: 'two title', children: 'two children' },
   {
     key: 'three',
@@ -16,8 +21,19 @@ let items = [
 
 const AccordionExample = () => {
   return (
-    <Accordion defaultExpandedKeys={['one']} multiple={true} iconPosition='end'>
-      <AccordionItem key={'one'} title={'Test Text'} hasChildItems={false}>
+    <Accordion
+      defaultExpandedKeys={['one']}
+      multiple={true}
+      iconPosition='end'
+      // items={items}
+      disabledKeys={['two']}
+    >
+      <AccordionItem
+        key={'one'}
+        title={'Test Text'}
+        hasChildItems={false}
+        desc='test'
+      >
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
         adipisci ut cumque assumenda blanditiis corrupti illo iste quis delectus
         nihil suscipit et hic culpa, minus, dolore alias explicabo officia rem.

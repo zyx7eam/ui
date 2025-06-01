@@ -1,0 +1,253 @@
+---
+title: '@zyxui/avatar | Avatar Component'
+---
+
+import { Preview, Example, Command } from '@/components/mdx/components';
+import Avatar from '@zyxui/avatar';
+import { User, Star, Camera } from 'lucide-react';
+
+# Avatar
+
+The `Avatar` component is a versatile element for displaying user profile pictures, initials, or icons. Perfect for user interfaces, comment sections, and user lists.
+
+## Installation
+
+Ensure that you have the @zyxui library installed in your project:
+<Example>
+```bash
+pnpm add @zyxui/avatar
+```
+</Example>
+
+If you haven't installed and setup @zyxui before, please follow the [`installation guide`](/docs/installation)
+
+## Basic Avatar
+
+The most basic usage of the Avatar component with different content types.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User 1" />
+    <Avatar fallback="JD" color="primary" />
+    <Avatar icon={<User />} color="secondary" />
+    <Avatar src="/invalid.jpg" fallback={<Camera />} color="danger" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+  import { User, Camera } from 'lucide-react';
+
+  export const BasicAvatarExample = () => {
+    return (
+      <>
+        <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User 1" />
+        <Avatar fallback="JD" color="primary" />
+        <Avatar icon={<User />} color="secondary" />
+        <Avatar src="/invalid.jpg" fallback={<Camera />} color="danger" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Customization
+
+The `Avatar` component is <ins>**highly customizable**</ins>, offering various options to match your design needs:
+
+### Sizes
+
+Available in different sizes to fit various layouts.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" size="sm" alt="Small" />
+    <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" size="md" alt="Medium" />
+    <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" size="lg" alt="Large" />
+    <Avatar src="https://i.pravatar.cc/150?u=a04258a24e29026704e" size="xl" alt="Extra Large" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+
+  export const AvatarSizesExample = () => {
+    return (
+      <>
+        <Avatar src="..." size="sm" alt="Small" />
+        <Avatar src="..." size="md" alt="Medium" />
+        <Avatar src="..." size="lg" alt="Large" />
+        <Avatar src="..." size="xl" alt="Extra Large" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Shapes
+
+Choose between circular or square shapes.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" shape="circle" alt="Circle" />
+    <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" shape="square" alt="Square" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+
+  export const AvatarShapesExample = () => {
+    return (
+      <>
+        <Avatar src="..." shape="circle" alt="Circle" />
+        <Avatar src="..." shape="square" alt="Square" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Colors and Fallbacks
+
+Customize the background color when displaying fallback content.
+
+<Example>
+  <Preview className='flex flex-wrap gap-3 items-center'>
+    <Avatar fallback="DF" color="default" />
+    <Avatar fallback="PR" color="primary" />
+    <Avatar fallback="SC" color="secondary" />
+    <Avatar fallback="SU" color="success" />
+    <Avatar fallback="WA" color="warning" />
+    <Avatar fallback="DA" color="danger" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+
+  export const AvatarColorsExample = () => {
+    return (
+      <>
+        <Avatar fallback="DF" color="default" />
+        <Avatar fallback="PR" color="primary" />
+        <Avatar fallback="SC" color="secondary" />
+        <Avatar fallback="SU" color="success" />
+        <Avatar fallback="WA" color="warning" />
+        <Avatar fallback="DA" color="danger" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Real-World Examples
+
+### User Status
+
+Display user status with customizable indicators.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" status="online" alt="Online" />
+    <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" status="offline" alt="Offline" />
+    <Avatar src="https://i.pravatar.cc/150?u=a04258a24e29026704e" status="away" alt="Away" />
+    <Avatar fallback="SB" color="success" status="busy" alt="Busy" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+
+  export const UserStatusExample = () => {
+    return (
+      <>
+        <Avatar src="..." status="online" alt="Online" />
+        <Avatar src="..." status="offline" alt="Offline" />
+        <Avatar src="..." status="away" alt="Away" />
+        <Avatar fallback="SB" color="success" status="busy" alt="Busy" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Interactive Avatars
+
+Create interactive avatars with borders and hover effects.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Avatar
+      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+      bordered
+      className="cursor-pointer hover:opacity-80"
+      alt="Interactive"
+    />
+    <Avatar
+      fallback="JD"
+      color="primary"
+      bordered
+      className="cursor-pointer hover:opacity-80"
+    />
+    <Avatar
+      icon={<User />}
+      color="secondary"
+      bordered
+      className="cursor-pointer hover:opacity-80"
+    />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Avatar } from '@zyxui/avatar';
+  import { User } from 'lucide-react';
+
+  export const InteractiveAvatarExample = () => {
+    return (
+      <>
+        <Avatar
+          src="..."
+          bordered
+          className="cursor-pointer hover:opacity-80"
+          alt="Interactive"
+        />
+        <Avatar
+          fallback="JD"
+          color="primary"
+          bordered
+          className="cursor-pointer hover:opacity-80"
+        />
+        <Avatar
+          icon={<User />}
+          color="secondary"
+          bordered
+          className="cursor-pointer hover:opacity-80"
+        />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## API Reference
+
+### Avatar
+
+The Avatar component extends `HTMLDivElement` and includes the following props:
+
+| Prop             | Type                                                            | Default        | Description                                                                 |
+|------------------|-----------------------------------------------------------------|----------------|-----------------------------------------------------------------------------|
+| `src`            | `string`                                                        | -              | The URL of the image to display                                            |
+| `alt`            | `string`                                                        | `''`          | Alt text for the image, also used for initial generation if no fallback    |
+| `icon`           | `React.ReactNode`                                               | -              | A custom icon to display as a fallback if `src` is invalid                 |
+| `fallback`       | `React.ReactNode`                                               | -              | Custom content to display if `src` is invalid. Takes precedence over `icon` |
+| `size`           | `'sm' \| 'md' \| 'lg' \| 'xl'`                                     | `'md'`         | The size of the avatar                                                     |
+| `shape`          | `'circle' \| 'square'`                                          | `'circle'`     | The shape of the avatar                                                    |
+| `color`          | `'default' \| 'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger'` | `'default'`    | The background color when displaying fallback content        |
+| `bordered`       | `boolean`                                                       | `false`        | If `true`, adds a border to the avatar                                   |
+| `disabled`       | `boolean`                                                       | `false`        | If `true`, applies a disabled style                             |
+| `status`         | `'online' \| 'offline' \| 'away' \| 'busy'`                           | -              | Shows a status indicator                                |
+| `statusPosition` | `'top-right' \| 'bottom-right' \| 'top-left' \| 'bottom-left'`         | `'bottom-right'` | Position of the status indicator                                                 |
+
+### Accessibility
+
+- Always provide meaningful `alt` text for avatar images
+- Use `aria-label` when the avatar represents a user or entity
+- Ensure interactive avatars are keyboard accessible and have appropriate ARIA attributes
+- Consider using `aria-live` regions for status changes
