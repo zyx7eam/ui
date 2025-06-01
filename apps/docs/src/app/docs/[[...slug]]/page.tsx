@@ -20,7 +20,7 @@ async function getDocFromParams({ params }: DocsPageProps) {
   const slug = params.slug?.join('/') || '';
   const doc = await allDocs.find((doc) => doc.slugAsParams === slug);
 
-  if (!doc) null;
+  if (!doc) return null;
 
   const headings = getHeadings(doc?.body.raw);
 
@@ -36,11 +36,13 @@ async function getDocFromParams({ params }: DocsPageProps) {
 export async function generateMetadata({
   params,
 }: DocsPageProps): Promise<Metadata> {
-  const { doc } = await getDocFromParams({ params });
+  const result = await getDocFromParams({ params });
 
-  if (!doc) {
+  if (!result) {
     return {};
   }
+
+  const { doc } = result;
 
   return {
     title: doc.title,
@@ -78,12 +80,14 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function DocPage({ params }: DocsPageProps) {
-  const { doc, headings, currentRoute } = await getDocFromParams({ params });
+  const result = await getDocFromParams({ params });
 
-  if (!doc) {
+  if (!result) {
     console.log('Not found!');
     notFound();
   }
+
+  const { doc, headings, currentRoute } = result;
 
   return (
     <>

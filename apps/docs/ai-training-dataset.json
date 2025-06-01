@@ -1,0 +1,161 @@
+{
+    "name": "@zyxui AI Training Dataset",
+    "description": "Training examples for AI models to learn @zyxui component usage patterns",
+    "version": "1.0.0",
+    "examples": [
+        {
+            "id": "dashboard-1",
+            "prompt": "Create a user dashboard with statistics cards showing user count, revenue, and conversion rate with trend indicators",
+            "intent": "dashboard",
+            "components": [
+                "Card",
+                "Tabs",
+                "Badge",
+                "Text"
+            ],
+            "pattern": "dashboard",
+            "code": "import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';\nimport { Card, CardBody } from '@zyxui/card';\nimport Text from '@zyxui/text';\nimport Badge from '@zyxui/badge';\n\nexport const Dashboard = () => {\n  const stats = [\n    { label: 'Total Users', value: '1,234', change: 12, trend: 'up' },\n    { label: 'Revenue', value: '$12,345', change: 5, trend: 'up' },\n    { label: 'Conversion Rate', value: '3.2%', change: -2, trend: 'down' }\n  ];\n\n  return (\n    <div className=\"max-w-7xl mx-auto p-6\">\n      <Text as=\"h1\" className=\"mb-8\">Dashboard</Text>\n      \n      <Tabs defaultValue=\"overview\" variant=\"underline\">\n        <TabsList className=\"mb-6\">\n          <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n          <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\n        </TabsList>\n\n        <TabsContent value=\"overview\">\n          <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\n            {stats.map((stat, index) => (\n              <Card key={index}>\n                <CardBody>\n                  <Text as=\"h3\" className=\"text-2xl font-bold mb-2\">\n                    {stat.value}\n                  </Text>\n                  <Text className=\"text-muted-foreground mb-3\">\n                    {stat.label}\n                  </Text>\n                  <Badge \n                    content={`${stat.change > 0 ? '+' : ''}${stat.change}%`}\n                    color={stat.trend === 'up' ? 'success' : 'danger'}\n                    size=\"sm\"\n                  />\n                </CardBody>\n              </Card>\n            ))}\n          </div>\n        </TabsContent>\n      </Tabs>\n    </div>\n  );\n};"
+        },
+        {
+            "id": "profile-1",
+            "prompt": "Build a user profile card with avatar, name, role, status badge, and message/follow buttons",
+            "intent": "user-profile",
+            "components": [
+                "Card",
+                "Avatar",
+                "Text",
+                "Badge",
+                "Button"
+            ],
+            "pattern": "userProfile",
+            "code": "import { Card, CardBody } from '@zyxui/card';\nimport Avatar from '@zyxui/avatar';\nimport Text from '@zyxui/text';\nimport Badge from '@zyxui/badge';\nimport Button from '@zyxui/button';\n\nexport const UserProfile = ({ user }) => {\n  const userData = user || {\n    name: 'Sarah Johnson',\n    role: 'Senior Developer',\n    avatar: 'https://i.pravatar.cc/150?u=sarah',\n    status: 'Online'\n  };\n\n  return (\n    <Card className=\"max-w-md mx-auto\">\n      <CardBody>\n        <div className=\"text-center mb-6\">\n          <Avatar \n            size=\"xl\" \n            src={userData.avatar} \n            alt={userData.name}\n            className=\"mx-auto mb-4\"\n          />\n          <Text as=\"h3\" className=\"mb-1\">{userData.name}</Text>\n          <Text className=\"text-muted-foreground mb-2\">{userData.role}</Text>\n          <Badge content={userData.status} color=\"success\" />\n        </div>\n        \n        <div className=\"flex gap-2\">\n          <Button className=\"flex-1\">Message</Button>\n          <Button variant=\"bordered\" className=\"flex-1\">Follow</Button>\n        </div>\n      </CardBody>\n    </Card>\n  );\n};"
+        },
+        {
+            "id": "hero-1",
+            "prompt": "Design a hero section for a landing page with a compelling headline, description, and call-to-action buttons",
+            "intent": "hero-section",
+            "components": [
+                "Text",
+                "Button"
+            ],
+            "pattern": "hero",
+            "code": "import Button from '@zyxui/button';\nimport Text from '@zyxui/text';\n\nexport const HeroSection = () => {\n  return (\n    <div className=\"text-center py-16 px-4\">\n      <Text as=\"h1\" className=\"text-4xl md:text-6xl font-bold mb-6\">\n        Build Amazing UIs with @zyxui\n      </Text>\n      <Text className=\"text-xl text-muted-foreground mb-8 max-w-2xl mx-auto\">\n        Modern React components designed for speed, accessibility, and beautiful user experiences.\n      </Text>\n      <div className=\"flex flex-col sm:flex-row gap-4 justify-center\">\n        <Button size=\"lg\">Get Started</Button>\n        <Button variant=\"bordered\" size=\"lg\">Learn More</Button>\n      </div>\n    </div>\n  );\n};"
+        },
+        {
+            "id": "form-1",
+            "prompt": "Create a contact form with name, email, subject, and message fields with validation",
+            "intent": "contact-form",
+            "components": [
+                "Card",
+                "Input",
+                "Button",
+                "Text"
+            ],
+            "pattern": "form",
+            "code": "import { Card, CardHeader, CardBody, CardFooter, CardTitle } from '@zyxui/card';\nimport Input from '@zyxui/input';\nimport Button from '@zyxui/button';\nimport Text from '@zyxui/text';\nimport { useState } from 'react';\n\nexport const ContactForm = () => {\n  const [formData, setFormData] = useState({\n    name: '', email: '', subject: '', message: ''\n  });\n  const [errors, setErrors] = useState({});\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    // Validation logic here\n  };\n\n  return (\n    <Card className=\"max-w-2xl mx-auto\">\n      <CardHeader>\n        <CardTitle>Get in Touch</CardTitle>\n        <Text className=\"text-muted-foreground\">\n          Send us a message and we'll get back to you.\n        </Text>\n      </CardHeader>\n      \n      <form onSubmit={handleSubmit}>\n        <CardBody className=\"space-y-4\">\n          <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n            <Input\n              label=\"Name\"\n              placeholder=\"Enter your name\"\n              required\n            />\n            <Input\n              label=\"Email\"\n              type=\"email\"\n              placeholder=\"Enter your email\"\n              required\n            />\n          </div>\n          <Input\n            label=\"Subject\"\n            placeholder=\"What's this about?\"\n          />\n        </CardBody>\n        \n        <CardFooter>\n          <Button type=\"submit\" className=\"w-full\">\n            Send Message\n          </Button>\n        </CardFooter>\n      </form>\n    </Card>\n  );\n};"
+        },
+        {
+            "id": "navigation-1",
+            "prompt": "Build a settings page with tabs for profile, notifications, and security sections",
+            "intent": "settings-navigation",
+            "components": [
+                "Tabs",
+                "Card",
+                "Text",
+                "Input",
+                "Button"
+            ],
+            "pattern": "navigation",
+            "code": "import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';\nimport { Card, CardBody, CardHeader, CardTitle } from '@zyxui/card';\nimport Input from '@zyxui/input';\nimport Button from '@zyxui/button';\nimport Text from '@zyxui/text';\n\nexport const SettingsPage = () => {\n  return (\n    <div className=\"max-w-4xl mx-auto p-6\">\n      <Text as=\"h1\" className=\"mb-8\">Settings</Text>\n      \n      <Tabs defaultValue=\"profile\" variant=\"underline\">\n        <TabsList className=\"mb-6\">\n          <TabsTrigger value=\"profile\">Profile</TabsTrigger>\n          <TabsTrigger value=\"notifications\">Notifications</TabsTrigger>\n          <TabsTrigger value=\"security\">Security</TabsTrigger>\n        </TabsList>\n\n        <TabsContent value=\"profile\">\n          <Card>\n            <CardHeader>\n              <CardTitle>Profile Settings</CardTitle>\n            </CardHeader>\n            <CardBody className=\"space-y-4\">\n              <Input label=\"Display Name\" placeholder=\"Enter your name\" />\n              <Input label=\"Email\" type=\"email\" placeholder=\"Enter your email\" />\n              <Button>Save Changes</Button>\n            </CardBody>\n          </Card>\n        </TabsContent>\n\n        <TabsContent value=\"notifications\">\n          <Card>\n            <CardHeader>\n              <CardTitle>Notification Preferences</CardTitle>\n            </CardHeader>\n            <CardBody>\n              <Text>Configure your notification settings here.</Text>\n            </CardBody>\n          </Card>\n        </TabsContent>\n\n        <TabsContent value=\"security\">\n          <Card>\n            <CardHeader>\n              <CardTitle>Security Settings</CardTitle>\n            </CardHeader>\n            <CardBody>\n              <Text>Manage your security preferences here.</Text>\n            </CardBody>\n          </Card>\n        </TabsContent>\n      </Tabs>\n    </div>\n  );\n};"
+        },
+        {
+            "id": "content-1",
+            "prompt": "Create an article card with title, excerpt, author, publish date, and read more button",
+            "intent": "content-card",
+            "components": [
+                "Card",
+                "Text",
+                "Badge",
+                "Button",
+                "Avatar"
+            ],
+            "pattern": "contentCard",
+            "code": "import { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription } from '@zyxui/card';\nimport Text from '@zyxui/text';\nimport Badge from '@zyxui/badge';\nimport Button from '@zyxui/button';\nimport Avatar from '@zyxui/avatar';\n\nexport const ArticleCard = ({ article }) => {\n  const articleData = article || {\n    title: 'Building Better User Interfaces',\n    excerpt: 'Learn the fundamentals of creating intuitive and accessible user interfaces.',\n    author: { name: 'John Doe', avatar: 'https://i.pravatar.cc/150?u=john' },\n    publishDate: 'March 15, 2024',\n    readTime: '5 min read',\n    category: 'Design'\n  };\n\n  return (\n    <Card className=\"max-w-md\">\n      <CardHeader>\n        <div className=\"flex justify-between items-start mb-3\">\n          <Badge content={articleData.category} color=\"primary\" size=\"sm\" />\n          <Text className=\"text-sm text-muted-foreground\">\n            {articleData.readTime}\n          </Text>\n        </div>\n        <CardTitle>{articleData.title}</CardTitle>\n        <CardDescription>{articleData.excerpt}</CardDescription>\n      </CardHeader>\n      \n      <CardBody>\n        <div className=\"flex items-center space-x-3\">\n          <Avatar \n            src={articleData.author.avatar} \n            alt={articleData.author.name}\n            size=\"sm\"\n          />\n          <div>\n            <Text className=\"font-medium\">{articleData.author.name}</Text>\n            <Text className=\"text-sm text-muted-foreground\">\n              {articleData.publishDate}\n            </Text>\n          </div>\n        </div>\n      </CardBody>\n      \n      <CardFooter>\n        <Button variant=\"ghost\" size=\"sm\">Read More</Button>\n      </CardFooter>\n    </Card>\n  );\n};"
+        },
+        {
+            "id": "notification-1",
+            "prompt": "Design a notification component with icon, message, and action buttons",
+            "intent": "notification",
+            "components": [
+                "Card",
+                "Text",
+                "Button",
+                "Badge"
+            ],
+            "pattern": "notification",
+            "code": "import { Card, CardBody } from '@zyxui/card';\nimport Text from '@zyxui/text';\nimport Button from '@zyxui/button';\nimport Badge from '@zyxui/badge';\n\nexport const Notification = ({ notification }) => {\n  const data = notification || {\n    type: 'info',\n    title: 'New Update Available',\n    message: 'Version 2.0 is now available with new features and improvements.',\n    timestamp: '2 minutes ago'\n  };\n\n  const getColor = (type) => {\n    const colors = {\n      success: 'success',\n      warning: 'warning',\n      danger: 'danger',\n      info: 'primary'\n    };\n    return colors[type] || 'primary';\n  };\n\n  return (\n    <Card className=\"max-w-md\">\n      <CardBody>\n        <div className=\"flex items-start space-x-3\">\n          <Badge \n            dot \n            color={getColor(data.type)} \n            className=\"mt-2\"\n          />\n          <div className=\"flex-1\">\n            <div className=\"flex justify-between items-start mb-1\">\n              <Text as=\"h4\" className=\"font-semibold\">\n                {data.title}\n              </Text>\n              <Text className=\"text-xs text-muted-foreground\">\n                {data.timestamp}\n              </Text>\n            </div>\n            <Text className=\"text-sm text-muted-foreground mb-3\">\n              {data.message}\n            </Text>\n            <div className=\"flex gap-2\">\n              <Button size=\"sm\">View</Button>\n              <Button variant=\"ghost\" size=\"sm\">Dismiss</Button>\n            </div>\n          </div>\n        </div>\n      </CardBody>\n    </Card>\n  );\n};"
+        },
+        {
+            "id": "team-1",
+            "prompt": "Create a team member grid with avatars, names, roles, and social links",
+            "intent": "team-grid",
+            "components": [
+                "Card",
+                "Avatar",
+                "Text",
+                "Button"
+            ],
+            "pattern": "team",
+            "code": "import { Card, CardBody } from '@zyxui/card';\nimport Avatar from '@zyxui/avatar';\nimport Text from '@zyxui/text';\nimport Button from '@zyxui/button';\n\nexport const TeamGrid = ({ team }) => {\n  const teamData = team || [\n    {\n      id: 1,\n      name: 'Sarah Johnson',\n      role: 'Lead Designer',\n      avatar: 'https://i.pravatar.cc/150?u=sarah',\n      bio: 'Passionate about creating beautiful and functional user experiences.'\n    },\n    {\n      id: 2,\n      name: 'Mike Chen',\n      role: 'Frontend Developer',\n      avatar: 'https://i.pravatar.cc/150?u=mike',\n      bio: 'Specializes in React and modern web technologies.'\n    },\n    {\n      id: 3,\n      name: 'Emily Davis',\n      role: 'Product Manager',\n      avatar: 'https://i.pravatar.cc/150?u=emily',\n      bio: 'Drives product strategy and user-centered design decisions.'\n    }\n  ];\n\n  return (\n    <div className=\"max-w-6xl mx-auto p-6\">\n      <Text as=\"h1\" className=\"text-center mb-12\">Our Team</Text>\n      \n      <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n        {teamData.map((member) => (\n          <Card key={member.id} className=\"text-center\">\n            <CardBody>\n              <Avatar \n                src={member.avatar} \n                alt={member.name}\n                size=\"xl\"\n                className=\"mx-auto mb-4\"\n              />\n              <Text as=\"h3\" className=\"mb-1\">{member.name}</Text>\n              <Text className=\"text-muted-foreground mb-3\">\n                {member.role}\n              </Text>\n              <Text className=\"text-sm mb-4\">{member.bio}</Text>\n              <div className=\"flex gap-2 justify-center\">\n                <Button variant=\"ghost\" size=\"sm\">LinkedIn</Button>\n                <Button variant=\"ghost\" size=\"sm\">Twitter</Button>\n              </div>\n            </CardBody>\n          </Card>\n        ))}\n      </div>\n    </div>\n  );\n};"
+        },
+        {
+            "id": "pricing-1",
+            "prompt": "Build a pricing table with different plans, features, and call-to-action buttons",
+            "intent": "pricing-table",
+            "components": [
+                "Card",
+                "Text",
+                "Button",
+                "Badge"
+            ],
+            "pattern": "pricing",
+            "code": "import { Card, CardHeader, CardBody, CardFooter, CardTitle } from '@zyxui/card';\nimport Text from '@zyxui/text';\nimport Button from '@zyxui/button';\nimport Badge from '@zyxui/badge';\n\nexport const PricingTable = () => {\n  const plans = [\n    {\n      name: 'Starter',\n      price: '$9',\n      period: 'per month',\n      popular: false,\n      features: ['5 Projects', '10GB Storage', 'Email Support']\n    },\n    {\n      name: 'Professional',\n      price: '$29',\n      period: 'per month',\n      popular: true,\n      features: ['Unlimited Projects', '100GB Storage', 'Priority Support', 'Advanced Analytics']\n    },\n    {\n      name: 'Enterprise',\n      price: '$99',\n      period: 'per month',\n      popular: false,\n      features: ['Everything in Pro', 'Custom Integrations', 'Dedicated Support', 'SLA Guarantee']\n    }\n  ];\n\n  return (\n    <div className=\"max-w-5xl mx-auto p-6\">\n      <Text as=\"h1\" className=\"text-center mb-12\">Choose Your Plan</Text>\n      \n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {plans.map((plan, index) => (\n          <Card \n            key={index} \n            className={`relative ${plan.popular ? 'border-2 border-blue-500' : ''}`}\n          >\n            {plan.popular && (\n              <div className=\"absolute -top-3 left-1/2 transform -translate-x-1/2\">\n                <Badge content=\"Most Popular\" color=\"primary\" />\n              </div>\n            )}\n            \n            <CardHeader className=\"text-center\">\n              <CardTitle>{plan.name}</CardTitle>\n              <div className=\"mt-4\">\n                <Text as=\"span\" className=\"text-4xl font-bold\">\n                  {plan.price}\n                </Text>\n                <Text className=\"text-muted-foreground\">/{plan.period}</Text>\n              </div>\n            </CardHeader>\n            \n            <CardBody>\n              <ul className=\"space-y-3\">\n                {plan.features.map((feature, idx) => (\n                  <li key={idx} className=\"flex items-center\">\n                    <span className=\"mr-3\">✓</span>\n                    <Text>{feature}</Text>\n                  </li>\n                ))}\n              </ul>\n            </CardBody>\n            \n            <CardFooter>\n              <Button \n                className=\"w-full\"\n                variant={plan.popular ? 'solid' : 'bordered'}\n              >\n                Get Started\n              </Button>\n            </CardFooter>\n          </Card>\n        ))}\n      </div>\n    </div>\n  );\n};"
+        }
+    ],
+    "patterns": {
+        "dashboard": "Data visualization with metric cards and navigation tabs",
+        "userProfile": "User information display with avatar and action buttons",
+        "hero": "Landing page header with headline and call-to-action",
+        "form": "Data input with validation and submission",
+        "navigation": "Content organization with tabbed navigation",
+        "contentCard": "Content preview with metadata and actions",
+        "notification": "Alert or update display with actions",
+        "team": "Team member showcase with contact options",
+        "pricing": "Service plans comparison with features and pricing"
+    },
+    "metadata": {
+        "totalExamples": 9,
+        "componentsCovered": [
+            "Button",
+            "Card",
+            "Text",
+            "Badge",
+            "Avatar",
+            "Input",
+            "Tabs"
+        ],
+        "patternsCovered": [
+            "dashboard",
+            "userProfile",
+            "hero",
+            "form",
+            "navigation",
+            "contentCard",
+            "notification",
+            "team",
+            "pricing"
+        ],
+        "lastUpdated": "2024-12-19",
+        "difficulty": "beginner-to-intermediate"
+    }
+}

@@ -1,0 +1,645 @@
+---
+title: '@zyxui/card | Card Component'
+---
+
+# Card
+
+The `Card` component is a flexible container that groups related content and actions. It provides a clean, organized way to display information with support for headers, body content, and footer actions. Perfect for creating product cards, user profiles, articles, and more.
+
+## Installation
+
+Ensure that you have the @zyxui library installed in your project:
+<Example>
+```bash
+npm install @zyxui/card
+```
+</Example>
+
+If you haven't installed and setup @zyxui before, please follow the [`installation guide`](/docs/installation)
+
+## Basic Card
+
+To create a basic card, simply use the Card component with some content. It will inherit the default elevated styling.
+
+<Example>
+  <Preview className='flex flex-wrap justify-center items-center'>
+    <Card className="w-80">
+      <CardBody>
+        <p>This is a basic card with some content inside.</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardBody } from '@zyxui/card';
+
+  export const BasicCardExample = () => {
+    return (
+      <Card className="w-80">
+        <CardBody>
+          <p>This is a basic card with some content inside.</p>
+        </CardBody>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+## Card Structure
+
+The Card component consists of multiple sub-components that work together to create a structured layout.
+
+<Example>
+  <Preview className='flex flex-wrap justify-center items-center'>
+    <Card className="w-80">
+      <CardHeader>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>
+          This is a description that provides more context about the card content.
+        </CardDescription>
+      </CardHeader>
+      <CardBody>
+        <p>This is the main content area of the card where you can place any content.</p>
+      </CardBody>
+      <CardFooter>
+        <Button size="sm">Action</Button>
+        <Button variant="ghost" size="sm">Cancel</Button>
+      </CardFooter>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription } from '@zyxui/card';
+  import Button from '@zyxui/button';
+
+  export const StructuredCardExample = () => {
+    return (
+      <Card className="w-80">
+        <CardHeader>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>
+            This is a description that provides more context about the card content.
+          </CardDescription>
+        </CardHeader>
+        <CardBody>
+          <p>This is the main content area of the card where you can place any content.</p>
+        </CardBody>
+        <CardFooter>
+          <Button size="sm">Action</Button>
+          <Button variant="ghost" size="sm">Cancel</Button>
+        </CardFooter>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+## Customization
+
+The `Card` component is <ins>**highly customizable**</ins>, allowing you to fine-tune its appearance and behavior to align with your project's unique requirements. Explore the following customization options:
+
+### Variants
+
+Modify `Card` styles effortlessly using the `variant` prop, with options like `elevated`, `outlined`, `filled`, and `ghost`.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card variant='elevated' className="w-64">
+      <CardHeader>
+        <CardTitle>Elevated Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has a shadow effect.</p>
+      </CardBody>
+    </Card>
+
+    <Card variant='outlined' className="w-64">
+      <CardHeader>
+        <CardTitle>Outlined Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has a border outline.</p>
+      </CardBody>
+    </Card>
+
+    <Card variant='filled' className="w-64">
+      <CardHeader>
+        <CardTitle>Filled Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has a filled background.</p>
+      </CardBody>
+    </Card>
+
+    <Card variant='ghost' className="w-64">
+      <CardHeader>
+        <CardTitle>Ghost Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has a transparent background.</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardTitle } from '@zyxui/card';
+
+  export const CardVariantsExample = () => {
+    return (
+      <>
+        <Card variant='elevated' className="w-64">
+          <CardHeader>
+            <CardTitle>Elevated Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has a shadow effect.</p>
+          </CardBody>
+        </Card>
+
+        <Card variant='outlined' className="w-64">
+          <CardHeader>
+            <CardTitle>Outlined Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has a border outline.</p>
+          </CardBody>
+        </Card>
+
+        <Card variant='filled' className="w-64">
+          <CardHeader>
+            <CardTitle>Filled Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has a filled background.</p>
+          </CardBody>
+        </Card>
+
+        <Card variant='ghost' className="w-64">
+          <CardHeader>
+            <CardTitle>Ghost Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has a transparent background.</p>
+          </CardBody>
+        </Card>
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Sizes
+
+Resize your `cards` effortlessly with the size prop. Choose from `sm` (Small), `md` (Medium), or `lg` (Large) to control the card padding.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card size='sm' className="w-64">
+      <CardHeader>
+        <CardTitle>Small Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has small padding.</p>
+      </CardBody>
+    </Card>
+
+    <Card size='md' className="w-64">
+      <CardHeader>
+        <CardTitle>Medium Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has medium padding.</p>
+      </CardBody>
+    </Card>
+
+    <Card size='lg' className="w-64">
+      <CardHeader>
+        <CardTitle>Large Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <p>This card has large padding.</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardTitle } from '@zyxui/card';
+
+  export const CardSizesExample = () => {
+    return (
+      <>
+        <Card size='sm' className="w-64">
+          <CardHeader>
+            <CardTitle>Small Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has small padding.</p>
+          </CardBody>
+        </Card>
+
+        <Card size='md' className="w-64">
+          <CardHeader>
+            <CardTitle>Medium Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has medium padding.</p>
+          </CardBody>
+        </Card>
+
+        <Card size='lg' className="w-64">
+          <CardHeader>
+            <CardTitle>Large Card</CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>This card has large padding.</p>
+          </CardBody>
+        </Card>
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Hoverable Cards
+
+Make cards interactive with the `hoverable` prop, which adds hover effects and indicates clickability.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card hoverable className="w-80 cursor-pointer">
+      <CardHeader>
+        <CardTitle>Hoverable Card</CardTitle>
+        <CardDescription>
+          Hover over this card to see the interaction effect.
+        </CardDescription>
+      </CardHeader>
+      <CardBody>
+        <p>This card responds to hover with a scale effect.</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardTitle, CardDescription } from '@zyxui/card';
+
+  export const HoverableCardExample = () => {
+    return (
+      <Card hoverable className="w-80 cursor-pointer">
+        <CardHeader>
+          <CardTitle>Hoverable Card</CardTitle>
+          <CardDescription>
+            Hover over this card to see the interaction effect.
+          </CardDescription>
+        </CardHeader>
+        <CardBody>
+          <p>This card responds to hover with a scale effect.</p>
+        </CardBody>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+### Clickable Cards
+
+Cards can be made clickable by adding an `onClick` handler, which automatically makes them hoverable.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card onClick={() => alert('Card clicked!')} className="w-80">
+      <CardHeader>
+        <CardTitle>Clickable Card</CardTitle>
+        <CardDescription>
+          Click this card to trigger an action.
+        </CardDescription>
+      </CardHeader>
+      <CardBody>
+        <p>This entire card is clickable and will show an alert when clicked.</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardTitle, CardDescription } from '@zyxui/card';
+
+  export const ClickableCardExample = () => {
+    return (
+      <Card onClick={() => alert('Card clicked!')} className="w-80">
+        <CardHeader>
+          <CardTitle>Clickable Card</CardTitle>
+          <CardDescription>
+            Click this card to trigger an action.
+          </CardDescription>
+        </CardHeader>
+        <CardBody>
+          <p>This entire card is clickable and will show an alert when clicked.</p>
+        </CardBody>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+### Border Radius
+
+Easily customize the `border-radius` of your card using the `radius` prop, with options like `sm`, `md`, `lg`, `xl`, or `none`.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card radius='none' className="w-48">
+      <CardBody>
+        <p>No radius</p>
+      </CardBody>
+    </Card>
+
+    <Card radius='sm' className="w-48">
+      <CardBody>
+        <p>Small radius</p>
+      </CardBody>
+    </Card>
+
+    <Card radius='md' className="w-48">
+      <CardBody>
+        <p>Medium radius</p>
+      </CardBody>
+    </Card>
+
+    <Card radius='lg' className="w-48">
+      <CardBody>
+        <p>Large radius</p>
+      </CardBody>
+    </Card>
+
+    <Card radius='xl' className="w-48">
+      <CardBody>
+        <p>Extra large radius</p>
+      </CardBody>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardBody } from '@zyxui/card';
+
+  export const CardRadiusExample = () => {
+    return (
+      <>
+        <Card radius='none' className="w-48">
+          <CardBody>
+            <p>No radius</p>
+          </CardBody>
+        </Card>
+
+        <Card radius='sm' className="w-48">
+          <CardBody>
+            <p>Small radius</p>
+          </CardBody>
+        </Card>
+
+        <Card radius='md' className="w-48">
+          <CardBody>
+            <p>Medium radius</p>
+          </CardBody>
+        </Card>
+
+        <Card radius='lg' className="w-48">
+          <CardBody>
+            <p>Large radius</p>
+          </CardBody>
+        </Card>
+
+        <Card radius='xl' className="w-48">
+          <CardBody>
+            <p>Extra large radius</p>
+          </CardBody>
+        </Card>
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Real-World Examples
+
+### Product Card
+
+A common use case for cards is displaying product information with actions.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card className="w-80" hoverable>
+      <CardHeader>
+        <div className="flex justify-between items-start">
+          <div>
+            <CardTitle>Premium Headphones</CardTitle>
+            <CardDescription>Wireless noise-cancelling headphones</CardDescription>
+          </div>
+          <BookmarkIcon size={20} className="text-gray-400 hover:text-gray-600 cursor-pointer" />
+        </div>
+      </CardHeader>
+      <CardBody>
+        <div className="space-y-2">
+          <div className="flex items-center space-x-1">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <StarIcon key={star} size={16} className="fill-yellow-400 text-yellow-400" />
+            ))}
+            <span className="text-sm text-gray-600 ml-2">4.8 (124 reviews)</span>
+          </div>
+          <p className="text-2xl font-bold">$299</p>
+          <p className="text-sm text-gray-600">Free shipping • 30-day returns</p>
+        </div>
+      </CardBody>
+      <CardFooter className="space-x-2">
+        <Button className="flex-1">Add to Cart</Button>
+        <Button variant="ghost" size="sm">
+          <HeartIcon size={16} />
+        </Button>
+        <Button variant="ghost" size="sm">
+          <ShareIcon size={16} />
+        </Button>
+      </CardFooter>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription } from '@zyxui/card';
+  import Button from '@zyxui/button';
+  import { BookmarkIcon, HeartIcon, ShareIcon, StarIcon } from 'lucide-react';
+
+  export const ProductCardExample = () => {
+    return (
+      <Card className="w-80" hoverable>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle>Premium Headphones</CardTitle>
+              <CardDescription>Wireless noise-cancelling headphones</CardDescription>
+            </div>
+            <BookmarkIcon size={20} className="text-gray-400 hover:text-gray-600 cursor-pointer" />
+          </div>
+        </CardHeader>
+        <CardBody>
+          <div className="space-y-2">
+            <div className="flex items-center space-x-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <StarIcon key={star} size={16} className="fill-yellow-400 text-yellow-400" />
+              ))}
+              <span className="text-sm text-gray-600 ml-2">4.8 (124 reviews)</span>
+            </div>
+            <p className="text-2xl font-bold">$299</p>
+            <p className="text-sm text-gray-600">Free shipping • 30-day returns</p>
+          </div>
+        </CardBody>
+        <CardFooter className="space-x-2">
+          <Button className="flex-1">Add to Cart</Button>
+          <Button variant="ghost" size="sm">
+            <HeartIcon size={16} />
+          </Button>
+          <Button variant="ghost" size="sm">
+            <ShareIcon size={16} />
+          </Button>
+        </CardFooter>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+### Article Card
+
+Perfect for blog posts, news articles, or content listings.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 justify-center items-center'>
+    <Card className="w-96" hoverable>
+      <CardHeader>
+        <div className="flex justify-between items-start">
+          <div className="space-y-1">
+            <CardTitle>Building Better User Interfaces</CardTitle>
+            <CardDescription>
+              Learn the fundamentals of creating intuitive and accessible user interfaces.
+            </CardDescription>
+            <div className="flex items-center space-x-2 text-sm text-gray-500">
+              <span>John Doe</span>
+              <span>•</span>
+              <span>5 min read</span>
+              <span>•</span>
+              <span>March 15, 2024</span>
+            </div>
+          </div>
+          <MoreVerticalIcon size={20} className="text-gray-400 hover:text-gray-600 cursor-pointer" />
+        </div>
+      </CardHeader>
+      <CardBody>
+        <p className="text-gray-600">
+          Discover the principles and best practices for designing user interfaces that are both
+          beautiful and functional. This guide covers everything from layout fundamentals to
+          accessibility considerations.
+        </p>
+      </CardBody>
+      <CardFooter>
+        <Button variant="ghost" size="sm">Read More</Button>
+        <div className="flex space-x-2 ml-auto">
+          <Button variant="ghost" size="sm">
+            <HeartIcon size={16} />
+          </Button>
+          <Button variant="ghost" size="sm">
+            <ShareIcon size={16} />
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription } from '@zyxui/card';
+  import Button from '@zyxui/button';
+  import { MoreVerticalIcon, HeartIcon, ShareIcon } from 'lucide-react';
+
+  export const ArticleCardExample = () => {
+    return (
+      <Card className="w-96" hoverable>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div className="space-y-1">
+              <CardTitle>Building Better User Interfaces</CardTitle>
+              <CardDescription>
+                Learn the fundamentals of creating intuitive and accessible user interfaces.
+              </CardDescription>
+              <div className="flex items-center space-x-2 text-sm text-gray-500">
+                <span>John Doe</span>
+                <span>•</span>
+                <span>5 min read</span>
+                <span>•</span>
+                <span>March 15, 2024</span>
+              </div>
+            </div>
+            <MoreVerticalIcon size={20} className="text-gray-400 hover:text-gray-600 cursor-pointer" />
+          </div>
+        </CardHeader>
+        <CardBody>
+          <p className="text-gray-600">
+            Discover the principles and best practices for designing user interfaces that are both
+            beautiful and functional. This guide covers everything from layout fundamentals to
+            accessibility considerations.
+          </p>
+        </CardBody>
+        <CardFooter>
+          <Button variant="ghost" size="sm">Read More</Button>
+          <div className="flex space-x-2 ml-auto">
+            <Button variant="ghost" size="sm">
+              <HeartIcon size={16} />
+            </Button>
+            <Button variant="ghost" size="sm">
+              <ShareIcon size={16} />
+            </Button>
+          </div>
+        </CardFooter>
+      </Card>
+    )
+  }
+  ```
+</Example>
+
+## API Reference
+
+### Card Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'elevated' \| 'outlined' \| 'filled' \| 'ghost'` | `'elevated'` | Card style variant |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Card padding size |
+| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Border radius |
+| `hoverable` | `boolean` | `false` | Whether the card should have hover effects |
+| `blurred` | `boolean` | `false` | Whether to apply glass effect |
+| `onClick` | `() => void` | - | Click handler (automatically makes card hoverable) |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Card content |
+
+### Sub-components
+
+- **CardHeader**: Container for card header content
+- **CardBody**: Container for main card content
+- **CardFooter**: Container for card footer actions
+- **CardTitle**: Styled heading for card titles
+- **CardDescription**: Styled text for card descriptions
+
+All sub-components accept standard HTML attributes and a `className` prop for customization.
+
+## Accessibility
+
+The Card component is built with accessibility in mind:
+
+- ✅ **Semantic HTML**: Uses appropriate HTML elements for structure
+- ✅ **Keyboard Navigation**: Clickable cards are keyboard accessible
+- ✅ **Focus Management**: Clear focus indicators for interactive cards
+- ✅ **Screen Reader Support**: Proper content structure for screen readers
+
+## Best Practices
+
+1. **Use consistent card layouts** across your application
+2. **Group related content** logically within cards
+3. **Provide clear visual hierarchy** with titles and descriptions
+4. **Make interactive intent clear** with hover states and cursor changes
+5. **Keep content concise** and scannable
+6. **Use appropriate spacing** between card elements
+7. **Test hover and click interactions** across devices

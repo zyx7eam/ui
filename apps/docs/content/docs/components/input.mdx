@@ -1,0 +1,387 @@
+---
+title: '@zyxui/input | Input Component'
+---
+
+# Input
+
+The `Input` component is a comprehensive form control that provides users with a text input field. It includes support for various states, validation, accessibility features, and customization options. Built with React Aria for maximum accessibility compliance.
+
+## Installation
+
+Ensure that you have the @zyxui library installed in your project:
+<Example>
+```bash
+npm install @zyxui/input
+```
+</Example>
+
+If you haven't installed and setup @zyxui before, please follow the [`installation guide`](/docs/installation)
+
+## Basic Input
+
+To create a basic input, simply use the Input component with a placeholder. It will inherit the default styling.
+
+<Example>
+  <Preview className='flex flex-wrap flex-row gap-10 justify-center items-center'>
+    <Input placeholder="Enter text here" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const BasicInputExample = () => {
+    return (
+      <Input placeholder="Enter text here" />
+    )
+  }
+  ```
+</Example>
+
+## Customization
+
+The `Input` component is <ins>**highly customizable**</ins>, allowing you to fine-tune its appearance and behavior to align with your project's unique requirements. Explore the following customization options:
+
+### With Label
+
+Add a label to your input for better accessibility and user experience.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input label="Email Address" placeholder="Enter your email" />
+    <Input label="Password" type="password" placeholder="Enter your password" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const LabeledInputExample = () => {
+    return (
+      <>
+        <Input label="Email Address" placeholder="Enter your email" />
+        <Input label="Password" type="password" placeholder="Enter your password" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Variants
+
+Modify `Input` styles effortlessly using the `variant` prop, with options like `default`, `filled`, `underlined`, and `bordered`.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input variant='default' label="Default" placeholder="Default variant" />
+    <Input variant='filled' label="Filled" placeholder="Filled variant" />
+    <Input variant='underlined' label="Underlined" placeholder="Underlined variant" />
+    <Input variant='bordered' label="Bordered" placeholder="Bordered variant" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const InputVariantsExample = () => {
+    return (
+      <>
+        <Input variant='default' label="Default" placeholder="Default variant" />
+        <Input variant='filled' label="Filled" placeholder="Filled variant" />
+        <Input variant='underlined' label="Underlined" placeholder="Underlined variant" />
+        <Input variant='bordered' label="Bordered" placeholder="Bordered variant" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Sizes
+
+Resize your `inputs` effortlessly with the size prop. Choose from `sm` (Small), `md` (Medium), or `lg` (Large) to control the input dimensions.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input size='sm' label="Small" placeholder="Small input" />
+    <Input size='md' label="Medium" placeholder="Medium input" />
+    <Input size='lg' label="Large" placeholder="Large input" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const InputSizesExample = () => {
+    return (
+      <>
+        <Input size='sm' label="Small" placeholder="Small input" />
+        <Input size='md' label="Medium" placeholder="Medium input" />
+        <Input size='lg' label="Large" placeholder="Large input" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### States
+
+Display different states for validation feedback using the `state` prop and `errorMessage`.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input label="Default State" placeholder="Default input" />
+    <Input state='success' label="Success State" placeholder="Valid input" helperText="Looks good!" />
+    <Input state='warning' label="Warning State" placeholder="Warning input" helperText="Please double-check this" />
+    <Input state='error' label="Error State" placeholder="Invalid input" errorMessage="This field is required" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const InputStatesExample = () => {
+    return (
+      <>
+        <Input label="Default State" placeholder="Default input" />
+        <Input state='success' label="Success State" placeholder="Valid input" helperText="Looks good!" />
+        <Input state='warning' label="Warning State" placeholder="Warning input" helperText="Please double-check this" />
+        <Input state='error' label="Error State" placeholder="Invalid input" errorMessage="This field is required" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Start Content
+
+The `startContent` prop allows you to add icons or other elements at the beginning of the input field.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input startContent={<UserIcon size={16} />} label="Username" placeholder="Enter username" />
+    <Input startContent={<MailIcon size={16} />} label="Email" placeholder="Enter email" type="email" />
+    <Input startContent={<SearchIcon size={16} />} label="Search" placeholder="Search..." />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+  import { UserIcon, MailIcon, SearchIcon } from 'lucide-react';
+
+  export const InputStartContentExample = () => {
+    return (
+      <>
+        <Input startContent={<UserIcon size={16} />} label="Username" placeholder="Enter username" />
+        <Input startContent={<MailIcon size={16} />} label="Email" placeholder="Enter email" type="email" />
+        <Input startContent={<SearchIcon size={16} />} label="Search" placeholder="Search..." />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### End Content
+
+The `endContent` prop allows you to add elements at the end of the input field, such as action buttons or status indicators.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input endContent={<EyeIcon size={16} />} label="Password" type="password" placeholder="Enter password" />
+    <Input endContent={<span className="text-xs text-gray-500">@domain.com</span>} label="Email" placeholder="username" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+  import { EyeIcon } from 'lucide-react';
+
+  export const InputEndContentExample = () => {
+    return (
+      <>
+        <Input endContent={<EyeIcon size={16} />} label="Password" type="password" placeholder="Enter password" />
+        <Input endContent={<span className="text-xs text-gray-500">@domain.com</span>} label="Email" placeholder="username" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Clearable
+
+Enable the clearable functionality to allow users to quickly clear the input value.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input clearable label="Clearable Input" placeholder="Type something..." defaultValue="Clear me!" />
+    <Input clearable startContent={<SearchIcon size={16} />} label="Search" placeholder="Search..." />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+  import { SearchIcon } from 'lucide-react';
+
+  export const ClearableInputExample = () => {
+    return (
+      <>
+        <Input clearable label="Clearable Input" placeholder="Type something..." defaultValue="Clear me!" />
+        <Input clearable startContent={<SearchIcon size={16} />} label="Search" placeholder="Search..." />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Required Fields
+
+Mark fields as required for better form validation and user guidance.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input required label="Name" placeholder="Enter your name" />
+    <Input required label="Email" type="email" placeholder="Enter your email" helperText="We'll never share your email" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const RequiredInputExample = () => {
+    return (
+      <>
+        <Input required label="Name" placeholder="Enter your name" />
+        <Input required label="Email" type="email" placeholder="Enter your email" helperText="We'll never share your email" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Disabled State
+
+Show disabled inputs for read-only or inactive form fields.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <Input disabled label="Disabled Input" placeholder="This is disabled" />
+    <Input disabled label="Disabled with Value" value="Cannot edit this" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+
+  export const DisabledInputExample = () => {
+    return (
+      <>
+        <Input disabled label="Disabled Input" placeholder="This is disabled" />
+        <Input disabled label="Disabled with Value" value="Cannot edit this" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Advanced Usage
+
+### Form Integration
+
+The Input component works seamlessly with form libraries and includes built-in validation support.
+
+<Example>
+  <Preview className='flex flex-wrap flex-col gap-6 justify-center items-center w-full max-w-md'>
+    <form className="w-full space-y-4">
+      <Input
+        required
+        label="Full Name"
+        placeholder="Enter your full name"
+        startContent={<UserIcon size={16} />}
+      />
+      <Input
+        required
+        type="email"
+        label="Email Address"
+        placeholder="Enter your email"
+        startContent={<MailIcon size={16} />}
+        helperText="We'll use this for important notifications"
+      />
+      <Input
+        required
+        type="password"
+        label="Password"
+        placeholder="Create a password"
+        startContent={<LockIcon size={16} />}
+        helperText="Must be at least 8 characters"
+      />
+    </form>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import Input from '@zyxui/input';
+  import { UserIcon, MailIcon, LockIcon } from 'lucide-react';
+
+  export const FormIntegrationExample = () => {
+    return (
+      <form className="w-full space-y-4">
+        <Input
+          required
+          label="Full Name"
+          placeholder="Enter your full name"
+          startContent={<UserIcon size={16} />}
+        />
+        <Input
+          required
+          type="email"
+          label="Email Address"
+          placeholder="Enter your email"
+          startContent={<MailIcon size={16} />}
+          helperText="We'll use this for important notifications"
+        />
+        <Input
+          required
+          type="password"
+          label="Password"
+          placeholder="Create a password"
+          startContent={<LockIcon size={16} />}
+          helperText="Must be at least 8 characters"
+        />
+      </form>
+    )
+  }
+  ```
+</Example>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | - | Label text for the input |
+| `placeholder` | `string` | - | Placeholder text |
+| `variant` | `'default' \| 'filled' \| 'underlined' \| 'bordered'` | `'default'` | Input style variant |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Input size |
+| `state` | `'default' \| 'error' \| 'success' \| 'warning'` | `'default'` | Input state for validation |
+| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'full'` | `'md'` | Border radius |
+| `startContent` | `ReactNode` | - | Content to display at the start of the input |
+| `endContent` | `ReactNode` | - | Content to display at the end of the input |
+| `helperText` | `string` | - | Helper text below the input |
+| `errorMessage` | `string` | - | Error message (overrides helperText) |
+| `required` | `boolean` | `false` | Whether the field is required |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `clearable` | `boolean` | `false` | Whether to show a clear button |
+| `onClear` | `() => void` | - | Callback when clear button is clicked |
+| `className` | `string` | - | Additional CSS classes for the input |
+| `containerClassName` | `string` | - | Additional CSS classes for the container |
+| `labelClassName` | `string` | - | Additional CSS classes for the label |
+
+The Input component also accepts all standard HTML input attributes through React Aria's `AriaTextFieldOptions`.
+
+## Accessibility
+
+The Input component is built with accessibility in mind:
+
+- ✅ **Keyboard Navigation**: Full keyboard support for all interactions
+- ✅ **Screen Reader Support**: Proper ARIA labels and descriptions
+- ✅ **Focus Management**: Clear focus indicators and logical tab order
+- ✅ **Error Handling**: Accessible error messages and validation states
+- ✅ **Required Fields**: Clear indication of required fields
+
+## Best Practices
+
+1. **Always provide labels** for better accessibility
+2. **Use appropriate input types** (email, password, etc.)
+3. **Provide helpful error messages** that guide users to fix issues
+4. **Use helper text** to clarify input expectations
+5. **Group related inputs** logically in forms
+6. **Test with keyboard navigation** and screen readers

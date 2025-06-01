@@ -1,0 +1,382 @@
+{
+    "library": "@zyxui",
+    "version": "1.0.0",
+    "description": "AI-optimized component library for React applications",
+    "aiInstructions": {
+        "role": "You are an expert React developer using the @zyxui component library. Create beautiful, accessible, and responsive UIs.",
+        "principles": [
+            "Always use semantic HTML through appropriate components",
+            "Maintain consistent spacing and typography hierarchy",
+            "Ensure accessibility with proper labels and aria attributes",
+            "Follow responsive design patterns",
+            "Use the design system colors and variants consistently"
+        ],
+        "codeStyle": {
+            "imports": "Use named imports for sub-components: import { Card, CardBody, CardHeader } from '@zyxui/card'",
+            "className": "Use Tailwind CSS classes for custom styling",
+            "responsive": "Always consider mobile-first design with responsive classes"
+        }
+    },
+    "designPatterns": {
+        "dashboard": {
+            "description": "Data visualization and metrics display",
+            "structure": "Grid layout with metric cards, charts, and navigation tabs",
+            "components": [
+                "Card",
+                "Tabs",
+                "Badge",
+                "Text",
+                "Button"
+            ],
+            "layout": "Use grid for cards, tabs for content organization",
+            "example": "Stats cards in grid with trend indicators using badges"
+        },
+        "userProfile": {
+            "description": "User information display with actions",
+            "structure": "Avatar, user details, status indicators, action buttons",
+            "components": [
+                "Card",
+                "Avatar",
+                "Text",
+                "Badge",
+                "Button"
+            ],
+            "layout": "Centered avatar with information below and action buttons at bottom",
+            "example": "Profile card with avatar, name, role, status badge, and message/follow buttons"
+        },
+        "hero": {
+            "description": "Landing page header with call-to-action",
+            "structure": "Large heading, description, primary and secondary CTAs",
+            "components": [
+                "Text",
+                "Button"
+            ],
+            "layout": "Center-aligned text with button group below",
+            "example": "Large title, subtitle paragraph, and button group with primary + secondary actions"
+        },
+        "navigation": {
+            "description": "Content organization and section switching",
+            "structure": "Tab navigation with content panels",
+            "components": [
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "TabsContent"
+            ],
+            "layout": "Horizontal tabs with content panels below",
+            "example": "Settings page with tabs for different configuration sections"
+        },
+        "form": {
+            "description": "Data input and collection",
+            "structure": "Form fields with labels, validation, and submission",
+            "components": [
+                "Input",
+                "Button",
+                "Text",
+                "Card"
+            ],
+            "layout": "Vertical form layout with consistent spacing",
+            "example": "Registration form with inputs and submit button"
+        },
+        "contentCard": {
+            "description": "Content preview with metadata and actions",
+            "structure": "Title, description, metadata, and action buttons",
+            "components": [
+                "Card",
+                "CardHeader",
+                "CardBody",
+                "CardFooter",
+                "Text",
+                "Button",
+                "Badge"
+            ],
+            "layout": "Header with title/meta, body with content, footer with actions",
+            "example": "Article card with title, excerpt, tags, and read more button"
+        }
+    },
+    "layoutRules": {
+        "spacing": {
+            "cards": "Use gap-4 to gap-8 between cards in grids",
+            "sections": "Use space-y-6 to space-y-12 between major sections",
+            "components": "Use space-y-2 to space-y-4 between related elements"
+        },
+        "responsive": {
+            "cards": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 for card grids",
+            "content": "max-w-xs to max-w-7xl for content containers",
+            "buttons": "flex flex-col sm:flex-row gap-2 for button groups"
+        },
+        "typography": {
+            "hierarchy": "h1 for page titles, h2 for sections, h3 for cards/components",
+            "content": "Use Text component instead of raw HTML elements",
+            "labels": "Always provide descriptive labels for inputs and actions"
+        }
+    },
+    "components": {
+        "Button": {
+            "import": "import Button from '@zyxui/button'",
+            "description": "Interactive element for user actions",
+            "variants": [
+                "solid",
+                "bordered",
+                "light",
+                "ghost",
+                "flat",
+                "shadow"
+            ],
+            "colors": [
+                "default",
+                "error",
+                "warning",
+                "success"
+            ],
+            "sizes": [
+                "sm",
+                "md",
+                "lg"
+            ],
+            "aiGuidelines": {
+                "primary": "Use solid variant for primary actions",
+                "secondary": "Use bordered or ghost for secondary actions",
+                "destructive": "Use error color for delete/remove actions",
+                "layout": "Group related buttons with flex gap-2"
+            },
+            "examples": {
+                "primary": "<Button>Get Started</Button>",
+                "secondary": "<Button variant='bordered'>Learn More</Button>",
+                "destructive": "<Button color='error'>Delete</Button>",
+                "group": "<div className='flex gap-2'><Button>Save</Button><Button variant='bordered'>Cancel</Button></div>"
+            }
+        },
+        "Card": {
+            "import": "import { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription } from '@zyxui/card'",
+            "description": "Container for grouping related content",
+            "variants": [
+                "elevated",
+                "outlined",
+                "filled",
+                "ghost"
+            ],
+            "sizes": [
+                "sm",
+                "md",
+                "lg"
+            ],
+            "subComponents": {
+                "CardHeader": "For titles, descriptions, and metadata",
+                "CardBody": "For main content",
+                "CardFooter": "For actions and secondary information",
+                "CardTitle": "For card headings",
+                "CardDescription": "For card subtitles"
+            },
+            "aiGuidelines": {
+                "structure": "Always use CardHeader for titles, CardBody for content, CardFooter for actions",
+                "grid": "Use grid layouts for multiple cards with consistent heights",
+                "content": "Group logically related information within cards"
+            },
+            "examples": {
+                "simple": "<Card><CardBody><Text>Simple content</Text></CardBody></Card>",
+                "complete": "<Card><CardHeader><CardTitle>Title</CardTitle><CardDescription>Description</CardDescription></CardHeader><CardBody><Text>Content</Text></CardBody><CardFooter><Button>Action</Button></CardFooter></Card>",
+                "grid": "<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>{cards.map(card => <Card key={card.id}>...</Card>)}</div>"
+            }
+        },
+        "Tabs": {
+            "import": "import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs'",
+            "description": "Content organization with tab navigation",
+            "variants": [
+                "default",
+                "underline",
+                "pills"
+            ],
+            "sizes": [
+                "sm",
+                "md",
+                "lg"
+            ],
+            "orientation": [
+                "horizontal",
+                "vertical"
+            ],
+            "aiGuidelines": {
+                "structure": "Always wrap TabsTrigger in TabsList, match TabsContent values with TabsTrigger values",
+                "content": "Group related content sections, use 3-7 tabs maximum",
+                "labels": "Use clear, short tab labels"
+            },
+            "examples": {
+                "basic": "<Tabs defaultValue='tab1'><TabsList><TabsTrigger value='tab1'>Tab 1</TabsTrigger><TabsTrigger value='tab2'>Tab 2</TabsTrigger></TabsList><TabsContent value='tab1'>Content 1</TabsContent><TabsContent value='tab2'>Content 2</TabsContent></Tabs>",
+                "styled": "<Tabs defaultValue='overview' variant='underline'><TabsList><TabsTrigger value='overview'>Overview</TabsTrigger><TabsTrigger value='details'>Details</TabsTrigger></TabsList><TabsContent value='overview'>Overview content</TabsContent><TabsContent value='details'>Details content</TabsContent></Tabs>"
+            }
+        },
+        "Text": {
+            "import": "import Text from '@zyxui/text'",
+            "description": "Typography component for consistent text styling",
+            "variants": [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "p",
+                "span",
+                "small"
+            ],
+            "colors": [
+                "default",
+                "error",
+                "warning",
+                "success"
+            ],
+            "aiGuidelines": {
+                "hierarchy": "Use h1 for page titles, h2 for sections, h3 for components",
+                "semantic": "Use as prop for semantic HTML elements",
+                "consistency": "Always use Text instead of raw HTML text elements"
+            },
+            "examples": {
+                "title": "<Text as='h1'>Page Title</Text>",
+                "section": "<Text as='h2'>Section Heading</Text>",
+                "body": "<Text as='p'>Body text content</Text>",
+                "caption": "<Text as='small' className='text-muted-foreground'>Caption text</Text>"
+            }
+        },
+        "Badge": {
+            "import": "import Badge from '@zyxui/badge'",
+            "description": "Status indicators and labels",
+            "variants": [
+                "solid",
+                "outline",
+                "ghost",
+                "dot"
+            ],
+            "colors": [
+                "default",
+                "primary",
+                "secondary",
+                "success",
+                "warning",
+                "danger",
+                "info"
+            ],
+            "sizes": [
+                "sm",
+                "md",
+                "lg"
+            ],
+            "aiGuidelines": {
+                "status": "Use success for active/online, warning for pending, danger for errors",
+                "counts": "Use for notification counts and numeric indicators",
+                "labels": "Use for categories, tags, and status labels"
+            },
+            "examples": {
+                "status": "<Badge content='Active' color='success' />",
+                "count": "<Badge content={5} color='danger' />",
+                "label": "<Badge content='New' color='primary' />",
+                "dot": "<Badge dot color='success' />"
+            }
+        },
+        "Avatar": {
+            "import": "import Avatar from '@zyxui/avatar'",
+            "description": "User representation with image or initials",
+            "sizes": [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+            ],
+            "aiGuidelines": {
+                "sizing": "xs for lists, sm for comments, md for default, lg for profiles, xl for heroes",
+                "fallback": "Always provide meaningful alt text and fallback initials",
+                "groups": "Use consistent sizing in avatar groups"
+            },
+            "examples": {
+                "basic": "<Avatar src='user.jpg' alt='User Name' />",
+                "fallback": "<Avatar fallback='UN' alt='User Name' />",
+                "sized": "<Avatar src='user.jpg' alt='User Name' size='lg' />"
+            }
+        },
+        "Input": {
+            "import": "import Input from '@zyxui/input'",
+            "description": "Form input with validation and styling",
+            "variants": [
+                "default",
+                "filled",
+                "underlined",
+                "bordered"
+            ],
+            "sizes": [
+                "sm",
+                "md",
+                "lg"
+            ],
+            "states": [
+                "default",
+                "error",
+                "success",
+                "warning"
+            ],
+            "aiGuidelines": {
+                "labels": "Always provide descriptive labels",
+                "validation": "Use error state and errorMessage for validation feedback",
+                "required": "Mark required fields appropriately",
+                "accessibility": "Provide helperText for additional context"
+            },
+            "examples": {
+                "basic": "<Input label='Email' placeholder='Enter email' type='email' />",
+                "required": "<Input label='Name' placeholder='Enter name' required />",
+                "validation": "<Input label='Password' type='password' state='error' errorMessage='Password is required' />",
+                "helper": "<Input label='Username' placeholder='Enter username' helperText='This will be your public display name' />"
+            }
+        }
+    },
+    "commonCombinations": {
+        "statsCard": {
+            "description": "Metric display with trend indicator",
+            "components": [
+                "Card",
+                "CardBody",
+                "Text",
+                "Badge"
+            ],
+            "code": "<Card><CardBody><Text as='h3'>{metric.value}</Text><Text className='text-muted-foreground'>{metric.label}</Text><Badge content={metric.change} color={metric.trend === 'up' ? 'success' : 'danger'} className='mt-2' /></CardBody></Card>"
+        },
+        "profileCard": {
+            "description": "User information with avatar and actions",
+            "components": [
+                "Card",
+                "CardBody",
+                "Avatar",
+                "Text",
+                "Badge",
+                "Button"
+            ],
+            "code": "<Card><CardBody><div className='text-center mb-6'><Avatar src={user.avatar} size='xl' className='mx-auto mb-4' /><Text as='h3'>{user.name}</Text><Badge content={user.status} color='success' /></div><div className='flex gap-2'><Button className='flex-1'>Message</Button><Button variant='bordered' className='flex-1'>Follow</Button></div></CardBody></Card>"
+        },
+        "heroSection": {
+            "description": "Landing page header with CTAs",
+            "components": [
+                "Text",
+                "Button"
+            ],
+            "code": "<div className='text-center py-16'><Text as='h1' className='mb-4'>Hero Title</Text><Text className='mb-8 text-lg text-muted-foreground'>Hero description</Text><div className='flex gap-4 justify-center'><Button size='lg'>Primary CTA</Button><Button variant='bordered' size='lg'>Secondary CTA</Button></div></div>"
+        },
+        "dashboardTabs": {
+            "description": "Data organization with tabbed navigation",
+            "components": [
+                "Tabs",
+                "TabsList",
+                "TabsTrigger",
+                "TabsContent",
+                "Card"
+            ],
+            "code": "<Tabs defaultValue='overview' variant='underline'><TabsList><TabsTrigger value='overview'>Overview</TabsTrigger><TabsTrigger value='analytics'>Analytics</TabsTrigger></TabsList><TabsContent value='overview'><div className='grid grid-cols-1 md:grid-cols-3 gap-6'>{/* Stats cards */}</div></TabsContent></Tabs>"
+        }
+    },
+    "aiPromptExamples": {
+        "dashboard": "Create a user dashboard with metric cards showing statistics like user count, revenue, and conversion rate. Include trend indicators with badges.",
+        "profile": "Build a user profile card with avatar, name, role, status badge, and action buttons for messaging and following.",
+        "hero": "Design a hero section for a landing page with a compelling headline, description, and call-to-action buttons.",
+        "settings": "Create a settings page with tabs for different configuration sections like profile, notifications, and security.",
+        "form": "Build a registration form with inputs for name, email, password, and a submit button.",
+        "content": "Design a content card for articles with title, excerpt, author info, and read more button."
+    }
+}

@@ -1,0 +1,237 @@
+---
+title: '@zyxui/badge | Badge Component'
+---
+
+import { Preview, Example, Command } from '@/components/mdx/components';
+import Badge from '@zyxui/badge';
+import Button from '@zyxui/button';
+import { Mail, ShoppingCart } from 'lucide-react';
+
+# Badge
+
+The `Badge` component is a versatile element used to highlight status, display counts, or mark content with short labels. Perfect for notifications, status indicators, and labeling items.
+
+## Installation
+
+Ensure that you have the @zyxui library installed in your project:
+<Example>
+```bash
+pnpm add @zyxui/badge
+```
+</Example>
+
+If you haven't installed and setup @zyxui before, please follow the [`installation guide`](/docs/installation)
+
+## Basic Badge
+
+The most basic usage of the Badge component is to display a simple label or count.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Badge content="New" />
+    <Badge content={5} color="primary" />
+    <Badge content="Beta" variant="outline" />
+    <Badge dot color="success" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+
+  export const BasicBadgeExample = () => {
+    return (
+      <>
+        <Badge content="New" />
+        <Badge content={5} color="primary" />
+        <Badge content="Beta" variant="outline" />
+        <Badge dot color="success" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Customization
+
+The `Badge` component is <ins>**highly customizable**</ins>, offering various options to match your design needs:
+
+### Colors
+
+Choose from a range of predefined colors to convey different meanings.
+
+<Example>
+  <Preview className='flex flex-wrap gap-3 items-center'>
+    <Badge content="Default" />
+    <Badge content="Primary" color="primary" />
+    <Badge content="Secondary" color="secondary" />
+    <Badge content="Success" color="success" />
+    <Badge content="Warning" color="warning" />
+    <Badge content="Danger" color="danger" />
+    <Badge content="Info" color="info" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+
+  export const BadgeColorsExample = () => {
+    return (
+      <>
+        <Badge content="Default" />
+        <Badge content="Primary" color="primary" />
+        <Badge content="Secondary" color="secondary" />
+        <Badge content="Success" color="success" />
+        <Badge content="Warning" color="warning" />
+        <Badge content="Danger" color="danger" />
+        <Badge content="Info" color="info" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Variants
+
+Different visual styles to suit various use cases.
+
+<Example>
+  <Preview className='flex flex-wrap gap-3 items-center'>
+    <Badge content="Solid" variant="solid" color="primary" />
+    <Badge content="Outline" variant="outline" color="primary" />
+    <Badge content="Ghost" variant="ghost" color="primary" />
+    <Badge dot variant="dot" color="primary" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+
+  export const BadgeVariantsExample = () => {
+    return (
+      <>
+        <Badge content="Solid" variant="solid" color="primary" />
+        <Badge content="Outline" variant="outline" color="primary" />
+        <Badge content="Ghost" variant="ghost" color="primary" />
+        <Badge dot variant="dot" color="primary" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Sizes
+
+Available in different sizes to match your content scale.
+
+<Example>
+  <Preview className='flex flex-wrap gap-3 items-center'>
+    <Badge content="Small" size="sm" color="secondary" />
+    <Badge content="Medium" size="md" color="secondary" />
+    <Badge content="Large" size="lg" color="secondary" />
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+
+  export const BadgeSizesExample = () => {
+    return (
+      <>
+        <Badge content="Small" size="sm" color="secondary" />
+        <Badge content="Medium" size="md" color="secondary" />
+        <Badge content="Large" size="lg" color="secondary" />
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Real-World Examples
+
+### Notification Badges
+
+Common use case for displaying notification counts on icons or buttons.
+
+<Example>
+  <Preview className='flex flex-wrap gap-6 items-center'>
+    <Badge content={3} color="danger">
+      <Mail className="w-6 h-6" />
+    </Badge>
+    <Badge content="99+" color="primary">
+      <Button size="sm">Messages</Button>
+    </Badge>
+    <Badge dot color="success">
+      <ShoppingCart className="w-6 h-6" />
+    </Badge>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+  import { Mail, ShoppingCart } from 'lucide-react';
+  import { Button } from '@zyxui/button';
+
+  export const NotificationBadgesExample = () => {
+    return (
+      <>
+        <Badge content={3} color="danger">
+          <Mail className="w-6 h-6" />
+        </Badge>
+        <Badge content="99+" color="primary">
+          <Button size="sm">Messages</Button>
+        </Badge>
+        <Badge dot color="success">
+          <ShoppingCart className="w-6 h-6" />
+        </Badge>
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Status Indicators
+
+Use badges to show status or progress.
+
+<Example>
+  <Preview className='flex flex-wrap gap-4 items-center'>
+    <Badge content="Active" color="success" variant="ghost" />
+    <Badge content="Pending" color="warning" variant="outline" />
+    <Badge content="Failed" color="danger" />
+    <Badge dot color="success">Online</Badge>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Badge } from '@zyxui/badge';
+
+  export const StatusBadgesExample = () => {
+    return (
+      <>
+        <Badge content="Active" color="success" variant="ghost" />
+        <Badge content="Pending" color="warning" variant="outline" />
+        <Badge content="Failed" color="danger" />
+        <Badge dot color="success">Online</Badge>
+      </>
+    )
+  }
+  ```
+</Example>
+
+## API Reference
+
+### Badge
+
+The Badge component extends `HTMLSpanElement` and includes the following props:
+
+| Prop        | Type                                                                              | Default     | Description                                                                                                |
+|-------------|-----------------------------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------|
+| `content`   | `React.ReactNode`                                                                 | -           | The content to display inside the badge                                            |
+| `max`       | `number`                                                                          | `99`        | Maximum value to display. If `content` is a number and exceeds `max`, it will show `{max}+`                |
+| `showZero`  | `boolean`                                                                         | `false`     | If `true`, the badge will be visible when `content` is `0`                    |
+| `dot`       | `boolean`                                                                         | `false`     | If `true`, renders the badge as a small dot, ignoring `content`      |
+| `variant`   | `'solid' \| 'outline' \| 'ghost' \| 'dot'`                                           | `'solid'`   | The visual style of the badge                                                                             |
+| `color`     | `'default' \| 'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | The color scheme of the badge                                                                               |
+| `size`      | `'sm' \| 'md' \| 'lg'`                                                                | `'md'`      | The size of the badge                                                    |
+| `shape`     | `'rounded' \| 'pill'`                                                              | `'pill'`    | The shape of the badge                                                                                    |
+| `invisible` | `boolean`                                                                         | `false`     | If `true`, the badge is not rendered                                                                      |
+
+### Accessibility
+
+- For decorative badges (like dots), use `aria-hidden="true"` to hide them from screen readers
+- For informative badges (like counts), ensure the content is meaningful and accessible
+- When wrapping interactive elements, make sure the badge content is properly announced with the interactive element

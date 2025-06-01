@@ -1,3 +1,5 @@
+'use client';
+
 import { useTreeState } from '@react-stately/tree';
 import { useAccordion } from './use-accordion';
 import React, { RefObject, useMemo } from 'react';

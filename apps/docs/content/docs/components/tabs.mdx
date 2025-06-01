@@ -1,0 +1,694 @@
+---
+title: '@zyxui/tabs | Tabs Component'
+---
+
+import { Preview, Example, Command } from '@/components/mdx/components';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+import Button from '@zyxui/button';
+import Card from '@zyxui/card';
+import Avatar from '@zyxui/avatar';
+import Badge from '@zyxui/badge';
+import Text from '@zyxui/text';
+import { User, Settings, CreditCard, Bell } from 'lucide-react';
+
+# Tabs
+
+The `Tabs` component provides a way to organize content into multiple sections that can be accessed through tab triggers. It supports multiple variants, orientations, and is fully accessible with keyboard navigation and ARIA attributes.
+
+## Installation
+
+Ensure that you have the @zyxui library installed in your project:
+<Example>
+```bash
+pnpm add @zyxui/tabs
+```
+</Example>
+
+If you haven't installed and setup @zyxui before, please follow the [`installation guide`](/docs/installation)
+
+## Basic Tabs
+
+The most basic usage of the Tabs component consists of a Tabs container, TabsList for the tab triggers, TabsTrigger for individual tabs, and TabsContent for the content panels.
+
+<Example>
+  <Preview className='flex flex-wrap justify-center items-center'>
+    <Tabs defaultValue="tab1" className="w-full max-w-md">
+      <TabsList>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+        <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+      </TabsList>
+      <TabsContent value="tab1">
+        <p className="text-center py-8">Content for Tab 1</p>
+      </TabsContent>
+      <TabsContent value="tab2">
+        <p className="text-center py-8">Content for Tab 2</p>
+      </TabsContent>
+      <TabsContent value="tab3">
+        <p className="text-center py-8">Content for Tab 3</p>
+      </TabsContent>
+    </Tabs>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+
+  export const BasicTabsExample = () => {
+    return (
+      <Tabs defaultValue="tab1" className="w-full max-w-md">
+        <TabsList>
+          <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+          <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+          <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">
+          <p className="text-center py-8">Content for Tab 1</p>
+        </TabsContent>
+        <TabsContent value="tab2">
+          <p className="text-center py-8">Content for Tab 2</p>
+        </TabsContent>
+        <TabsContent value="tab3">
+          <p className="text-center py-8">Content for Tab 3</p>
+        </TabsContent>
+      </Tabs>
+    )
+  }
+  ```
+</Example>
+
+## Customization
+
+The `Tabs` component is <ins>**highly customizable**</ins>, offering various options to match your design needs:
+
+### Variants
+
+Choose from different visual styles for your tabs.
+
+<Example>
+  <Preview className='flex flex-col gap-8 items-center'>
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Default Variant</h4>
+      <Tabs defaultValue="overview" variant="default">
+        <TabsList>
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="details">Details</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <p className="text-center py-6">Overview content with default styling</p>
+        </TabsContent>
+        <TabsContent value="details">
+          <p className="text-center py-6">Details content</p>
+        </TabsContent>
+        <TabsContent value="settings">
+          <p className="text-center py-6">Settings content</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Underline Variant</h4>
+      <Tabs defaultValue="overview" variant="underline">
+        <TabsList>
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="details">Details</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <p className="text-center py-6">Overview content with underline styling</p>
+        </TabsContent>
+        <TabsContent value="details">
+          <p className="text-center py-6">Details content</p>
+        </TabsContent>
+        <TabsContent value="settings">
+          <p className="text-center py-6">Settings content</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Pills Variant</h4>
+      <Tabs defaultValue="overview" variant="pills">
+        <TabsList>
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="details">Details</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <p className="text-center py-6">Overview content with pills styling</p>
+        </TabsContent>
+        <TabsContent value="details">
+          <p className="text-center py-6">Details content</p>
+        </TabsContent>
+        <TabsContent value="settings">
+          <p className="text-center py-6">Settings content</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+
+  export const TabsVariantsExample = () => {
+    return (
+      <>
+        {/* Default Variant */}
+        <Tabs defaultValue="overview" variant="default">
+          <TabsList>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="details">Details</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="overview">
+            <p className="text-center py-6">Overview content with default styling</p>
+          </TabsContent>
+          <TabsContent value="details">
+            <p className="text-center py-6">Details content</p>
+          </TabsContent>
+          <TabsContent value="settings">
+            <p className="text-center py-6">Settings content</p>
+          </TabsContent>
+        </Tabs>
+
+        {/* Underline Variant */}
+        <Tabs defaultValue="overview" variant="underline">
+          <TabsList>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="details">Details</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="overview">
+            <p className="text-center py-6">Overview content with underline styling</p>
+          </TabsContent>
+          <TabsContent value="details">
+            <p className="text-center py-6">Details content</p>
+          </TabsContent>
+          <TabsContent value="settings">
+            <p className="text-center py-6">Settings content</p>
+          </TabsContent>
+        </Tabs>
+
+        {/* Pills Variant */}
+        <Tabs defaultValue="overview" variant="pills">
+          <TabsList>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="details">Details</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="overview">
+            <p className="text-center py-6">Overview content with pills styling</p>
+          </TabsContent>
+          <TabsContent value="details">
+            <p className="text-center py-6">Details content</p>
+          </TabsContent>
+          <TabsContent value="settings">
+            <p className="text-center py-6">Settings content</p>
+          </TabsContent>
+        </Tabs>
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Sizes
+
+Available in different sizes to match your content scale.
+
+<Example>
+  <Preview className='flex flex-col gap-8 items-center'>
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Small Size</h4>
+      <Tabs defaultValue="tab1" size="sm">
+        <TabsList>
+          <TabsTrigger value="tab1">Small</TabsTrigger>
+          <TabsTrigger value="tab2">Tabs</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">
+          <p className="text-center py-4">Small size content</p>
+        </TabsContent>
+        <TabsContent value="tab2">
+          <p className="text-center py-4">Another tab</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Medium Size (Default)</h4>
+      <Tabs defaultValue="tab1" size="md">
+        <TabsList>
+          <TabsTrigger value="tab1">Medium</TabsTrigger>
+          <TabsTrigger value="tab2">Tabs</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">
+          <p className="text-center py-6">Medium size content</p>
+        </TabsContent>
+        <TabsContent value="tab2">
+          <p className="text-center py-6">Another tab</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Large Size</h4>
+      <Tabs defaultValue="tab1" size="lg">
+        <TabsList>
+          <TabsTrigger value="tab1">Large</TabsTrigger>
+          <TabsTrigger value="tab2">Tabs</TabsTrigger>
+        </TabsList>
+        <TabsContent value="tab1">
+          <p className="text-center py-8">Large size content</p>
+        </TabsContent>
+        <TabsContent value="tab2">
+          <p className="text-center py-8">Another tab</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+
+  export const TabsSizesExample = () => {
+    return (
+      <>
+        {/* Small Size */}
+        <Tabs defaultValue="tab1" size="sm">
+          <TabsList>
+            <TabsTrigger value="tab1">Small</TabsTrigger>
+            <TabsTrigger value="tab2">Tabs</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            <p className="text-center py-4">Small size content</p>
+          </TabsContent>
+          <TabsContent value="tab2">
+            <p className="text-center py-4">Another tab</p>
+          </TabsContent>
+        </Tabs>
+
+        {/* Medium Size */}
+        <Tabs defaultValue="tab1" size="md">
+          <TabsList>
+            <TabsTrigger value="tab1">Medium</TabsTrigger>
+            <TabsTrigger value="tab2">Tabs</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            <p className="text-center py-6">Medium size content</p>
+          </TabsContent>
+          <TabsContent value="tab2">
+            <p className="text-center py-6">Another tab</p>
+          </TabsContent>
+        </Tabs>
+
+        {/* Large Size */}
+        <Tabs defaultValue="tab1" size="lg">
+          <TabsList>
+            <TabsTrigger value="tab1">Large</TabsTrigger>
+            <TabsTrigger value="tab2">Tabs</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            <p className="text-center py-8">Large size content</p>
+          </TabsContent>
+          <TabsContent value="tab2">
+            <p className="text-center py-8">Another tab</p>
+          </TabsContent>
+        </Tabs>
+      </>
+    )
+  }
+  ```
+</Example>
+
+### Orientation
+
+Tabs can be displayed horizontally (default) or vertically.
+
+<Example>
+  <Preview className='flex flex-col gap-8 items-center'>
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Horizontal (Default)</h4>
+      <Tabs defaultValue="profile" orientation="horizontal">
+        <TabsList>
+          <TabsTrigger value="profile">Profile</TabsTrigger>
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="profile">
+          <p className="text-center py-6">Profile settings content</p>
+        </TabsContent>
+        <TabsContent value="account">
+          <p className="text-center py-6">Account management content</p>
+        </TabsContent>
+        <TabsContent value="settings">
+          <p className="text-center py-6">Application settings</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+
+    <div className="w-full max-w-md">
+      <h4 className="text-sm font-medium mb-4">Vertical</h4>
+      <Tabs defaultValue="profile" orientation="vertical" className="flex">
+        <TabsList className="flex-col h-fit">
+          <TabsTrigger value="profile">Profile</TabsTrigger>
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="profile">
+          <p className="text-center py-6">Profile settings content</p>
+        </TabsContent>
+        <TabsContent value="account">
+          <p className="text-center py-6">Account management content</p>
+        </TabsContent>
+        <TabsContent value="settings">
+          <p className="text-center py-6">Application settings</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+
+  export const TabsOrientationExample = () => {
+    return (
+      <>
+        {/* Horizontal */}
+        <Tabs defaultValue="profile" orientation="horizontal">
+          <TabsList>
+            <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="profile">
+            <p className="text-center py-6">Profile settings content</p>
+          </TabsContent>
+          <TabsContent value="account">
+            <p className="text-center py-6">Account management content</p>
+          </TabsContent>
+          <TabsContent value="settings">
+            <p className="text-center py-6">Application settings</p>
+          </TabsContent>
+        </Tabs>
+
+        {/* Vertical */}
+        <Tabs defaultValue="profile" orientation="vertical" className="flex">
+          <TabsList className="flex-col h-fit">
+            <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="profile">
+            <p className="text-center py-6">Profile settings content</p>
+          </TabsContent>
+          <TabsContent value="account">
+            <p className="text-center py-6">Account management content</p>
+          </TabsContent>
+          <TabsContent value="settings">
+            <p className="text-center py-6">Application settings</p>
+          </TabsContent>
+        </Tabs>
+      </>
+    )
+  }
+  ```
+</Example>
+
+## Real-World Examples
+
+### User Dashboard
+
+A common pattern for organizing user dashboard content.
+
+<Example>
+  <Preview className='flex justify-center items-center'>
+    <div className="w-full max-w-2xl">
+      <Tabs defaultValue="overview" variant="underline" className="w-full">
+        <TabsList className="mb-6">
+          <TabsTrigger value="overview">
+            <User className="w-4 h-4 mr-2" />
+            Overview
+          </TabsTrigger>
+          <TabsTrigger value="billing">
+            <CreditCard className="w-4 h-4 mr-2" />
+            Billing
+          </TabsTrigger>
+          <TabsTrigger value="notifications">
+            <Bell className="w-4 h-4 mr-2" />
+            Notifications
+          </TabsTrigger>
+          <TabsTrigger value="settings">
+            <Settings className="w-4 h-4 mr-2" />
+            Settings
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="p-4">
+              <div className="flex items-center gap-3">
+                <Avatar src="https://i.pravatar.cc/150?u=user" alt="User" />
+                <div>
+                  <Text className="font-semibold">John Doe</Text>
+                  <Text className="text-sm text-muted-foreground">Premium Member</Text>
+                </div>
+                <Badge content="Pro" color="primary" className="ml-auto" />
+              </div>
+            </Card>
+            <Card className="p-4">
+              <Text className="font-semibold mb-2">Account Stats</Text>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm">Projects</span>
+                  <Badge content="12" variant="outline" />
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm">Storage Used</span>
+                  <Badge content="2.4GB" variant="outline" />
+                </div>
+              </div>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="billing" className="space-y-4">
+          <Card className="p-6">
+            <Text className="text-lg font-semibold mb-4">Current Plan</Text>
+            <div className="flex items-center justify-between">
+              <div>
+                <Text className="font-medium">Pro Plan</Text>
+                <Text className="text-sm text-muted-foreground">$29/month</Text>
+              </div>
+              <Button>Upgrade</Button>
+            </div>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="notifications" className="space-y-4">
+          <Card className="p-6">
+            <Text className="text-lg font-semibold mb-4">Notification Settings</Text>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <Text>Email notifications</Text>
+                <Badge content="Enabled" color="success" variant="outline" />
+              </div>
+              <div className="flex items-center justify-between">
+                <Text>Push notifications</Text>
+                <Badge content="Disabled" variant="outline" />
+              </div>
+            </div>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="settings" className="space-y-4">
+          <Card className="p-6">
+            <Text className="text-lg font-semibold mb-4">Account Settings</Text>
+            <div className="space-y-4">
+              <Button variant="outline" className="w-full">Update Profile</Button>
+              <Button variant="outline" className="w-full">Change Password</Button>
+              <Button variant="ghost" className="w-full text-red-500">Delete Account</Button>
+            </div>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  </Preview>
+
+  ```jsx showLineNumbers
+  import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+  import { User, Settings, CreditCard, Bell } from 'lucide-react';
+  import Card from '@zyxui/card';
+  import Avatar from '@zyxui/avatar';
+  import Badge from '@zyxui/badge';
+  import Button from '@zyxui/button';
+  import Text from '@zyxui/text';
+
+  export const UserDashboardExample = () => {
+    return (
+      <Tabs defaultValue="overview" variant="underline" className="w-full">
+        <TabsList className="mb-6">
+          <TabsTrigger value="overview">
+            <User className="w-4 h-4 mr-2" />
+            Overview
+          </TabsTrigger>
+          <TabsTrigger value="billing">
+            <CreditCard className="w-4 h-4 mr-2" />
+            Billing
+          </TabsTrigger>
+          <TabsTrigger value="notifications">
+            <Bell className="w-4 h-4 mr-2" />
+            Notifications
+          </TabsTrigger>
+          <TabsTrigger value="settings">
+            <Settings className="w-4 h-4 mr-2" />
+            Settings
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="space-y-4">
+          {/* Dashboard content */}
+        </TabsContent>
+
+        <TabsContent value="billing" className="space-y-4">
+          {/* Billing content */}
+        </TabsContent>
+
+        <TabsContent value="notifications" className="space-y-4">
+          {/* Notifications content */}
+        </TabsContent>
+
+        <TabsContent value="settings" className="space-y-4">
+          {/* Settings content */}
+        </TabsContent>
+      </Tabs>
+    )
+  }
+  ```
+</Example>
+
+## Controlled Usage
+
+For advanced use cases where you need to control the tab state programmatically, you can use the `value` and `onValueChange` props instead of `defaultValue`.
+
+```jsx showLineNumbers
+import { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@zyxui/tabs';
+
+export const ControlledTabsExample = () => {
+  const [activeTab, setActiveTab] = useState('step1');
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2">
+        <button onClick={() => setActiveTab('step1')}>Go to Step 1</button>
+        <button onClick={() => setActiveTab('step2')}>Go to Step 2</button>
+        <button onClick={() => setActiveTab('step3')}>Go to Step 3</button>
+      </div>
+
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="step1">Step 1</TabsTrigger>
+          <TabsTrigger value="step2">Step 2</TabsTrigger>
+          <TabsTrigger value="step3">Step 3</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="step1">
+          <div className="p-6 text-center">
+            <h3 className="font-semibold mb-2">Step 1: Information</h3>
+            <p className="text-sm text-muted-foreground">
+              Current tab: {activeTab}
+            </p>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="step2">
+          <div className="p-6 text-center">
+            <h3 className="font-semibold mb-2">Step 2: Confirmation</h3>
+            <p className="text-sm text-muted-foreground">
+              Current tab: {activeTab}
+            </p>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="step3">
+          <div className="p-6 text-center">
+            <h3 className="font-semibold mb-2">Step 3: Complete</h3>
+            <p className="text-sm text-muted-foreground">
+              Current tab: {activeTab}
+            </p>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Tabs
+
+The root tabs component that provides context to all child components.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | The controlled value of the tabs |
+| `defaultValue` | `string` | - | The default value for uncontrolled usage |
+| `onValueChange` | `(value: string) => void` | - | Callback fired when the tab changes |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the tabs |
+| `variant` | `'default' \| 'underline' \| 'pills'` | `'default'` | The visual variant of the tabs |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | The size of the tab triggers |
+| `className` | `string` | - | Additional CSS classes |
+
+### TabsList
+
+The container for tab triggers.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### TabsTrigger
+
+Individual tab trigger button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | **Required.** The value that identifies this tab |
+| `className` | `string` | - | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Whether the tab is disabled |
+
+### TabsContent
+
+The content panel for each tab.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | **Required.** The value that identifies this content |
+| `className` | `string` | - | Additional CSS classes |
+
+## Accessibility
+
+The Tabs component follows WAI-ARIA guidelines for accessibility:
+
+- **Keyboard Navigation**: Arrow keys navigate between tabs, Home/End keys jump to first/last tab
+- **Focus Management**: Proper focus indicators and management
+- **ARIA Attributes**: Uses `role="tablist"`, `role="tab"`, and `role="tabpanel"`
+- **Screen Reader Support**: Proper labeling and association between tabs and content
+- **State Communication**: Active/inactive states are communicated to assistive technologies
+
+### Keyboard Shortcuts
+
+- `Arrow Keys`: Navigate between tabs
+- `Home`: Move to first tab
+- `End`: Move to last tab
+- `Space/Enter`: Activate focused tab
+
+## Best Practices
+
+1. **Use descriptive tab labels** that clearly indicate the content
+2. **Limit the number of tabs** to avoid overwhelming users (5-7 tabs maximum recommended)
+3. **Consider vertical orientation** for side navigation patterns
+4. **Provide loading states** for content that needs to be fetched
+5. **Use controlled tabs** when you need to programmatically change the active tab
+6. **Ensure content is accessible** in all tab panels

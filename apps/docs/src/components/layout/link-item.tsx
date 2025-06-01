@@ -10,11 +10,13 @@ const LinkItem = ({
   children,
   isNew,
   disabled,
+  updated,
 }: {
   href: string;
   children: React.ReactNode;
   isNew: boolean;
   disabled?: boolean;
+  updated?: boolean;
 }) => {
   const pathname = usePathname();
   const classNames = cn(
@@ -29,6 +31,10 @@ const LinkItem = ({
         isNew ? (
           <span className='badge border-primary bg-primary/20 text-primary absolute right-2 top-1/2 -translate-y-1/2 transform rounded-lg border-[1px] px-1 text-xs transition-all'>
             new
+          </span>
+        ) : updated ? (
+          <span className='badge border-warning bg-warning/20 text-warning absolute right-2 top-1/2 -translate-y-1/2 transform rounded-lg border-[1px] px-1 text-xs transition-all'>
+            updated
           </span>
         ) : null
       ) : (

@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { TreeState } from '@react-stately/tree';
 import { Node, PressEvent } from '@react-types/shared';
@@ -20,10 +20,12 @@ import {
   MotionConfig,
   Transition,
 } from 'framer-motion';
+import { Item } from '@react-stately/collections';
 
 const accordionItemVariants = tv({
   slots: {
-    button: 'flex w-full bg-red-300 justify-between items-center',
+    button:
+      'flex w-full bg-background justify-between items-center border-foreground border-b outline-primary',
     body: 'bg-yellow-100 h-full',
     icon: '',
     text: 'text-inherit',
@@ -74,16 +76,15 @@ type AccordionItemProps<T> = {
   size?: keyof typeof iconSizes;
   // animationConfig?: AnimationConfig;
   animationConfig?: Transition;
+  description?: string;
 } & AccordionItemVariants;
 
-function AccordionItem<T>({
-  item,
-  state,
-  multiple,
-  size,
-  iconPosition,
-  animationConfig,
-}: AccordionItemProps<T>) {
+function AccordionItem<T>(props: AccordionItemProps<T>) {
+  const { item, state, multiple, size, iconPosition, animationConfig } = props;
+
+  console.log('props');
+  console.log(props);
+
   let ref = useRef<HTMLButtonElement>(null);
   let { buttonProps, regionProps } = useAccordionItem(
     { item, multiple },
